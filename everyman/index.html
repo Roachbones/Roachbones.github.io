@@ -1,0 +1,183 @@
+﻿<html>
+<!-- AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA -->
+<head>
+    <title>‮	,</title>
+    <link rel="shortcut icon" href="http://static.tumblr.com/noaean9/rC0o3y2rt/favicon.png" id="favicon">
+    <style>
+        body {
+            background:black;
+            color:white;
+        }
+        
+        #mycontainer {
+            text-align:center;
+            position:fixed;
+            height:4em;
+            margin-top:-2em
+        }
+        
+        #room {
+            height:100%;
+        }
+        
+        .butt {
+            position:absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="room">
+
+    
+    <div id="mycontainer">
+        <img src="everyman0.png" id="sufferer" />
+    </div>
+    
+    
+    
+    <script>
+	
+        // a note from 2019: this was originally made for a tumblr blog, in the tumblr theme html editor, in 2016.	
+
+        eatingrate = 0
+        var middleX = Math.round(window.innerWidth / 2);
+        var middleY = Math.round(window.innerHeight / 2);
+        document.getElementById("mycontainer").style.marginLeft = middleX - 20;
+        document.getElementById("mycontainer").style.top = middleY + 28;
+        var buttcount = 0;
+        var buttposX = [];
+        var buttposY = [];
+        var hp = 100
+        var eating = setInterval(eat, 800);
+        function eat() {
+            hp = hp - eatingrate
+            if (hp <= 0) {
+                document.getElementById("sufferer").setAttribute("src", "everyman2.png");
+                clearInterval(eating);
+            } else if (hp <= 64) {
+                document.getElementById("sufferer").setAttribute("src", "everyman1.png");
+            }
+        }
+        
+        document.getElementById("room").addEventListener("click", myfn);
+        function myfn() {
+            var cursorx = event.clientX;
+            var cursory = event.clientY;
+            //window.alert("x:" + cursorx + " , y:" + cursory + ", buttcount is " + buttcount);
+            
+            var butterfly = document.createElement("img");
+            butterfly.src = "butterfly.gif";
+            //butterfly.alt = "butterfly";
+            butterfly.id = "butt" + buttcount;
+            butterfly.className = "butt";
+            
+            
+            document.getElementById("room").appendChild(butterfly);
+            
+            document.getElementById("butt" + buttcount).style.top=cursory + "px";
+            buttposY.push(cursory);
+            
+            document.getElementById("butt" + buttcount).style.left=cursorx + "px";
+            buttposX.push(cursorx);
+            
+            //myMove(buttcount);
+            betterMove(buttcount);
+            buttcount = buttcount + 1
+
+          
+        }  
+        
+        function betterMove(flier) {
+        var elem = document.getElementById("butt" + flier);
+        var id = setInterval(frame, 20);
+        var middleX = Math.round(window.innerWidth / 2)
+        var middleY = Math.round(window.innerHeight / 2)
+                
+                if (Math.abs(buttposX[flier] - middleX) > Math.abs(buttposY[flier] - middleY)) {
+                    if (buttposX[flier] > middleX) {
+                        var unitX = -1
+                    } else {
+                        var unitX = 1
+                    }
+                    
+                        var unitY = Math.abs(buttposY[flier] - middleY) / Math.abs(buttposX[flier] - middleX)
+                        
+                    if (buttposY[flier] > middleY){
+                        unitY = -1 * unitY
+                    }
+                } else {
+                    var unitY = 1
+                    if (buttposY[flier] > middleY) { unitY = -1}
+                    var unitX = Math.abs(buttposX[flier] - middleX) / Math.abs(buttposY[flier] - middleY)
+                    if (buttposX[flier] > middleX) {unitX = -1 * unitX}
+                }
+                var incircle = 0
+                    
+                    
+        function frame() {
+            if (Math.sqrt(Math.pow(Math.abs(buttposX[flier] - middleX),2) + Math.pow(Math.abs(buttposY[flier] - middleY),2)) < 20 ) {
+                incircle = 1
+            } else if (incircle == 1) {
+                    eatingrate ++
+                    if (Math.abs(buttposX[flier] - middleX) > Math.abs(buttposY[flier] - middleY)) {
+                    if (buttposX[flier] > middleX) {
+                        unitX = -1
+                    } else {
+                        unitX = 1
+                    }
+                    unitY = Math.abs(buttposY[flier] - middleY) / Math.abs(buttposX[flier] - middleX)
+
+                    if (buttposY[flier] > middleY){
+                        unitY = -1 * unitY
+                    }
+                } else {
+                    unitY = 1
+                    if (buttposY[flier] > middleY) { unitY = -1}
+                    unitX = Math.abs(buttposX[flier] - middleX) / Math.abs(buttposY[flier] - middleY)
+                    if (buttposX[flier] > middleX) {unitX = -1 * unitX}
+                }
+            }
+                    buttposX[flier] = buttposX[flier] + unitX;
+                    elem.style.left = buttposX[flier] + 'px';
+
+                    buttposY[flier] = buttposY[flier] + unitY;
+                    elem.style.top = buttposY[flier] + 'px';
+            }
+        }
+        
+        
+        
+    function myMove(flier) {
+        var elem = document.getElementById("butt" + flier);
+        var id = setInterval(frame, 20);
+        function frame() {
+            if (false) {
+                clearInterval(id);
+            } else if (buttposY[flier] > window.innerHeight / 2 - 24){
+                buttposY[flier] -- ;
+                elem.style.top = buttposY[flier] + 'px';  
+            } else if (buttposY[flier] < window.innerHeight / 2 - 25){
+                buttposY[flier] ++ ;
+                elem.style.top = buttposY[flier] + 'px';
+            } 
+            
+            if (buttposX[flier] > window.innerWidth / 2 + 1){
+                buttposX[flier] -- ;
+                elem.style.left = buttposX[flier] + 'px';
+            } else if (buttposX[flier] < window.innerWidth / 2 - 1){
+                buttposX[flier] ++ ;
+                elem.style.left = buttposX[flier] + 'px';
+            }
+        }  
+        
+    }
+        
+    
+
+        
+    </script>
+    
+    </div>
+</body>
+</html>
