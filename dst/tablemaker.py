@@ -33,7 +33,8 @@ speeches = [
     "wolfgang",
     "woodie",
     "wx78",
-    "winona"
+    "winona",
+    "wortox"
 ]
 specifics = {
     "wathgrithr": [
@@ -187,7 +188,9 @@ specifics = {
         "webber_spider_minion",
         "book_fossil",
         "lavaarena_bernie"
-        
+    ],
+    "wortox": [
+        "wortox"
     ]
 }
 
@@ -286,6 +289,8 @@ aliases = {
         "winona"
     ],
     "forge": [
+    ],
+    "wortox": [
     ]
 }
 specialcases = {
@@ -307,7 +312,8 @@ specialcases = {
     },
     "woodie": {},
     "wx78": {},
-    "winona": {}
+    "winona": {},
+    "wortox": {}
 }
 def mastermaker():
     dump = open("master.txt", "a")
