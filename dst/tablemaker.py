@@ -35,7 +35,8 @@ speeches = [
     "wx78",
     "winona",
     "wortox",
-    "wormwood"
+    "wormwood",
+    "warly"
 ]
 specifics = {
     "wathgrithr": [
@@ -207,85 +208,38 @@ specifics = {
         "STEERINGWHEEL",
         "ANCHOR",
         "BOATPATCH",
-        "BURNING",
-        "BURNT",
-        "CHOPPED",
-        "GENERIC",
         "DRIFTWOOD_LOG",
-        "BURNING",
-        "BURNT",
-        "CHOPPED",
-        "GENERIC",
-        "GENERIC",
-        "HELD",
         "MOONBUTTERFLYWINGS",
         "MOONBUTTERFLY_SAPLING",
         "ROCK_AVOCADO_FRUIT",
         "ROCK_AVOCADO_FRUIT_RIPE",
         "ROCK_AVOCADO_FRUIT_RIPE_COOKED",
         "ROCK_AVOCADO_FRUIT_SPROUT",
-        "BARREN",
-        "WITHERED",
-        "GENERIC",
-        "PICKED",
-        "DISEASED",
-        "DISEASING",
-        "BURNING",
         "DEAD_SEA_BONES",
-        "GENERIC",
         "BOMBED",
         "GLASS",
         "MOONGLASS",
         "MOONGLASS_ROCK",
         "BATHBOMB",
-        "GENERIC",
         "CLOSED",
         "DUG_TRAP_STARFISH",
-        "GENERIC",
-        "SLEEPING",
-        "DEAD",
         "MOONSPIDERDEN",
-        "GENERIC",
-        "RIPE",
-        "SLEEPING",
-        "GENERIC",
-        "HELD",
-        "SLEEPING",
         "MOONGLASSAXE",
         "GLASSCUTTER",
-        "GENERIC",
-        "MELTED",
         "ICEBERG_MELTED",
         "MINIFLARE",
-        "GENERIC",
-        "NOLIGHT",
         "MOON_ALTAR_WIP",
-        "GENERIC",
         "MOON_ALTAR_IDOL",
         "MOON_ALTAR_GLASS",
         "MOON_ALTAR_SEED",
         "MOON_ALTAR_ROCK_IDOL",
         "MOON_ALTAR_ROCK_GLASS",
         "MOON_ALTAR_ROCK_SEED",
-        "GENERIC",
-        "BURNT",
         "SEAFARER_KIT",
         "BOAT_ITEM",
         "STEERINGWHEEL_ITEM",
         "ANCHOR_ITEM",
-        "DEAD",
-        "GENERIC",
-        "SLEEPING",
-        "DEAD",
-        "GENERIC",
-        "SLEEPING",
-        "DEAD",
-        "GENERIC",
-        "HELD",
-        "SLEEPING",
         "GESTALT",
-        "GENERIC",
-        "PICKED",
         "BULLKELP_ROOT",
         "KELPHAT",
         "KELP",
@@ -298,6 +252,34 @@ specifics = {
         "compostwrap",
         "armor_bramble",
         "trap_bramble"
+    ],
+    "warly": [
+        "PORTABLECOOKPOT_ITEM",
+        "PORTABLEBLENDER_ITEM",
+        "PORTABLESPICER_ITEM"
+        "SPICE_GARLIC",
+        "SPICE_SUGAR",
+        "SPICE_CHILI",
+        "SPICEPACK",
+        "MONSTERTARTARE",
+        "FRESHFRUITCREPES",
+        "FROGFISHBOWL",
+        "POTATOTORNADO",
+        "DRAGONCHILISALAD",
+        "GLOWBERRYMOUSSE",
+        "VOLTGOATJELLY",
+        "NIGHTMAREPIE",
+        "BONESOUP",
+        "MASHEDPOTATOES",
+        "POTATOSOUFFLE",
+        "MOQUECA",
+        "GAZPACHO",
+        "ASPARAGUSSOUP",
+        "VEGSTINGER",
+        "BANANAPOP",
+        "CEVICHE",
+        "SALSA",
+        "PEPPERPOPPER"
     ]
 }
 
@@ -380,7 +362,9 @@ aliases = {
         "brother",
         "\\bson\\b",
         "grandson",
-        "daughter\\b"
+        "daughter\\b",
+        "maman",
+        "\\bmama\\b"
     ],
     "laughter": [
         "\\ba?(?:ha)+h?\\b",
@@ -402,6 +386,8 @@ aliases = {
     "lunar": [
     ],
     "wormwood": [
+    ],
+    "warly": [
     ]
 }
 specialcases = {
@@ -425,7 +411,8 @@ specialcases = {
     "wx78": {},
     "winona": {},
     "wortox": {},
-    "wormwood": {}
+    "wormwood": {},
+    "warly": {}
 }
 def mastermaker():
     dump = open("master.txt", "a")
