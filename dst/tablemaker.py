@@ -254,6 +254,7 @@ specifics = {
         "trap_bramble"
     ],
     "warly": [
+        "warly",
         "PORTABLECOOKPOT_ITEM",
         "PORTABLEBLENDER_ITEM",
         "PORTABLESPICER_ITEM"
@@ -388,6 +389,7 @@ aliases = {
     "wormwood": [
     ],
     "warly": [
+        "warly"
     ]
 }
 specialcases = {
