@@ -36,7 +36,8 @@ speeches = [
     "winona",
     "wortox",
     "wormwood",
-    "warly"
+    "warly",
+    "wurt"
 ]
 specifics = {
     "wathgrithr": [
@@ -91,7 +92,10 @@ specifics = {
     "woodie": [
         "woodie",
         "lucy",
-        "lavaarena_lucy"
+        "lavaarena_lucy",
+        "wereitem_beaver",
+        "wereitem_goose",
+        "wereitem_moose"
     ],
     "wx78": [
         "wx78",
@@ -281,6 +285,17 @@ specifics = {
         "CEVICHE",
         "SALSA",
         "PEPPERPOPPER"
+    ],
+    "wurt": [
+        "MERMHAT",
+        "MERMTHRONE",
+        "MERMTHRONE_CONSTRUCTION",
+        "MERMHOUSE_CRAFTED",
+        "MERMWATCHTOWER_REGULAR",
+        "MERMWATCHTOWER_NOKING",
+        "MERMKING",
+        "MERMGUARD",
+        "MERM_PRINCE"
     ]
 }
 
@@ -297,12 +312,14 @@ aliases = {
     "webber": [
         "webber",
         "spider child",
-        "monster child"
+        "monster child",
+        "webby" #Wurt
     ],
     "wendy": [
         "wendy",
         "abigail",
-        "abby"
+        "abby",
+        "abby-gill"
     ],
     "wickerbottom": [
         "librarian",
@@ -310,7 +327,8 @@ aliases = {
         "brainlady"
     ],
     "willow": [
-        "willow"
+        "willow",
+        "fire lady",
     ],
     "wilson": [
         "wilson"
@@ -324,16 +342,19 @@ aliases = {
         "lucy",
         "lumberjack",
         "beaver",
+        "wood choppy man"
     ],
     "wx78": [
         "wx"
     ],
     "wes": [
-        "\\bwes\\b"
+        "\\bwes\\b",
+        "clown man"
     ],
     "charlie": [
         "rose",
-        "charlie"
+        "charlie",
+        "night lady"
     ],
     "misc": [
     ],
@@ -390,7 +411,8 @@ aliases = {
     ],
     "warly": [
         "warly"
-    ]
+    ],
+    "wurt": []
 }
 specialcases = {
     "wathgrithr": {},
@@ -414,7 +436,8 @@ specialcases = {
     "winona": {},
     "wortox": {},
     "wormwood": {},
-    "warly": {}
+    "warly": {},
+    "wurt": {}
 }
 def mastermaker():
     dump = open("master.txt", "a")
