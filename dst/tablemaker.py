@@ -331,7 +331,8 @@ aliases = {
         "fire lady",
     ],
     "wilson": [
-        "wilson"
+        "wilson",
+        "funny-hair"
     ],
     "wolfgang": [
         "wolfgang",
@@ -342,7 +343,7 @@ aliases = {
         "lucy",
         "lumberjack",
         "beaver",
-        "wood choppy man"
+        "choppy man"
     ],
     "wx78": [
         "wx"
