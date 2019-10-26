@@ -287,6 +287,7 @@ specifics = {
         "PEPPERPOPPER"
     ],
     "wurt": [
+        "wurt",
         "MERMHAT",
         "MERMTHRONE",
         "MERMTHRONE_CONSTRUCTION",
