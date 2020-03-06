@@ -2,15 +2,24 @@
 <html>
 <head>
 <meta charset="utf-8"/>
-<title>rose.systems</title>
-<link rel="stylesheet" type="text/css" href="style.css">
 <meta name="description" content="Vivian Thomas studies computer science and physics in Ohio. This is their personal landing page.">
 <meta name="author" content="Vivian Thomas">
+<title>rose.systems</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script>
+function toggleTrain() {
+	if (document.getElementById("funModeBox").checked) {
+		document.getElementById("train").style.visibility = "visible";
+	} else {
+		document.getElementById("train").style.visibility = "hidden";
+	}
+}
+</script>
 </head>
 <body>
 <header>
 	<h1>welcome to my website</h1>
-	<marquee aira-hidden="true">🚂🚃🚃🚃🚃🚃🚃🚃🚃</marquee>
+	<marquee aira-hidden="true" id="train">🚂🚃🚃🚃🚃🚃🚃🚃🚃</marquee>
 </header>
 <main>
 	<h2>I'm Vivian Thomas.</h2>
@@ -27,5 +36,8 @@
 		<li><a href="everyman/">Everyman</a></li>
 	</ul>
 </main>
+<div id="controlPanel">
+	<input id="funModeBox" type="checkbox" onchange="toggleTrain()" checked/> <label for="funModeBox">fun mode</label>
+</div>
 </body>
 </html>

@@ -9,3 +9,12 @@ main {
 	max-width:64em;
 	margin:auto;
 }
+#controlPanel {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	background-color: #e4d4ff;
+	border: 0.2em solid #c19eff;
+	margin: 1em;
+	padding: 0.25em;
+}
