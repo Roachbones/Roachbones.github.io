@@ -3,11 +3,12 @@ body {
 	background-color: #f8f4ff;	
 }
 h1 {
-	text-align:center;
+	text-align: center;
 }
 main {
-	max-width:64em;
-	margin:auto;
+	max-width: 64em;
+	margin: auto;
+	padding: 1em;
 }
 #controlPanel {
 	position: fixed;
