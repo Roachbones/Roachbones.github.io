@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="description" content="All about Vivian's creepy fortune-telling machine.">
+<meta name="author" content="Vivian Thomas">
+<title>Fortune Teller Putnam</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+<header>
+<h1>Fortune Teller Putnam</h1>
+<header>
+<main>
+<img src="his_regrettable_visage.jpg" title="Fortune Teller Putnam being showcased at a college event." alt="Fortune Teller Putnam being showcased at a college event." style="border-radius: 4em">
+<p>In Fall 2019, I made a creepy fortune-telling machine for my college called Fortune Teller Putnam. He's based on my college's mascot, which is (regrettably) Putnam the <span title="ugh">"Pioneer"</span>. He prints mysteriously accurate fortunes for Marietta College students and faculty.</p>
+<p>The physical machine is a cardboard cutout with LED eyes connected to a thermal printer. His eyes change colors depending on how fortunate your fortune is. He also has a speaker to make noises if your fortune is extremely bad or good. Users input their names on a computer terminal. Everything runs on a Raspberry Pi.</p>
+<p>On the software side: his fortunes are based on data I mined from Marietta College's Microsoft Outlook instance. If you're a Marietta College student, Putnam knows:</p>
+<ul>
+<li>your name and email address</li>
+<li>every course you've taken since fall 2017</li>
+<li>every class you’ve taught since fall 2017</li>
+<li>every class you’ve registered to take next semester</li>
+<li>your declared majors, minors, and certificates</li>
+<li>your class standing (freshman, sophomore, etc.)</li>
+<li>your advisor</li>
+<li>if you’re a college admin</li>
+<li>if you’re faculty</li>
+<li>if you’re adjunct faculty</li>
+<li>if you’re a commuter student</li>
+<li>if you’re an international student</li>
+<li>if you're a master's student</li>
+</ul>
+<p>Putnam pulls most of this information from email distribution lists. Every course has its own distribution list so professors can email their classes. For example, Putnam knows everyone who took CSCI 115 in fall 2020 because he checks the <strong>2019_FL_CSCI_115_01@marietta.edu</strong> email list. There are other lists for other things. He also uses the semester course schedules to mine course details such as instructor and textbooks.</p>
+<p>Here are some example fortunes, which get filled in with relevant details:</p>
+<ul>
+<li>You should listen more to <em>{course_instructor}</em>.</li>
+<li>Ask <em>{advisor}</em> if you should really take <em>{future_course}</em> next semester.</li>
+<li>What's the point of <em>{major}</em>?</li>
+<li><em>{course_instructor}</em> can tell when you're not paying attention.</li>
+</ul>
+<p>Fields of study have their own fortunes too. For example, a physics student may receive:
+<ul>
+<li>You will keep moving at a constant velocity. (Assuming a spherical student in a vacuum with no friction.)</li>
+<li>Your future is well-approximated by a simple harmonic oscillator.</li>
+</ul>
+<p><a href="fortune_forms.json">Here's the full list of fortunes.</a> I wrote most of them. Some are suggestions I took or fortunes copied from Unix's <samp>fortune</samp> program.</p>
+</main>
+</body>
+</html>

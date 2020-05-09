@@ -1,0 +1,259 @@
+{
+	"comment about the rating system": "0:beware!  1:warning  2:neutral  3:good advice  4:good fortune",
+	"adlibs": [
+		[2,
+			"You will get a ",
+			["bad","passing","failing","terrible","fantastic","stunning"],
+			" grade in ",
+			["{course_name}", "{course_code}"],
+			"."
+		],
+		[2, "You should listen more to {course_instructor}."],
+		[2, "{course_instructor} can tell when you're not paying attention."],
+		[1, "Never attempt to study {major}."],
+		[3, "Never give up your quest to master {major}."],
+		[3,
+			["Consider spending time with", "Consider speaking with", "Consider talking to", "Say hi to", "Say hello to", "I forsee you talking to", "I forsee you having an argument with", "I forsee you being close friends with"],
+			" {classmate}."
+		],
+		[2, "I see someone thinking of you... it is {classmate}."],
+		[2, "You ", ["don't spend enough","spend too much"], " time studying ", ["{major}","{minor}"], "."],
+		[2, "What's the point of {major}?"],
+		[2, "You must forget everything you have learned about {major}."],
+		[2, "I forsee that you will change your major from {major} to {random_major}."],
+		[2, "I have a book recommendation for you: read \"{course_textbook_title}\" by {course_textbook_authors}. {course_instructor} will appreciate it."],
+		[1, ["You should have read more of", "You will soon regret not reading"], " {course_textbook_title}."],
+		
+		[2, "Never forget what you learned in {past_course_code}."],
+		[2, "Ask {advisor} if you should really take {future_course_code} next semester."],
+		[2, "{future_course_code} will be ", ["very difficult","hard","easy","challenging","stressful","fun","interesting"], " for you."],
+
+		[1, "You will be disappointed by the final exams you receive from ", ["{course_taught_name}","{course_taught_code}"], "."],
+		[2, "Remind your {course_taught_code} class about the next exam."],
+		[3, "Bring bagels to your next {course_taught_code} class."]
+
+	],
+	"admins_only": [
+		[2, "This college would be lost without you."]
+	],
+	"instructors_only": [
+		[4, "Your students look up to you."],
+		[4, "Thanks for teaching!"]
+	],
+	"commuters_only": [
+		[1, "You spend too much money on gasoline."],
+		[2, "I forsee that the oil in your car will soon expire."],
+		[2, "You will encounter ", ["an obnoxiously loud motorcycle","an obnoxiously loud truck","a careless driver","a reckless driver","a slow driver","an unexpected detour","a friend","an enemy","an obstacle"], " on your drive home today."]
+	],
+	"faculty_only": [
+		[2, "Bill Ruud doesn't want you to know this, but being a college employee entitles you to take one brick from the Mall."]
+	],
+	"international_students_only": [
+		[3, "The ones you love across the sea are having fun without you, but that's okay; you can have fun without them, too."],
+		[3, "The ones in your homeland are thinking of you."],
+		[1, "You will be inconvenienced on your next flight home."],
+		[3, "Through my third eye, I receive a psychic message from your home across the ocean. The message states: \n\"", ["I miss you.","I love you.","Call me sometime soon.","I look forward to your next visit.","I hope you're having fun in America."], "\""]
+	],
+	"weird_majors": ["ADD", "GRPR", "MINOR", "UNDE", "NONE", "PEINT"],
+	"major_specific": {
+		"ART":[
+			[3, "Did you know that receipt paper turns black when heated? That's how this printer works. If you rub your fingernail against the paper fast enough, you can activate the pigment manually. Go ahead, try and draw a picture:\n\n\n\n\n\n\n\n"],
+			[3, "Try a new medium. Maybe wood? Clay? Wire? Thermal paper? LEDs? Aluminum? Teeth? Think outside the canvas."]
+		],
+		"ASIA": [
+			[3, ["I forsee that you will travel to ", "Consider travelling to "], ["Japan","China","Korea","Hong Kong","India","Indonesia","Taiwan","Thailand"], "."]
+		],
+		"ATHTR": [
+			[2, "The only way to prove that you're a good sport is to lose."],
+			[3, "Consider cheating to lose"],
+			[3, "You will gain strength."]
+		],
+		"BIOC": [
+			[4, "Donald argues: \"Everything that we know and love is reducible to the absurd acts of chemicals, and there is therefore no intrinsic value in this material universe.\"\nTo which Mickey retorts: \"Hypocrite that you are, for you trust the chemicals in your brain to tell you they are chemicals. All knowledge is ultimately based on that which we cannot prove. Will you fight? Or will you perish like a dog?\""]
+		],
+		"BIOL": [
+			[0, "You will unleash a terrible plague upon the world."],
+			[2, "Put every cell in your body to good use."]
+		],
+		"CSCI": [
+			[3, "Always hash passwords."],
+			[2, "Marietta College does hash their passwords, but they also store unhashed copies in case they need to look at them."],
+			[2, "P ",["","!"], "= NP"],
+			[1, "You will be replaced by an artificial intelligence."]
+		],
+		"CHEM": [
+			[1, "I forsee you spilling ",["a small amount of acid","HCl","nitric acid","something"]," on your hand. I advise that you wear gloves."],
+			[0, "You will drop a ",["crucible","beaker","graduated cylinder","test tube","test tube rack","pipet","flask","bunsen burner","ring stand","capillary dropper","flask of acid"], "."],
+			[2, "Don't forget to wear goggles."],
+			[1, "You should clean your ",["test tubes","beakers","graduated cylinders"]," more thoroughly."]
+		],
+		"CHIN": [
+			[3, "Consult the I Ching for more accurate results"]
+		],
+		"ECON": [
+			[1, "Beware the free market."],
+			[4, "This time, the bubble won't burst and will keep expanding forever!"],
+			[3, "Buy high, sell low ... wait, what?"]
+		],
+		"ENGL": [
+			[3, "Though it may be tough, stick it through and work thoroughly"],
+			[1, "One morning, as Gregor Samsa was waking up from anxious dreams, he discovered that in bed he had been changed into a monstrous verminous bug. He lay on his armor-hard back and saw, as he lifted his head up a little, his brown, arched abdomen divided up into rigid bow-like sections. From this height the blanket, just about ready to slide off completely, could hardly stay in place. His numerous legs, pitifully thin in comparison to the rest of his circumference, flickered helplessly before his eyes."]
+		],
+		"ENVR": [
+			[3, "Stand your ground against those who destroy your home."],
+			[1, "I forsee you frowning, greatly concerned about a small amount of dirt. I wonder why?"]
+		],
+		"FIN": [
+			[1, "You will stress and worry greatly about your finances despite being financially secure."],
+			[4, "Invest in FortuneCoin"]
+		],
+		"GEOL": [
+			[2, "I forsee you spending an inordinate amount of time looking at rocks, for some odd reason."],
+			[4, "You will shine bright like a diamond."]
+		],
+		"HIST": [
+			[0, "Beware the Ides of March."],
+			[0, "Watch out for the 'history buff' who is only into World War 2 or the Roman empire."],
+			[2, "Remember your past, lest you repeat it."]
+		],
+		"MAP": [
+			[3, "I forsee that you will somehow gaze into the minds of others without opening your third eye. Impressive."],
+			[2, "Why bother studying psychology? Just become a psychic and read peoples' minds, like me."]
+		],
+		"MATH": [
+			[2, "Devote your life to ",["dis",""],"proving Riemann's hypothesis. You won't succeed, but you might make friends along the way."],
+			[2, "P ", ["!",""], "= NP"]
+		],
+		"MKTG": [
+			[2, "I forsee-- Hey, wait, you know about marketing, right? I want your opinion: how can I better advertise my fortune-telling business?"],
+			[4, "Hot tip, the future of marketing is in " ,["bees.","kumquats.","France.","chimeras.","existential dread."]]
+		],
+		"MCSES": [
+			[3, "I forsee you teaching children about science."]
+		],
+		"PEINT": [
+			[1, "Don't major in petroleum enginnering."],
+			[1, "Do, or do not; there is no try."]
+		],
+		"PETR": [
+			[0, "Overcome your hubris and greed, lest your grandchildren breathe black smoke and seawater. Consider studying environmental biology instead."],
+			[1, "Sorry, I don't feel like dispensing a fortune to a petro major. Try again later."],
+			[2, "Even if you have a very long and expensive straw, it may not be moral to reach it all the way across the diner and drink someone else's milkshake."]
+		],
+		"POLS": [
+			[2, "I forsee that you will have strong opinions regarding the upcoming presidential election."],
+			[0, "Vive La Revolution!"]
+		],
+		"PHYS":	[
+			[3, "You will keep moving at a constant velocity. (Assuming a spherical student in a vacuum with no friction.)"],
+			[2, "This printer is fueled by magnetic monopoles and dark matter."],
+			[2, "Your future is well-approximated by a simple harmonic oscillator."]
+		],
+		"SMGT": [
+			[3, "I have an article to recommend to you. It's about what football will look like in the future. It's long, so I won't print it out for you. Read it here: https://www.sbnation.com/a/17776-football"]
+		],
+		"SPAN": [
+			[3, "Pies, ¿para qué los quiero si tengo alas pa' volar?\n    -Frida Kahlo"],
+			[1, "A beber y a tragar, que el mundo se va a acabar."],
+			[2, "Qué bonito es ver la lluvia y no mojarse."],
+			[2, "Costumbre adquirida en la mocedad, se deja muy mal en la vejez."],
+			[2, "El mundo de hoy no tiene sentido, así que ¿por qué debería pintar cuadros que lo tuvieran?\n    -Pablo Picasso"]
+		],
+		"THEA": [
+			[0, "All hail, {name}! hail to thee, thane of Glamis!\nAll hail, {name}, hail to thee, thane of Cawdor!\nAll hail, {name}, thou shalt be king hereafter!"],
+			[1, "Life's but a walking shadow, a poor player\nThat struts and frets his hour upon the stage\nAnd then is heard no more: it is a tale\nTold by an idiot, full of sound and fury,\nSignifying nothing."],
+			[4, "Be nine people's favorite thing, rather than a hundred people's ninth favorite thing"]
+		],
+		"THPER": [
+			[3, "I forsee you performing in front of a large audience. ", ["How scary!","I could never do that.","Break a leg!"]]
+		],
+		"UNDE": [
+			[2, "You really should get around to declaring your major. How about {random_major}?"],
+			[1, "You should stay undecided; every major's terrible!"]
+		],
+		"VPERF": [
+			[4, "You have a beautiful voice."],
+			[4, "Sing, Sing a song; sing out loud; sing out strong."],
+			[3, "I forsee you singing in front of a large audience."]
+		]
+	},
+	"similar_majors": {
+		"ART":["ARTS"],
+		"PHYS":["APPH"],
+		"SMGT":["SPMG"],
+		"THEA":["MTHEA","THPER","THDIR","THDES"]
+	},
+	"minor_specific": {
+		"ASTR": [
+			[3, "Look upwards and lead us from this world to another."],
+			[2, "Don't forget your towel."],
+			[2, "What do you think about the stars in the sky?"]
+		],
+		"GNST": [
+
+		],
+		"LATIN": [
+			[3, ["I forsee you travelling to ", "Consider travelling to "], ["Brazil","Mexico","Peru","Chile","Venezuela","Ecuador","Cuba","Costa Rica","Puerto Rico"]]
+		],
+		"LEAD": [
+			[2, "A leader is one who knows the way, shows the way, and goes the way."],
+			[0, "If the leader is in front, watch for attacks from the rear."]
+		],
+		"PHIL": [
+			[0, "This fortune teller is no less powerful than deceitful."],
+			[2, "You see a runaway trolley moving toward five tied-up (or otherwise incapacitated) people lying on the main track. You are standing next to a lever that controls a switch. If you pull the lever, the trolley will be redirected onto a side track, and the five people on the main track will be saved. However, there is a single person lying on the side track. You have two options:\n1. Do nothing and allow the trolley to kill the five people on the main track.\n2. Pull the lever, diverting the trolley onto the side track where it will kill one person.\nWhich is the more ethical option? Or, more simply: What is the right thing to do?"],
+			[2, "Given two boxes, B1 which contains $1000 and B2 which contains either nothing or a million dollars, you may pick either B2 or both. However, at some time before the choice is made, an omniscient being has predicted what your decision will be and filled B2 with a million dollars if it expects you to take it, or with nothing if it expects you to take both. What do you do?"]
+		]
+	},
+	"specific_people": {
+		"Bill Ruud": [
+			[0, "Never, ever wear jeans to an SGA meeting."]
+		],
+		"Matthew Chih": [
+			[4, "https://mattchih.com"]
+		]
+		
+	},
+	"generic": [
+		[3, "Dungeons & Dragons is a lot of fun; you should play it."],
+		[4, "Tell a friend that you love them."],
+		[3, "Are you happy with your gender? Consider changing it."],
+		[0, "Beware the Putnam statue."],
+		[2, "Eat more fruits and vegetables. The ones at Gilman sometimes aren't very good, but that's a bad example."],
+		[3, "Try new foods!"],
+		[1, "Stop procrastinating."],
+		[1, "Relax. Just kidding, you have too much work to do. Go go go! Stress!!"],
+		[2, "Take your own advice."],
+		[2, "Despite everything, it's still you."],
+		[3, "Try to befriend a {random_major} major."],
+		[0, "I see money in your future... or is that student debt?"],
+		[2, "How much deeper would the ocean be without sponges?"],
+		[3, "Congratulations, you can read! You should take advantage of this skill more often."],
+		[2, "Borrow money from a pessimist; they won't expect it back."],
+		[3, "Follow your heart."],
+		[2, "According to all known laws of aviation, there is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway, because bees don't care what humans think is impossible."],
+		[0, "The FitnessGram(TM) Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds. Line up at the start. The running speed starts slowly, but gets faster each minute after you hear this signal. [beep] A single lap should be completed each time you hear this sound. [ding] Remember to run in a straight line, and run as long as possible. The second time you fail to complete a lap before the sound, your test is over. The test will begin on the word start. On your mark, get ready, start."],
+		[3, "You have no real enemies."],
+		[1, "Your aim is high and to the right."],
+		[4, "You will gain money from an illegal action."],
+		[0, "You will gain money by an immoral action."],
+		[2, "Your reasoning is excellent; it's only your basic assumptions that are wrong."],
+		[4, "Your present plans will be successful."],
+		[2, "Your talents will be recognized and suitably rewarded."],
+		[0, "You'll be sorry..."],
+		[1, "You'll feel much better once you've given up hope."],
+		[2, "You will stop at nothing to reach your objective, but only because your brakes are defective."],
+		[2, "You will soon forget this."],
+		[0, "You will pay for your sins.  If you have already paid, please disregard this message."],
+		[3, "You will never know hunger."],
+		[2, "You will experience a strong urge to do good, but it will pass."],
+		[3, "You will be reincarnated as a toad. You will be much happier."],
+		[3, "You will be aided greatly by a person whom you thought to be unimportant."],
+		[2, "You should go home."],
+		[0, "You may be recognized soon. Hide."],
+		[2, "Living on survival mode all the time is bad for you, so get some good sleep."],
+		[1, "Do not go gentle into that good night; rage, RAGE against the dying of the light."],
+		[2, "You should finish those errands."],
+		[1, "I see a small apartment...\nI see you......alone...\nand a lot of unwashed dishes...\nJesus that's a lot of unwashed dishes..."]
+	]
+}
