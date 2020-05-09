@@ -8,7 +8,7 @@ h1 {
 main {
 	max-width: 64em;
 	margin: auto;
-	padding: 0 1em;
+	padding: 1em;
 }
 #controlPanel {
 	position: fixed;
@@ -19,4 +19,8 @@ main {
 	margin: 1em;
 	padding: 0.25em;
 	border-radius: 1em;
+}
+
+img {
+	max-width: 100%;
 }
