@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta name="description" content="Vivian Thomas's social media bots.">
+<meta name="description" content="Sockbend, Python scripts for databending images.">
 <meta name="author" content="Vivian Thomas">
 <meta property="og:image" content="https://rose.systems/cicada.png">
 <title>Sockbend</title>
@@ -12,9 +12,33 @@
 	text-align: center;
 }
 figure {
-	display: inline-block; /*not sure if the "rats" will ever display inline*/
+	display: inline-table;
+}
+figcaption {
+	display:table-caption;
+	caption-side: bottom;
+}
+.gallery {
+	text-align:center;
+}
+.gallery img {
+	border:solid;
+}
+.galleryMember {
+	margin: 1em;
+}
+.flashing {
+	display: none;
 }
 </style>
+<script>
+function showFlashingContent() {
+	var flashingElements = document.getElementsByClassName("flashing")
+	for (var i = 0; i < flashingElements.length; i++) {
+    		flashingElements[i].style.display = "initial";
+	}
+}
+</script>
 </head>
 <body>
 <header>
@@ -25,14 +49,80 @@ figure {
 <div class="figures">
 	<figure>
 	<img src="rats.jpg">
-	<figcaption>Photo of my friend's uncle's oriental shorthairs.</figcaption>
+	<figcaption>Photo of <a href="https://ratshien.art/" title="Click for my friend Haley's website.">my friend</a>'s uncle's oriental shorthairs.</figcaption>
 	</figure>
 
 	<figure>
 	<img src="rats_echo.png">
 	<figcaption>The previous image, but with an echo effect applied.</figcaption>
 	</figure>
-	</div>
+</div>
+<p>When I was younger, I would use Audacity to make these effects. You can import a bitmap file as raw data, apply an audio effect to it, and export the data back to a bitmap. This process is tricky and error-prone. You have to be careful not to mess up the BMP header at the beginning, or your file will be unreadable. (You can just leave the first millisecond or so of audio alone, but then you'll have an unaltered stripe at the bottom of your databent image.) You also have to be careful not to shorten the file, or it probably won't display.</p>
+<p>To streamline the process, I made <strong>Sockbend</strong>, a set of Python scripts that applies audio transformations to images. To make the above image, I just had to type:</p>
+
+<!-- formatted with pygmentize -->
+<pre style="background: #f0f0f0"><span></span>b <span style="color: #666666">=</span> sockbend<span style="color: #666666">.</span>Bender(<span style="color: #4070a0">"rats.jpg"</span>)
+b<span style="color: #666666">.</span>bend(
+    [(<span style="color: #4070a0">"echo"</span>, {<span style="color: #4070a0">"delays"</span>:[<span style="color: #40a070">0.5</span>], <span style="color: #4070a0">"decays"</span>:[<span style="color: #40a070">1</span>]})],
+    out_path<span style="color: #666666">=</span><span style="color: #4070a0">"rats_echo.png"</span>
+)</pre>
+
+<p>It's a lot easier this way to fiddle around with the numbers until you find something that looks nice. I also added options for image masks and animations, so you can make cool GIFs with it too.</p>
+
+<div class="figures">
+	<figure>
+		<img src="socks.jpg">
+		<figcaption>Photo of trans pride socks I found on <a href="https://www.sockdreams.com/dreamer-long-proud-stripes-tube.html">Sockdreams</a>.</figcaption>
+	</figure>
+
+	<figure>
+		<img src="socks_allpass.gif">
+		<figcaption>The previous image, but with a varying-frequency allpass filter applied with an image mask.</figcaption>
+	</figure>
+</div>
+
+<p>If you want to play with this yourself, <a href="https://github.com/Roachbones/sockbend">here's my code on GitHub</a>. Let me know if you have trouble using it.</p>
+
+<h2>Image Gallery</h2>
+<p>Here's a collection of some cool databent images.<br><strong onclick="innerHTML='Flashing content enabled.'; showFlashingContent()">(To show flashing GIFs that might be harmful to those with photosensitive epilepsy, click here.)</strong>
+<hr>
+<div class="gallery">
+
+<div class="galleryMember">
+<img src="python_sock.png">
+</div>
+
+<div class="galleryMember">
+<img src="oriental_shorthairs.png">
+</div>
+
+<div class="flashing">
+<div class="galleryMember">
+<figure>
+<img src="golb.gif">
+<figcaption><a href="https://kingofooo.tumblr.com/post/177705378564/sennwald-a-little-promo-for-the-adventure-time">Original GIF from Adventure Time</a>.</figcaption>
+</figure>
+</div>
+</div>
+
+<div class="flashing">
+<div class="galleryMember">
+<img src="fleeing_teri.gif">
+</div>
+</div>
+
+<div class="flashing">
+<div class="galleryMember">
+<img src="porygon-z.gif">
+</div>
+</div>
+
+<div class="galleryMember">
+<img src="crev.gif">
+</div>
+
+</div>
+
 </main>
 </body>
 </html>
