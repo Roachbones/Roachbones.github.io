@@ -1,0 +1,94 @@
+﻿body {
+	background-color: #dddddd;
+        margin: 0;
+	/* font-family: sans-serif; I prefer sans-serif but that's a matter of preference. -Vivian */
+}
+
+header {
+	background: #111834;
+	margin-top: 0;
+	margin-left: 0;
+	margin-right: 0;		
+}
+
+main, footer {
+	margin: 1.25em;
+}
+
+main {
+	margin-bottom: 2em;
+}
+
+footer {
+	padding: 0.5em;
+}
+
+#banner {
+	border-bottom: 6px solid gray;
+}
+
+#logo {
+	display: block;
+	margin: auto;
+	max-width: 100%;
+}
+
+.topicgroup {
+	display: grid;
+	grid-gap: 1em;
+	grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
+
+	padding-top: 1em;
+	padding-bottom: 1.5em;
+}
+	
+.topics {
+	color: #111834;
+	/*font-weight: bold;*/
+	font-size: x-large;
+	margin: 5px 0px 0px 0px;
+}
+
+.buttontopic {
+	padding-top: 0.75em;
+	background: white;
+	border-radius: 6px;
+	text-align: center;
+	color: #111834;
+	font-weight: bold;
+	font-size: large;
+	
+	border-style: solid;
+	border-color: #0d1431;
+	border-color: gray;
+
+	border-top-width: 0px;
+	border-left-width: 0px;
+	border-bottom-width: 1px;
+	border-right-width: 1px;
+}
+
+.buttontopic img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 80px;
+}
+
+.buttontopic a, footer a {
+	text-decoration: none; /* un-underlined links in buttons and the footer */
+}
+
+.buttontopic a {
+	color: inherit; /* uncolored links in buttons */
+}
+		
+.contactinfo {	
+	background: #ffffff;
+	border-radius: 6px;
+	border-style: solid;
+	border-color: #0d1431;
+	border-width: 2px;
+	text-align: center;
+	font-size: small;
+}
