@@ -44,8 +44,6 @@ footer {
 	
 .topics {
 	color: #111834;
-	/*font-weight: bold;*/
-	font-size: x-large;
 	margin: 5px 0px 0px 0px;
 }
 
@@ -54,7 +52,6 @@ footer {
 	background: white;
 	border-radius: 6px;
 	text-align: center;
-	color: #111834;
 	font-weight: bold;
 	font-size: large;
 	
