@@ -1,14 +1,15 @@
 ﻿body {
 	background-color: #dddddd;
         margin: 0;
-	/* font-family: sans-serif; I prefer sans-serif but that's a matter of preference. -Vivian */
+	font-family: sans-serif;
 }
 
-header {
+#banner {
 	background: #111834;
 	margin-top: 0;
 	margin-left: 0;
-	margin-right: 0;		
+	margin-right: 0;
+	border-bottom: 6px solid gray;		
 }
 
 main, footer {
@@ -20,11 +21,14 @@ main {
 }
 
 footer {
+	background: #ffffff;
+	border-radius: 6px;
+	border-style: solid;
+	border-color: #0d1431;
+	border-width: 2px;
+	text-align: center;
+	font-size: small;
 	padding: 0.5em;
-}
-
-#banner {
-	border-bottom: 6px solid gray;
 }
 
 #logo {
@@ -38,13 +42,11 @@ footer {
 	grid-gap: 1em;
 	grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
 
-	padding-top: 1em;
 	padding-bottom: 1.5em;
 }
 	
 .topics {
 	color: #111834;
-	margin: 5px 0px 0px 0px;
 }
 
 .buttontopic {
@@ -78,14 +80,4 @@ footer {
 
 .buttontopic a {
 	color: inherit; /* uncolored links in buttons */
-}
-		
-.contactinfo {	
-	background: #ffffff;
-	border-radius: 6px;
-	border-style: solid;
-	border-color: #0d1431;
-	border-width: 2px;
-	text-align: center;
-	font-size: small;
 }

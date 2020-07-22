@@ -1,0 +1,23 @@
+main {
+	max-width: 64em;
+	margin: auto;
+	padding: 2em;
+}
+img.center {
+	/* centers an image */
+	display: block;
+	margin: auto;
+	padding: 0.5em;
+}
+img.aside {
+	/* use this for putting images beside paragraphs.*/
+	vertical-align: middle;
+	float: right;
+	display: inline;
+	margin-left: 2em;
+	margin-right: 2em;
+}
+.flex_aside {
+	display: flex;
+	align-items: center;
+}
