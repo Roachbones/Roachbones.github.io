@@ -10,6 +10,9 @@ main {
 	margin: auto;
 	padding: 1em;
 }
+li {
+	padding-bottom: 0.15em;
+}
 #controlPanel {
 	position: fixed;
 	bottom: 0;
