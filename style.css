@@ -24,6 +24,6 @@ li {
 	border-radius: 1em;
 }
 
-img {
+img, video {
 	max-width: 100%;
 }
