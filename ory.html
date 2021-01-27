@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="description" content="Silly thing for Ory.">
+<meta name="author" content="Vivian Thomas">
+<meta property="og:image" content="https://rose.systems/cicada.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>superscripter</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<script>
+function oryginate() {
+	ory = document.getElementById("oryginal");
+}
+function superscript() {
+	superory = document.createElement("sup");
+	superory.innerHTML = "ory";
+	ory.appendChild(superory);
+	ory = superory;
+	
+}
+</script>
+
+</head>
+<body onload="oryginate();">
+<header>
+<h1>superscripter</h1>
+<h2>the more you click the more you win</h2>
+
+
+
+</header>
+<main>
+
+<button id="oryginal" onclick="superscript();">ory</button>
+
+</main>
+</body>
+</html>
