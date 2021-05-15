@@ -13,6 +13,19 @@
 <meta property="og:title" content="Vivian's TV Head Costume">
 <title>Vivian's TV Head Costume</title>
 <link rel="stylesheet" type="text/css" href="../style.css">
+<style>
+.image-pair {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding-left:1em;
+    padding-right:1em;
+}
+
+.image-pair div {
+    padding:1em;
+}
+</style>
 </head>
 <body>
 <header>
@@ -30,9 +43,9 @@
 <p>I hot glued everything together.</p>
 <h2>Electronics</h2>
 <p>The screen is made of 300 individually-addressable RGB LEDs, specifically WS2812Bs. I made the LED matrix from a single 5-meter, 60 LEDs/meter strip by cutting it into 15 strips of 20 pixels each and soldering them together. People often ask me how I can see through the helmet; the answer is that I designed the matrix to have empty space between the strips:</p>
-<div style="display:flex;justify-content:center;align-items:center;">
-	<div style="text-align:center;padding:1em;"><a href="matrix2.jpg"><img src="matrix2.jpg" title="The LED matrix outside the helmet." alt="The LED matrix outside the helmet." style="border-radius: 2em;"></a></div>
-	<div style="text-align:center;padding:1em;"><a href="matrix1.jpg"><img src="matrix1.jpg" title="The opened helmet, showing the foam and matrix." alt="The opened helmet, showing the foam and matrix." style="border-radius: 2em;"></a></div>
+<div class="image-pair">
+	<div><a href="matrix2.jpg"><img src="matrix2.jpg" title="The LED matrix outside the helmet." alt="The LED matrix outside the helmet." style="border-radius: 2em;"></a></div>
+	<div><a href="matrix1.jpg"><img src="matrix1.jpg" title="The opened helmet, showing the foam and matrix." alt="The opened helmet, showing the foam and matrix." style="border-radius: 2em;"></a></div>
 </div>
 <p>A Circuit Playground Express microcontroller (similar to an Arduino) controls the lights using <a href="https://github.com/Roachbones/tv_head">a program I wrote</a>. A mini PS/2 keyboard connects to the microcontroller through an adapter for an input method. This lets me control the lights. Just a few buttons would suffice for playing animations, but I opted for a full keyboard so I can type words to appear on the screen. The microcontroller has a built-in accelerometer which I use for a few gravity-sensitive animations.</p>
 <p>Here's a circuit diagram of the whole thing. As with the other images on this page, click it for a bigger version.</p>
@@ -51,23 +64,58 @@
 	<li>Don't get hot glue in your hair.</li>
 	<li>The level shifter apparently isn't necessary. The whole thing worked perfectly even when I accidentally used 3.3V everywhere instead of 5V, even the USB keyboard. It's probably a good idea to include it though.</li>
 	<li>Try to keep the screen light so you don't strain your neck. Put the battery in the back to counterweight the screen.</li>
-	<li> Cover logos on the monitor with something that gives it personality. In my case, the cute bow works well.</li>
+	<li>Cover logos on the monitor with something that gives it personality. In my case, the cute bow works well.</li>
 </ul>
 <p>If you're trying to make your own TV head, feel free to ask me for advice! Send me a message on <a href="https://mastodon.social/@vivianrose">Mastodon</a> or <a href="https://twitter.com/m_u_s_h_r_o_o_m">Twitter</a>, or email me at <i>[my first name]</i>@<i>[this domain]</i>. If you don't need my advice, contact me anyway when you finish your TV head so you can show it to me!</p> <!--todo: add email-->
 
 <h2>Acknowledgements</h2>
 <p>Thanks to Franci Bolden for helping me with the dremel and bandsaw, and for insightful advice that I wouldn't have thought of! Also thanks to <a href="https://social.pixie.town/@f0x">fuchsia</a> and <a href="https://syntacticsugarglider.com/">Izzy Swart</a> for early hardware advice!</p>
 
-<h2 id="gallery">Gallery</h2>
-<p>Here are some more photos of the helmet in action.</p>
-<div style="display:flex;justify-content:center;align-items:center;">
-	<div style="width:41%;text-align:center;padding:1em;"><a href="tv_head6.jpg"><img src="tv_head6.jpg" title="Out and about on Halloween night. Photo taken by my friend Spence." alt="Out and about on Halloween night." style="border-radius: 2em;"></a></div>
-	<div style="width:41%;text-align:center;padding:1em;"><a href="tv_head5.jpg"><img src="tv_head5_2.jpg" title="I can barely stretch my arms far enough to get the whole helmet in frame." alt="A selfie in the helmet." style="border-radius: 2em;"></a></div>
+<h1 style="padding-top:1em;" id="mk2">TV Head Mk. 2</h1>
+<p>In 2021, I collaborated with my friend Ellie Smith to make them a TV head like mine, but better! The improvements were largely motivated by an added goal: Ellie wanted to display Chinese text on the screen. Chinese glyphs are more complicated than ASCII so we needed a resolution at least as big as mine despite the screen being smaller than mine.</p>
+<p>The issue was that you can only make LED strips so dense before you need to make them wider, too. 60 LEDs/meter seems to be the densest you can go without sacrificing strip narrowness. We cleverly worked around this by laying the strips <i>diagonally</i> across the screen rather than laterally! This resulted in a tighter grid of 24x18 resolution. We also used extra-thin LED strips, which gives Ellie more room to see between them, at the cost of more light reflecting back into their face instead of getting blocked by the margins of the strips.</p>
+<p>This video shows the front panel detached, so you can see how the strips are arranged. <a href="mk2_back.jpg">Here's a photo of the back of the panel</a> if you want to see the wiring.</p>
+
+<div style="text-align:center;padding:2em;">
+    <!--<img src="mk2_back.jpg" title="The back of the screen." alt="The back of Ellie's TV head's screen. The strips are arranged diagonally." style="width:40%;border-radius: 2em;">-->
+    <video controls src="mk2_hearts.mp4"></video>
 </div>
+
+<p>The requirement of Chinese text also motivated a better input method. You can type Chinese on an English keyboard if you have a GUI, but it's hard without one. So, we used a Circuit Playground Bluefruit to control the helmet wirelessly from a phone, which is way easier than using a keyboard.<p>
+<p>For some reason, the Circuit Playground Bluefruit cannot control more than about 200 LEDs. I don't know if it's a hardware limitation or a fault with the FastLED library. We were running out of time to finish the helmet, so we fixed this by using two Circuit Playgrounds: a Bluefruit to communicate with the phone, and an Express to control the LEDs. It's a goofy bodge but it works. In the future it would be better to use some smaller microcontroller for Bluetooth.</p>
+
+<h1 id="gallery" style="padding-top:1em;">Gallery</h1>
+
+<div class="image-pair">
+	<div style="width:41%"><a href="tv_head6.jpg"><img src="tv_head6.jpg" title="Out and about on Halloween night. Photo taken by my friend Spence." alt="Out and about on Halloween night." style="border-radius: 2em;"></a></div>
+	<div style="width:41%"><a href="tv_head5.jpg"><img src="tv_head5_2.jpg" title="I can barely stretch my arms far enough to get the whole helmet in frame." alt="A selfie of me in my helmet." style="border-radius: 2em;"></a></div>
+</div>
+
+<div class="image-pair">
+	<div><a href="mk2_blush.jpg"><img src="mk2_blush.jpg" title="In the lab." alt="Ellie in their helmet in the lab." style="border-radius: 2em;"></a></div>
+	<div><a href="mk2_elevator.jpg"><img src="mk2_elevator.jpg" title="In the elevator." alt="Ellie in their helmet in the elevator." style="border-radius: 2em;"></a></div>
+</div>
+
+<div class="image-pair">
+	<div><a href="mk2_attack.jpg"><img src="mk2_attack.jpg" title="Ellie is now a cryptid." alt="Blurry photo of Ellie in their helmet in the dark with hands raised, looking like a cryptid." style="border-radius: 2em;"></a></div>
+	<div><a href="mk2_balcony.jpg"><img src="mk2_balcony.jpg" title="Watchful eye." alt="Ellie in their helmet on the balcony." style="border-radius: 2em;"></a></div>
+</div>
+
+<div style="text-align:center;">
+<a href="mk2_student.jpg"><img src="mk2_student.jpg" title="Studious." alt="Ellie in their helmet in a classroom." style="border-radius: 2em; width: 75%;"></a>
+</div>
+
 <p>Here's a video demonstrating the animations. The lights look a little small in this video because I had the brightness turned down.</p>
 <div style="text-align:center;">
 	<video controls src="demo.mp4"></video>
 </div>
+
+<p>Here's a promotional video of us made by Marietta College video producer Mary Roberts.</p>
+<div style="text-align:center;">
+<iframe width="560" height="315" style="max-width:100%;" src="https://www.youtube-nocookie.com/embed/O5jT5V8I14w" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+
 </main>
 </body>
 </html>
