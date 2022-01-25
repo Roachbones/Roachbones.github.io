@@ -40,36 +40,19 @@
 <p>I disassembled the CRT monitor, being careful to discharge the cathode to avoid a painful electric shock. (I think my monitor was self-discharging anyway, but it's a good idea to be sure.) I put the big glass cathode ray tube away in a cardboard box so I wouldn't accidentally trip over it and make it implode, which would be unpleasant for multiple reasons. I cleaned out the inside of the monitor and shook out the dead ladybugs that had collected inside over the years. I eventually used a <span title="Dremel is technically a brand, but let's just genericize it already.">dremel</span> to cut a hole in the bottom of the monitor just big enough to fit my head through.</p>
 <p>My first prototype used plexiglass for the screen, but I found that a thinner sheet of polycarbonate was much lighter on my neck and flexible enough to bend into a convex shape, which makes the helmet look more realistic. I tinted the polycarbonate using some privacy window film.</p>
 <p>The most difficult and frustrating part of this project was getting the helmet to fit comfortably using upholstery foam. Other guides on the internet show that they just use three blocks of foam cut into rectangles that you cram your head between, but that was unacceptable for me. I eventually figured out a good foam setup that leaves my ears uncovered, which is nice because it lets me hear and wear my glasses.</p>
-<p>I hot glued everything together.</p>
+<p>I hot glued everything together. I eventually added <a href="antennae3.jpg">posable telescopic antennae</a> extracted from an old TV antenna from a thrift store.</p>
 <h2>Electronics</h2>
 <p>The screen is made of 300 individually-addressable RGB LEDs, specifically WS2812Bs. I made the LED matrix from a single 5-meter, 60 LEDs/meter strip by cutting it into 15 strips of 20 pixels each and soldering them together. People often ask me how I can see through the helmet; the answer is that I designed the matrix to have empty space between the strips:</p>
 <div class="image-pair">
 	<div><a href="matrix2.jpg"><img src="matrix2.jpg" title="The LED matrix outside the helmet." alt="The LED matrix outside the helmet." style="border-radius: 2em;"></a></div>
 	<div><a href="matrix1.jpg"><img src="matrix1.jpg" title="The opened helmet, showing the foam and matrix." alt="The opened helmet, showing the foam and matrix." style="border-radius: 2em;"></a></div>
 </div>
+<p>It's like wearing sunglasses and slotted shades at the same time, so visibility is pretty good in a well-lit area, but bad enough in the dark that I need someone to hold my hand when I walk down unlit streets on Halloween night.</p>
 <p>A Circuit Playground Express microcontroller (similar to an Arduino) controls the lights using <a href="https://github.com/Roachbones/tv_head">a program I wrote</a>. A mini PS/2 keyboard connects to the microcontroller through an adapter for an input method. This lets me control the lights. Just a few buttons would suffice for playing animations, but I opted for a full keyboard so I can type words to appear on the screen. The microcontroller has a built-in accelerometer which I use for a few gravity-sensitive animations.</p>
-<p>Here's a circuit diagram of the whole thing. As with the other images on this page, click it for a bigger version.</p>
+<p>Here's a circuit diagram of the whole thing.</p>
 <div style="text-align:center;">
 <a href="circuit.pdf"><img src="circuit.png" title="A circuit diagram." alt="A circuit diagram. It depicts a Circuit Playground Express microcontroller powered by a USB power bank, receiving data from a PS/2 keyboard through a PS/2 to UART converter, and sending data through a level shifter into the LED matrix." style="width:80%;"></a>
 </div>
-
-
-<h2>Advice</h2>
-<p>Here are some lessons I learned and tips to anyone who might want to try making on of these.</p>
-<ul>
-	<li>Make sure you get LED strips with black PCB, so they aren't visible through the tint.</li>
-	<li>You can buy clips to attach ws2812 strips to each other without soldering, but beware! They might give an unreliable data pin connection, which can cause the matrix to glitch out and strobe.</li>
-	<li>Of course, don't make your animations strobe on purpose either, or you might give someone a seizure.</li>
-	<li>To conserve battery life and lower current requirements, <a href="https://learn.adafruit.com/sipping-power-with-neopixels/">try minimizing the amount of light your animations use</a>. Program brightness adjustment too.</li>
-	<li>Don't get hot glue in your hair.</li>
-	<li>The level shifter apparently isn't necessary. The whole thing worked perfectly even when I accidentally used 3.3V everywhere instead of 5V, even the USB keyboard. It's probably a good idea to include it though.</li>
-	<li>Try to keep the screen light so you don't strain your neck. Put the battery in the back to counterweight the screen.</li>
-	<li>Cover logos on the monitor with something that gives it personality. In my case, the cute bow works well.</li>
-</ul>
-<p>If you're trying to make your own TV head, feel free to ask me for advice! Send me a message on <a href="https://mastodon.social/@vivianrose">Mastodon</a> or <a href="https://twitter.com/m_u_s_h_r_o_o_m">Twitter</a>, or email me at <i>[my first name]</i>@<i>[this domain]</i>. If you don't need my advice, contact me anyway when you finish your TV head so you can show it to me!</p> <!--todo: add email-->
-
-<h2>Acknowledgements</h2>
-<p>Thanks to Franci Bolden for helping me with the dremel and bandsaw, and for insightful advice that I wouldn't have thought of! Also thanks to <a href="https://social.pixie.town/@f0x">fuchsia</a> and <a href="https://syntacticsugarglider.com/">Izzy Swart</a> for early hardware advice!</p>
 
 <h1 style="padding-top:1em;" id="mk2">TV Head Mk. 2</h1>
 <p>In 2021, I collaborated with my friend Ellie to make them a TV head like mine, but better! The improvements were largely motivated by an added goal: Ellie wanted to display Chinese text on the screen. Chinese glyphs are more complicated than ASCII so we needed a resolution at least as big as mine despite the screen being smaller than mine.</p>
@@ -82,7 +65,28 @@
 </div>
 
 <p>The requirement of Chinese text also motivated a better input method. You can type Chinese on an English keyboard if you have a GUI, but it's hard without one. So, we used a Circuit Playground Bluefruit to control the helmet wirelessly from a phone, which is way easier than using a keyboard.<p>
-<p>For some reason, the Circuit Playground Bluefruit cannot control more than about 200 LEDs. I don't know if it's a hardware limitation or a fault with the FastLED library. We were running out of time to finish the helmet, so we fixed this by using two Circuit Playgrounds: a Bluefruit to communicate with the phone, and an Express to control the LEDs. It's a goofy bodge but it works. In the future it would be better to use some smaller microcontroller for Bluetooth.</p>
+<p>For some reason, the Circuit Playground Bluefruit cannot control more than about 200 LEDs. I don't know if it's a hardware limitation or a fault with the FastLED library. We were running out of time to finish the helmet, so we fixed this by using two Circuit Playgrounds: a Circuit Playground Bluefruit to communicate with the phone, and a Circuit Playground Express to control the LEDs. It's a goofy bodge but it works; a better solution would be to use something like a <a href="https://www.adafruit.com/product/2479">Bluefruit LE UART Friend</a> in place of the Circuit Playground Bluefruit. It basically takes the place of the PS/2 to UART converter in the circuit diagram.</p>
+
+
+<h2>Advice</h2>
+<p>Here are some lessons I learned and tips to anyone who might want to try making one of these.</p>
+<ul>
+	<li>Make sure you get LED strips with black PCB, so they aren't visible through the tint.</li>
+	<li>You can buy clips to attach ws2812 strips to each other without soldering, but beware! They might give an unreliable data pin connection, which can cause the matrix to glitch out and strobe.</li>
+	<li>Of course, don't make your animations strobe on purpose either, or you might give someone a seizure.</li>
+	<li>To conserve battery life and lower current requirements, <a href="https://learn.adafruit.com/sipping-power-with-neopixels/">try minimizing the amount of light your animations use</a>. Program brightness adjustment too.</li>
+	<li>Don't get hot glue in your hair.</li>
+	<li>The level shifter apparently wasn't necessary. The whole thing worked perfectly even when I accidentally used 3.3V everywhere instead of 5V, even the USB keyboard!</li>
+	<li>Try to keep the helmet light so you don't strain your neck. Put the battery in the back to counterweight the screen.</li>
+	<li>Cover logos on the monitor with something that gives it personality. In my case, the cute bow works well.</li>
+	<li>I recommend using Bluetooth connected to your phone rather than a hardware keyboard, like I did for the Mk. 2! Replace the PS/2 to UART converter with something like a <a href="https://www.adafruit.com/product/2479">Bluefruit LE UART Friend</a>.</li>
+	<li>Don't buy the LED strips from Adafruit, you can get them way cheaper elsewhere. Aliexpress is probably the cheapest if you're willing to wait for long shipping times.</li>
+	<li>I had never soldered before making this project, but I learned how, and you probably can too!</li>
+</ul>
+<p>If you're trying to make your own TV head, feel free to ask me for advice! Send me a message on Discord (vivian#9409) or <a href="https://mastodon.social/@vivianrose">Mastodon</a> or <a href="https://twitter.com/m_u_s_h_r_o_o_m">Twitter</a>, or email me at <em title="It's Vivian, by the way.">[my first name]</em>@<em title="by which I mean rose.systems">[this domain]</em>. If you don't need my advice, contact me anyway when you finish your TV head so you can show it to me! (I plan to add a gallery of TV heads that were based on this guide!)</p> 
+
+<h2>Acknowledgements</h2>
+<p>Thanks to Franci Bolden for helping me with the dremel and bandsaw, and for insightful advice that I wouldn't have thought of! Also thanks to <a href="https://social.pixie.town/@f0x">fuchsia</a> and <a href="https://syntacticsugarglider.com/">Izzy Swart</a> for early hardware advice!</p>
 
 <h1 id="gallery" style="padding-top:1em;">Gallery</h1>
 
@@ -92,20 +96,20 @@
 </div>
 
 <div class="image-pair">
-	<div><a href="mk2_blush.jpg"><img src="mk2_blush.jpg" title="In the lab." alt="Ellie in their helmet in the lab." style="border-radius: 2em;"></a></div>
-	<div><a href="mk2_elevator.jpg"><img src="mk2_elevator.jpg" title="In the elevator." alt="Ellie in their helmet in the elevator." style="border-radius: 2em;"></a></div>
+	<div><a href="mk2_blush.jpg"><img src="mk2_blush.jpg" title="Ellie in the lab." alt="Ellie in their helmet in the lab." style="border-radius: 2em;"></a></div>
+	<div><a href="mk2_elevator.jpg"><img src="mk2_elevator.jpg" title="Ellie in the elevator." alt="Ellie in their helmet in the elevator." style="border-radius: 2em;"></a></div>
 </div>
 
 <div class="image-pair">
 	<div><a href="mk2_attack.jpg"><img src="mk2_attack.jpg" title="Ellie is now a cryptid." alt="Blurry photo of Ellie in their helmet in the dark with hands raised, looking like a cryptid." style="border-radius: 2em;"></a></div>
-	<div><a href="mk2_balcony.jpg"><img src="mk2_balcony.jpg" title="Watchful eye." alt="Ellie in their helmet on the balcony." style="border-radius: 2em;"></a></div>
+	<div><a href="mk2_balcony.jpg"><img src="mk2_balcony.jpg" title="Ellie's watchful eye." alt="Ellie in their helmet on the balcony." style="border-radius: 2em;"></a></div>
 </div>
 
 <div style="text-align:center;">
-<a href="mk2_student.jpg"><img src="mk2_student.jpg" title="Studious." alt="Ellie in their helmet in a classroom." style="border-radius: 2em; width: 75%;"></a>
+<a href="mk2_student.jpg"><img src="mk2_student.jpg" title="Ellie being studious." alt="Ellie in their helmet in a classroom." style="border-radius: 2em; width: 75%;"></a>
 </div>
 
-<p>Here's a video demonstrating the animations. The lights look a little small in this video because I had the brightness turned down.</p>
+<p>Here's a video demonstrating the animations. The lights look small in this video because I had the brightness turned down.</p>
 <div style="text-align:center;">
 	<video controls src="demo.mp4"></video>
 </div>
