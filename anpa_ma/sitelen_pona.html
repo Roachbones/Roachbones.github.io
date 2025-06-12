@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="tok">
+<head>
+  <title>anpa ma: sitelen pona</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="jan Wiwijen">
+  <meta name="description" content="kepeken lipu ni la sina ken musi e anpa ma kepeken sitelen pona.">
+  <link rel="icon" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/style.css">
+  
+  <style>
+      main {
+        max-width: 80em;
+        margin-left: auto; margin-right: auto;
+        padding: 1em;
+        margin-bottom:4em;
+      }
+      li {padding: 0.1em;}
+      img {max-width:100%;}
+      h3 {padding-top: 1.25em;}
+      hr {margin:6em;}
+      ol {list-style-type:upper-roman;}
+      .lili {
+        max-width: 2em;
+        max-height: 2em;
+        display: inline;
+        vertical-align: middle;
+        padding-left: 0.2em;
+        padding-right: 0.2em;
+      }
+      .local-link {
+        text-decoration-style: dotted;
+      }
+  </style>
+
+<!--
+
+Lectrote: mostly works
+
+glulxe test results on Ubuntu:
+    Ubuntu default terminal (gnome-terminal): can choose nasin nanpa font, but ligatures don't work
+        UCSUR mode: symbols show up, but long glyphs / cartouches don't work, and kerning is way off.
+        But kerning works if there are spaces (or nbsps or shys) between glyphs.
+    Kitty: ligatures work, but the spacing is unplayably messed up
+        UCSUR mode: unplayable. inconsistent glyph size.
+    Konsole: works, but has the same wrapping issue as Frotz
+    QTerminal: doesn't support non-monospace fonts
+    mlterm: ligatures don't work
+        UCSUR mode: same as gnome-terminal
+
+Gargoyle in Ubuntu: nasin nanpa doesn't work
+    Wait no, I can get it to use nasin nanpa like this:
+        propr nasin-nanpa-4.0.1.otf
+    but then, like Windows, ligatures don't work.
+    UCSUR mode: kinda works! long glyphs and cartouches don't work. Maybe if I used continuation characters.
+
+Gargoyle in Windows: ligatures don't work
+
+iOS Frotz: font installation clunky and kinda buggy? then the text wrapping is messed up in Frotz with ligatures.
+    UCSUR mode: prints mojibake.
+
+ScummVM: clunky; no obvious way to configure fonts; probably the same as Gargoyle
+
+Windows Glulxe: not sure
+
+Fabularium:
+    Works! You have to edit an ini file to change the font, but you can do that from within the app. Maybe the game could come with its own .ini?
+    long glyphs and cartouches DO NOT WORK, but they don't work in my browser either; maybe an Android version higher than 4.4 would?
+    
+Spatterlight: just works!
+
+-->
+
+ </head>
+<body>
+
+<main>
+
+<h1 style="text-align:center;">“mi wile musi e musi pi <a href="index.html"><i>anpa ma</i></a> kepeken sitelen pona.”</h1>
+
+<p style="text-align: center;">sina musi kepeken ilo pi lipu ale (sama ilo <i>Firefox</i>, sama ilo <i>Chrome</i>) la o <kbd>&gt;sitelen pona</kbd> taso. sina ken <a href="play.html">musi lon ni</a>!</p>
+
+<p style="text-align:center;">
+
+
+<picture>
+    <source id="fflight" srcset="sitelen/Firefox-light.png" media="(prefers-color-scheme: light)"/>
+    <source id="ffdark" srcset="sitelen/Firefox-dark.png"  media="(prefers-color-scheme: dark)"/>
+    <img src="sitelen/Firefox.png" alt="musi kepeken ilo Firefox">
+</picture>
+</p>
+
+<p style="text-align:center;">pona a!</p>
+
+<hr>
+
+<h2>“taso mi musi kepeken ilo ante!”</h2>
+
+<p>a… kepeken ilo ante la, sina wile pali.</p>
+
+<ol>
+    <li>o kama e <a href="https://github.com/etbcor/nasin-nanpa/releases">sitelen <i>nasin nanpa</i></a>.</li>
+    <li>musi la o <kbd>&gt;sitelen pona</kbd>.</li>
+    
+    <!-- 
+\<h3.+id="(.+)".+kepeken ilo \<i\>(.+)\<\/i
+<a class="local-link" href="#$1">ilo <i>$2</i></a>, anu 
+     -->
+
+    <li>o lawa e ilo sina. ilo sina li wile kepeken sitelen <i>nasin nanpa</i>. sina musi kepeken ilo seme? sina musi kepeken <a class="local-link" href="#Lectrote">ilo <i>Lectrote</i></a>, anu <a class="local-link" href="#Frotz">ilo <i>Frotz for iOS</i></a>, anu <a class="local-link" href="#Windows-Glulxe">ilo <i>Windows Glulxe</i></a>, anu <a class="local-link" href="#glulxe-lon-selo">ilo <i>Glulxe</i></a>, anu <a class="local-link" href="#Gargoyle">ilo <i>Gargoyle</i></a>, anu <a class="local-link" href="#Spatterlight">ilo <i>Spatterlight</i></a>?
+
+</ol>
+
+<h3 id="Lectrote">“mi musi kepeken ilo <i>Lectrote</i>.” <img src="sitelen/lili/Lectrote.svg" class="lili"></h3>
+<p>ilo Lectrote li ken pali kepeken sitelen <i>nasin nanpa</i>. o lawa sama ni:</p>
+
+<picture>
+    <source srcset="sitelen/Lectrote-light.png" media="(prefers-color-scheme: light)"/>
+    <source srcset="sitelen/Lectrote-dark.png"  media="(prefers-color-scheme: dark)"/>
+    <img src="sitelen/Lectrote-light.png" alt="o lawa e sitelen pi ilo Lectrote">
+</picture>
+
+<p>(ni li pakala lili. palisa sewi li nasa.)</p>
+
+
+
+
+<h3 id="Frotz">“mi musi kepeken ilo <i>Frotz for iOS</i>.” <img src="sitelen/lili/Frotz.png" class="lili"></h3>
+<p>ilo ni la sina wile pali mute.</p>
+<ol>
+    <li>o kama jo e ilo pi sitelen ante sama ilo <i>Fontcase</i>. (ilo <i>iOS</i> la sina ken ilo e sitelen ante kepeken ilo pi sitelen ante taso. ilo <i>iOS</i> li nasa.)</li>
+    <li>o kama e <i>nasin nanpa</i> kepeken ilo <i>Fontcase</i>.</li>
+    <li>ilo <i>Frotz</i> la o luka e musi “anpa ma”.</li>
+    <li value="3">o luka e ⓘ lon sewi.</li>
+    <li value="3">o luka e «Story Font».</li>
+    <li value="3">o luka e “nasin nanpa”.</li>
+</ol>
+<p>taso sitelen suli li pakala. o lukin:</p>
+<p style="text-align:center;">
+    <picture>
+        <source srcset="sitelen/Frotz-pakala-light.png" media="(prefers-color-scheme: light)"/>
+        <source srcset="sitelen/Frotz-pakala-dark.png"  media="(prefers-color-scheme: dark)"/>
+        <img src="sitelen/Frotz-pakala-light.png" alt="ilo Frotz. sitelen palisa suli li palisa nasa." style="width:25em;">
+    </picture>
+</p>
+<p>sina lili e sitelen kepeken «Story Font Size» la sina lili e pakala:</p>
+<p style="text-align:center;">
+    <picture>
+        <source srcset="sitelen/Frotz-lili-light.png" media="(prefers-color-scheme: light)"/>
+        <source srcset="sitelen/Frotz-lili-dark.png"  media="(prefers-color-scheme: dark)"/>
+        <img src="sitelen/Frotz-lili-light.png" alt="ilo Frotz. sitelen palisa suli li palisa nasa ala. taso ona li lili." style="width:25em;">
+    </picture>
+</p>
+<p>(taso pipi taso li ken lukin e sitelen lili ni!)</p>
+
+
+<h3 id="Windows-Glulxe">“mi musi kepeken ilo <i>Windows Glulxe</i>.” <img src="sitelen/lili/Windows_Glulxe.png" class="lili"></h3>
+<p>sona mi la ilo ni li ken ala toki kepeken sitelen pona. (sina ken la o toki e nasin tawa mi.)</p>
+
+
+
+<h3 id="Glulxe-lon-selo">“mi musi kepeken ilo <i>Glulxe</i> lon ilo selo.” <img src="sitelen/lili/terminal.svg" class="lili"> </h3>
+<p>sina musi kepeken ilo <i>Glulxe</i> kepeken ilo selo seme?
+<ul>
+    <li>ilo selo <i>gnome-terminal</i> li <a href="https://askubuntu.com/questions/1447271/how-can-i-enable-firacode-ligature-on-gnome-terminal" title="kama sona (kepeken toki Inli)">ken ala toki kepeken sitelen pona</a>.</li>
+    <li>ilo selo <i>Kitty</i> la sitelen pona li nasa lukin.</li>
+    <li>ilo selo <i>Konsole</i> la sitelen pona li nasa lukin.</li>
+</ul>
+<p>sina ken ala ken musi kepeken sitelen pona kepeken ilo selo ante? mi sona ala.</p>
+
+
+
+<h3 id="Gargoyle">“mi musi kepeken ilo <i>Gargoyle</i>.” <img src="sitelen/lili/Gargoyle.png" class="lili"></h3>
+<p>sona mi la ilo ni li ken ala toki kepeken sitelen pona.</p>
+<p>ilo <i>Gargoyle</i> li ken ante e sitelen. taso mi pali ni la ona li pakala sama <a class="local-link" href="#glulxe-lon-selo">ilo selo <i>gnome-terminal</i></a>.</p>
+
+
+
+
+<h3 id="Spatterlight">“mi musi kepeken ilo <i>Spatterlight</i>.” <img src="sitelen/lili/Spatterlight.png" class="lili"></h3>
+
+<p>nanpa wan la, sina wile la, o pali e kule sin lon lipu «Themes».</p>
+
+<picture>
+    <source srcset="sitelen/Spatterlight-Themes-light.png" media="(prefers-color-scheme: light)"/>
+    <source srcset="sitelen/Spatterlight-Themes-dark.png"  media="(prefers-color-scheme: dark)"/>
+    <img src="sitelen/Spatterlight-Themes-light.png" alt="">
+</picture>
+
+<p>o lawa e sitelen lon lipu «Glk Styles».
+<ul>
+    <li>o ante e «Proportional Font» tawa <kbd>nasin-nanpa</kbd></li>
+    <li>o ante e «Monospaced Font» tawa <kbd>nasin-nanpa</kbd></li>
+    <li>o ante e «Buffer Input» tawa <kbd>nasin-nanpa</kbd></li>
+</ul>
+<picture>
+    <source srcset="sitelen/Spatterlight-Styles-light.png" media="(prefers-color-scheme: light)"/>
+    <source srcset="sitelen/Spatterlight-Styles-dark.png"  media="(prefers-color-scheme: dark)"/>
+    <img src="sitelen/Spatterlight-Styles-light.png" alt="">
+</picture>
+
+<p>ken la o suli e nanpa «Grid Normal» «Max line height». ona li wile kama “20” anu suli mute.</p>
+
+<picture>
+    <source srcset="sitelen/Spatterlight-o-suli-light.png" media="(prefers-color-scheme: light)"/>
+    <source srcset="sitelen/Spatterlight-o-suli-dark.png"  media="(prefers-color-scheme: dark)"/>
+    <img src="sitelen/Spatterlight-o-suli-light.png" alt="">
+</picture>
+
+<p>nasin ni la sitelen li kama pona sama ni:</p>
+
+<p style="text-align:center;">
+    <picture>
+        <source srcset="sitelen/Spatterlight-anpa-ma-light.png" media="(prefers-color-scheme: light)"/>
+        <source srcset="sitelen/Spatterlight-anpa-ma-dark.png"  media="(prefers-color-scheme: dark)"/>
+        <img src="sitelen/Spatterlight-anpa-ma-light.png" alt="musi pi anpa ma. kule li pona.">
+    </picture>
+</p>
+
+<hr>
+
+
+<h2>“mi ken ala ken musi kepeken ilo <a href="https://sona.pona.la/wiki/Wakalito">Wakalito</a>?” <img src="sitelen/lili/Wakalito.svg" class="lili"></h2>
+
+<p>sina ken!</p>
+
+<p>ilo Wakalito li ken ala sitelen e “Inli” lon <kbd>&gt;esun e lipu pi toki <b>Inli</b></kbd>. taso sina wile ala e nimi nasa ni. sina ken <kbd>&gt;esun e lipu toki</kbd> anu <kbd>&gt;esun e lipu</kbd> taso.</p>
+
+</main>
+</body>
+</html>
+
+
+
+
+
+
+

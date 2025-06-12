@@ -1,0 +1,247 @@
+/* This file is just for play.html.*/
+
+html {
+    --alphabetic-font: Ubuntu, "Atkinson Hyperlegible Next", serif-ui;
+    --alphabetic-font-size: initial;
+}
+@media (prefers-color-scheme: light) {
+  html {
+    --input-color: darkblue;
+    --transcript-bg-color: #FED;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  html {
+    --input-color: lightblue;
+    --transcript-bg-color: #4B4641;
+  }
+}
+
+
+/* Let's give mobile a try. */
+@media screen and (max-width: 55em) {
+    .interpretercredit {display: none;} /* Sorry, Zarf. */
+    .cover {filter: opacity(10%);}             
+}
+@media screen and (max-width: 38em) {
+    .cover {float: right;}
+}
+
+/* Story title */
+.BufferWindow .Style_header {
+	font-size: 2em;
+}
+
+/* Treat a full line of "bold type" sitelen pona as a subheader. */
+.BufferWindow > .BufferLine.logographic:has(span.Style_subheader:only-child) {
+    text-align: center;
+}
+
+/* "input style"; for commands, typed by the player or suggested in prose. */
+.BufferWindow span.Style_input, .BufferWindow .Input {
+	font-weight: normal;
+	color: var(--input-color);
+	font-size: var(--alphabetic-font-size);
+}
+
+/* TODO dark mode .MorePrompt? */
+
+div#gameport, div.WindowFrame {
+    background: unset;
+}
+
+#dialog {
+    background: var(--background-color);
+    font-family: initial; /*don't use nasin nanpa for the modals*/
+}
+#dialog pre.DiaDisplayText {
+    background: var(--transcript-bg-color);
+}
+
+
+#dialog .DiaWarning {
+    font-style: initial; /*just not feelin italics*/
+}
+
+div.GridWindow {
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: grey;
+}
+div.GridLine {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 
+  glkOte *resizes windowports upon viewport resize*.
+  as in, it updates the width and height of the Windows every time the viewport is resized, using js.
+
+  both quixe and parchment use glkOte, so this is hard to escape from.
+
+  i basically am just trying to allow overflow to the left, but that's not allowed for scrollable elements,
+  and the first two workarounds you're probably imagining don't work due to glkOte weirdness,
+  so let's do this instead
+*/
+div#gameport {
+    left: 0rem; /* instead of 15.4 */
+}
+.BufferWindow > div {
+    margin-left: max(1em, min(15rem, calc(50% - 16rem))); /* getting a bit silly */
+}
+
+/* that resize listener thing seems also to assign a height to WindowFrame
+   that can have a decimal component to it. Thus making the page scroll up and down
+   by less than one pixel. so... just make it not do that */
+div.WindowFrame {
+    position: fixed;
+}
+
+/* we don't leverage monowidthness of the status line anyway,
+   so make it cuter */
+div.GridLine {
+    white-space: normal;
+}
+div.GridWindow {
+    font-family: unset;
+}
+/* and let's make it bigger in sitelen pona mode for legibility */
+/*.logographic div.GridLine {
+    padding-bottom: 10px;
+}*/
+.logographic div.GridWindow {
+    font-size: 16px;
+}
+
+div.interpretercredit { font-size: 70%; }
+
+div.BufferWindow {
+    font-family: var(--alphabetic-font);
+    font-size: var(--alphabetic-font-size);
+}
+
+
+/* Story title */
+.BufferWindow .Style_header {
+	font-size: 2em;
+}
+
+/* Note style, used for tutorial hints */
+.Style_note {
+    color: gray;
+}
+
+/* Treat a full line of "bold type" sitelen pona as a subheader. */
+.BufferWindow > .BufferLine.logographic:has(span.Style_subheader:only-child) {
+    text-align: center;
+}
+
+.BufferWindow span.Style_input, .BufferWindow .Input {
+	font-weight: normal;
+	color: var(--input-color);
+	font-size: var(--alphabetic-font-size);
+}
+/* User input should always be rendered in sitelen Lasina.
+   Otherwise, the player might forget a space in a command
+   and not realize why it doesn't work. "lukine mi" looks
+   identical to "lukin e mi" in nasin nanpa.               */
+.BufferWindow .Input, .hedera + span {font-family: var(--alphabetic-font);}
+
+.logographic > .parser-guess::before {content: "    …";}
+.logographic > .parser-guess {
+    font-size: smaller;
+    color: var(--input-color);
+}
+/* shouldn't be necessary, since pali.js only paren-strips and adds the parser-guess class if
+   the current orthography is logographic. */
+.alphabetic > .parser-guess::before {content: "(";}
+.alphabetic > .parser-guess::after {content: ")";}
+
+
+.alphabetic {    /* maybe another font could be prettier? */
+	font-family: var(--alphabetic-font); /* Georgia, "Times New Roman", Times, serif; */
+	font-size: var(--alphabetic-font-size);
+}
+.Style_preformatted {
+	font-size: initial;
+}
+
+
+
+.BufferLine.logographic, .logographic .GridLine, .logographic > .MorePrompt {
+	font-family: 'nasin nanpa';
+	font-size: larger;
+}
+.logographic .GridWindow {
+	font-family: unset;
+}
+
+.logographic .BufferLine:not(.alphabetic) > span:not(.Style_user2), .BufferLine.logographic > span:not(.Style_user2) {
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+/* Climbing uphill */
+.uphill {
+	rotate: -15deg;
+	transform-origin: left;
+	margin-top: 5em;
+}
+
+/* Descending */
+
+.v {
+    display: inline-block;
+    transform-origin: left;
+}
+.descent {
+    margin-bottom: 45rem;
+}
+                        /* MT. SILIN */
+                   .descent>.v {rotate: 15deg;}
+                  .descent>.v>.v {rotate: 0deg;}
+                 .descent>.v>.v>.v {rotate: 0deg;}
+                .descent>.v>.v>.v>.v {rotate: 10deg;}
+               .descent>.v>.v>.v>.v>.v {rotate: 0deg;}
+              .descent>.v>.v>.v>.v>.v>.v {rotate: 0deg;}
+             .descent>.v>.v>.v>.v>.v>.v>.v {rotate: 33deg;}
+            .descent>.v>.v>.v>.v>.v>.v>.v>.v {rotate: 45deg;}
+           .descent>.v>.v>.v>.v>.v>.v>.v>.v>.v {rotate: 5deg;}
+          .descent>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v {rotate: 5deg;}
+         .descent>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v {rotate: -55deg;}
+        .descent>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v {rotate: 5deg;}
+       .descent>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v {rotate: 5deg;}
+      .descent>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v {rotate: 5deg;}
+     .descent>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v {rotate: 5deg;}
+    .descent>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v {rotate: 5deg;}
+   .descent>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v {rotate: 5deg;}
+  .descent>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v {rotate: 5deg;}
+ .descent>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v>.v {rotate: 5deg;}
+
+
+/* Twitchy text */
+
+.alphabetic .BufferLine:not(.logographic) .Style_user2, .BufferLine.alphabetic .Style_user2 {   
+	font-family: sans;
+	font-style: italic;
+}
+.logographic .BufferLine:not(.alphabetic) .Style_user2, .BufferLine.logographic .Style_user2 {   
+	font-family: 'pu lukin', 'LinjaTeloNi';
+}
+.Style_user2 {
+	font-size: 2.5em;
+	font-weight: bold;
+	vertical-align: middle;
+}
+.Style_user2 > span:not(.teto) {
+	display: inline-block;
+	position: relative;
+	transform: translate(var(--tx, 0), var(--ty, 0));
+	text-shadow: 1px 1px 2px #00000099;
+}
+/*.Style_user2 > span.te, .Style_user2 > span.to {
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+}*/
+

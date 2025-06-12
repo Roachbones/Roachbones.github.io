@@ -1,0 +1,588 @@
+/*
+
+Standard CSS file for use with Standard.html and Standard-Source.html,
+but modified by Vivian Rose for anpa ma
+
+*/
+
+/* nasin nanpa is MIT licensed. Here is the license:
+
+    MIT License
+
+    Copyright (c) 2022 jan Itan
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+
+You can find out more about the font at https://github.com/ETBCOR/nasin-nanpa */
+@font-face {font-family: "nasin nanpa"; src: url("nasin-nanpa-4.0.1.otf");}
+
+/* This other sitelen pona font is based on sitelen pi linja telo tan soweli Selupu https://wasokeli.github.io/sp-font-maker/sitelen-pi-linja-telo-tan-soweli-Selupu.html which is OFL-1.1 licensed. Here's a copy of the license:
+
+    -----------------------------------------------------------
+    SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+    -----------------------------------------------------------
+
+    PREAMBLE
+    The goals of the Open Font License (OFL) are to stimulate worldwide
+    development of collaborative font projects, to support the font creation
+    efforts of academic and linguistic communities, and to provide a free and
+    open framework in which fonts may be shared and improved in partnership
+    with others.
+
+    The OFL allows the licensed fonts to be used, studied, modified and
+    redistributed freely as long as they are not sold by themselves. The
+    fonts, including any derivative works, can be bundled, embedded,
+    redistributed and/or sold with any software provided that any reserved
+    names are not used by derivative works. The fonts and derivatives,
+    however, cannot be released under any other type of license. The
+    requirement for fonts to remain under this license does not apply
+    to any document created using the fonts or their derivatives.
+
+    DEFINITIONS
+    "Font Software" refers to the set of files released by the Copyright
+    Holder(s) under this license and clearly marked as such. This may
+    include source files, build scripts and documentation.
+
+    "Reserved Font Name" refers to any names specified as such after the
+    copyright statement(s).
+
+    "Original Version" refers to the collection of Font Software components as
+    distributed by the Copyright Holder(s).
+
+    "Modified Version" refers to any derivative made by adding to, deleting,
+    or substituting -- in part or in whole -- any of the components of the
+    Original Version, by changing formats or by porting the Font Software to a
+    new environment.
+
+    "Author" refers to any designer, engineer, programmer, technical
+    writer or other person who contributed to the Font Software.
+
+    PERMISSION & CONDITIONS
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of the Font Software, to use, study, copy, merge, embed, modify,
+    redistribute, and sell modified and unmodified copies of the Font
+    Software, subject to the following conditions:
+
+    1) Neither the Font Software nor any of its individual components,
+    in Original or Modified Versions, may be sold by itself.
+
+    2) Original or Modified Versions of the Font Software may be bundled,
+    redistributed and/or sold with any software, provided that each copy
+    contains the above copyright notice and this license. These can be
+    included either as stand-alone text files, human-readable headers or
+    in the appropriate machine-readable metadata fields within text or
+    binary files as long as those fields can be easily viewed by the user.
+
+    3) No Modified Version of the Font Software may use the Reserved Font
+    Name(s) unless explicit written permission is granted by the corresponding
+    Copyright Holder. This restriction only applies to the primary font name as
+    presented to the users.
+
+    4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
+    Software shall not be used to promote, endorse or advertise any
+    Modified Version, except to acknowledge the contribution(s) of the
+    Copyright Holder(s) and the Author(s) or with their explicit written
+    permission.
+
+    5) The Font Software, modified or unmodified, in part or in whole,
+    must be distributed entirely under this license, and must not be
+    distributed under any other license. The requirement for fonts to
+    remain under this license does not apply to any document created
+    using the Font Software.
+
+    TERMINATION
+    This license becomes null and void if any of the above conditions are
+    not met.
+
+    DISCLAIMER
+    THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+    OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
+    COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+    INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
+    DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
+    OTHER DEALINGS IN THE FONT SOFTWARE.
+ */
+@font-face {font-family: "LinjaTeloNi"; src: url("LinjaTeloNi.otf");} 
+
+html {color-scheme: light dark;}
+
+@media (prefers-color-scheme: light) {
+  html {
+    --background-color: snow;
+  }
+  kbd {background-color: white;}
+}
+@media (prefers-color-scheme: dark) {
+  html {
+    --background-color: #141414;
+  }
+  .cover img {filter: invert();}
+}
+
+body
+{
+	-webkit-text-size-adjust: none;
+	background: var(--background-color);
+	font-family: Ubuntu, "Atkinson Hyperlegible Next", serif-ui
+}
+
+.introduction > h1 {margin-bottom: 0em;}
+.bibliography {font-size: smaller;}
+
+kbd { 
+    border-radius: 3px;
+    border: 1px solid #b4b4b4;
+    padding: 2px 4px;
+}
+
+.container
+{
+	max-width: 50em;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* 
+Paragraph features defined here apply without distinction to blurb and
+source paragraphs. 
+*/
+
+p
+{
+	font-size: 1em;
+	line-height: 1.4;
+}
+
+
+.cover
+{
+	width: 12.6em;
+	margin-top: 2em;
+	margin-left: 1em;
+	float: left;
+	text-align: right;
+} 
+
+img {max-width:100%}
+
+/* 
+The introduction formatting applies to the title, author name, and release
+number, here presented at the top of the page. 
+
+To change the appearance of specific elements, tweak
+
+	h1 for the title
+	h2 for the author name
+	.bibliography for the release information
+
+*/
+
+.introduction
+{ 
+	padding-top: 2.4em;
+	margin-left: 15.4em;
+	max-width: 33em;  /* ← max-width instead of width to make mobile better */
+	line-height: 1;
+	text-align: left;
+}
+
+/* 
+These set the sizes for the title (h1) and the author name (h2). 
+
+The ideal font-size for h1 may vary quite a bit depending on how long the 
+game's title is: larger for one-word titles, smaller for longer titles.
+
+Should we wish to remove the title entirely and allow the cover art alone
+to represent the game, we need only add the line "display: none;" to the
+definition of h1.
+
+*/
+.introduction > h1 { font-size: 2em;  }
+.introduction > h2 { font-size: 1em; /*line-height: .25;*/}
+
+/* The about formatting applies to blurb information. */
+
+.about
+{
+	margin-top: 2.6em;
+	margin-left: 15.4em;
+	max-width: 33em;
+}
+
+/* 
+By setting about p and about p + p, we instruct the first paragraph of the
+blurb to be unindented but subsequent paragraphs to be indented a small 
+distance. 
+*/
+
+.about p { margin-bottom: 0; }
+
+.about p + p
+{
+	text-indent: 1.4em;
+	margin-top: 0;
+}
+
+/* 
+Playinfo affects the paragraph at the bottom of the home-page that supplies
+the IFID for the game and suggests interpreters for the author to use. */
+
+.playinfo
+{
+	margin: 1em 0px 0px 15.4em;
+	max-width: 33em;
+}
+
+.playinfo p, .playinfo ul {
+	font-size: smaller;
+}
+
+
+/* 
+The links formatting applies to the story file and auxiliary links found
+on the home page, and to the Contents, Next, and Previous links on the 
+source pages. Here we arrange for them to appear in a column at the left
+side of the page. 
+*/
+
+.links
+{
+	width: 13em;
+	float: left;
+	clear: left;
+	
+	text-align: center;
+}
+
+.links li
+{
+	list-style-type: none;
+	list-style-position: default;
+	padding: .4em;
+	
+}
+
+.links li a {
+    background-color: #909fdc40;
+    padding: .5em;
+    display: inline-block;
+    text-decoration: none;
+}
+
+/* 
+The filetype id applies only to the little (blorb), (pdf), and similar
+denotations found on the links. Here we make these appear smaller than the 
+surrounding text. In order to get rid of them entirely, we would add 
+"display: none;" to our filetype definition. 
+*/ 
+
+span.filetype { font-size: .5em; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+Source formatting applies to the source text on generated pages. 
+*/
+
+.source
+{
+	margin-top: 1.4em;
+	margin-left: 15.4em;
+	width: 33em;
+	line-height: 1.4;
+}
+
+.sourceintroduction
+{
+	margin-left: 15.4em;
+	width: 33em;
+}
+
+.sourceintroduction h1
+{
+	padding-top: 2.8em;
+	font-size: 1em;
+	line-height: 1;
+	text-align: right;
+	text-decoration: none;
+	font-weight: normal;
+	font-style: italic;
+}
+
+.sourceintroduction h2
+{
+	display: none;
+}
+
+.sourcecoverimage
+{
+	width: 12.6em;
+	margin-top: 2em;
+	margin-left: 1em;
+	margin-right: 1em; /* ← add margin-right for mobile symmetry */
+	float: left;
+	clear: left;
+	text-align: right;
+} 
+
+/* 
+Here we make invisible the one-pixel border that currently goes around
+the cover image. 
+*/
+
+.sourcecoverimage a
+{
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	color: #FFF;
+}
+
+.sourcebibliography
+{
+	display: none;
+}
+
+span.quote { color: #369; }
+
+span.comment {
+	color: #390;}
+
+span.substitution
+{
+	color: #69B;
+	font-variant: small-caps;
+}
+	
+span.i6code { color: #666; font-family: monospace; }
+
+span.columnhead { 
+	font-style: italic; 
+	font-size: 1em;
+}
+
+span.heading
+{
+	font-weight: bold;
+} 
+
+.source td
+{
+	padding-top: .7em;
+	padding-bottom: .7em;
+	padding-right: 1.4em;
+	font-size: .75em;
+	text-align: left;
+	vertical-align: top;
+} 
+
+/*
+We could alter the following in order to make the footnote links in the source
+text appear different from other links, but otherwise they will be the same
+color as other links -- which is fine as a default.
+*/
+
+span.notecue
+{
+	font-size: .75em;
+	vertical-align: super;
+}
+
+/* 
+Here we tell the elements of the table of contents not to be listed with
+bullets because this tends to produce considerable visual clutter especially
+with large project files. 
+*/
+
+.source li
+{
+	list-style-type: none;
+	list-style-position: default;
+}
+
+/* 
+Notes applies to footnotes on the source text. 
+*/
+
+.notes
+{
+	margin-left: 16.8em;
+	width: 33em;
+}
+
+.notes p
+{
+	text-indent: -1.4em;
+	font-size: .75em;
+}
+
+.notesheading { font-style: italic; }
+
+p.indent0 
+{	margin-bottom: 0;  
+}
+
+p.indent1 
+{
+	padding-left: 2.8em;
+	text-indent: -.7em;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+p.indent2 
+{	margin-bottom: 0; 
+	padding-left: 5.6em;
+	text-indent: -.7em;
+	margin-top: 0;
+}
+
+p.indent3 
+{
+	padding-left: 8.4em;
+	text-indent: -.7em;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+p.indent4
+{	margin-bottom: 0; 
+	padding-left: 11.2em;
+	text-indent: -.7em;
+	margin-top: 0;
+}
+
+p.indent5
+{
+	padding-left: 14em;
+	text-indent: -.7em;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+p.indent6
+{	margin-bottom: 0; 
+	padding-left: 16.8em;
+	text-indent: -.7em;
+	margin-top: 0;
+}
+
+p.indent7
+{
+	padding-left: 19.6em;
+	text-indent: -.7em;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+
+p.indent8
+{	margin-bottom: 0; 
+	padding-left: 22.4em;
+	text-indent: -.7em;
+	margin-top: 0;
+}
+
+p.indent9
+{
+	padding-left: 25.2em;
+	text-indent: -.7em;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+/*
+Styles for play.html
+*/
+.play .coverimage
+{
+	position: fixed;
+}
+.play .links
+{
+	margin-top: 200px;
+	position: fixed;
+}
+
+.interpretercredit
+{
+	bottom: 1em;
+	font-size: 80%;
+	position: fixed;
+}
+
+#gameport
+{
+	background: white;
+	bottom: 0px;
+	left: 15.4em;
+	line-height: 1.4;
+	margin: 0px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+
+/*
+Styles for mobile browsers: change to a one-column layout.
+*/
+
+@media screen and (max-device-width: 529px)
+{
+	.coverimage, .introduction, .links, .about, .playinfo, .source, .sourceintroduction, .sourcecoverimage, .notes
+	{
+		float: none;
+		margin-left: 0.5em;
+		/*text-align: left;*/
+	}
+
+	.play .coverimage, .play .links, .play .interpretercredit
+	{
+		display: none;
+	}
+	
+	#gameport
+	{
+		left: 0px;
+		width: auto;
+	}
+}

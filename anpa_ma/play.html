@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="tok">
+<head>
+  <title>anpa ma tan jan Wiwijen</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <meta name="author" content="jan Wiwijen">
+  <meta name="description" content="o musi e anpa ma tan jan Wiwijen">
+  <link rel="icon" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/style.css">
+  
+  <link rel="stylesheet" href="interpreter/glkote.css" type="text/css">
+<link rel="stylesheet" href="interpreter/dialog.css" type="text/css">
+<script src="interpreter/jquery-1.12.4.min.js" type="text/javascript"></script>
+<script src="interpreter/glkote.min.js" type="text/javascript"></script>
+<script src="interpreter/quixe.min.js" type="text/javascript"></script>
+
+<script src="interpreter/resourcemap.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+game_options = {
+image_info_map: 'StaticImageInfo',  // image data is here, not in blorb
+use_query_story: false,
+log_execution_time: true,
+set_page_title: false,
+inspacing: 0,     // gap between windows
+outspacing: 0,     // gap between windows and edge of gameport
+localize: {  // namako tan jan Wiwijen! (jan Tepo li pona e ni.)
+glkote_more: 'sin', //'More'
+glkote_taphere: 'o luka e ni; o sitelen.', //'Tap here to type'
+dialog_cancel: 'o pali ala', //'Cancel'
+dialog_close: 'pona', //'Close'
+dialog_done: 'mi pini', //'Done'
+dialog_edit: 'o lukin e lipu ale', //'Edit', originally, but that's confusing since this is also what you click to view transcripts
+dialog_delete: 'o weka e ni', //'Delete'
+dialog_display: 'o lukin e ni', //'Display'
+dialog_load: 'o kama e ni', //'Load'
+dialog_replace: 'o weka o awen', //'Replace'
+dialog_save: 'o awen e ni', //'Save'
+dialog_namethis: 'o pana e nimi tawa %1 ni.', //'Name this %1.'
+dialog_confirmreplace: 'sina jo e %1 "%2". o weka ala weka e ona?', //'You already have a %1 "%2". Do you want to replace it?'
+dialog_cookiewarning: 'o sona: lipu Kuki li weka la lipu ni li weka.', //'Warning: data may be erased by clearing cookies or browser privacy policies.'
+dialog_allvisible: 'ni li lipu ale.', //'All stored files are now visible. You may delete them, and display files containing text. Press Done when finished.'
+dialog_displayingcontents: 'mi pana e lipu tawa sina\u2026', //'Displaying file contents...'
+dialog_usesaveas: 'o kama jo e lipu ni tan nimi laso ni kepeken ilo «Save As».', //'Use "Save As" option in your browser to download this link.'
+dialog_nostoredfiles: 'sina jo e lipu ala.', //'You have no stored files. Press Done to continue.'
+dialog_nousagefiles: 'sina jo ala e %1.', //'You have no %1 for this game.'
+dialog_selectafile: 'o luka e %1. ilo li kama e ona.', //'Select a %1 to load.'
+dialog_usage_data: 'lipu nanpa', //'data file'
+dialog_usage_save: 'lipu tenpo', //'save file'
+dialog_usage_transcript: 'lipu pi toki musi', //'transcript'
+dialog_usage_command: 'lipu pi nimi lawa', //'command script'
+dialog_usage_default: 'lipu', //'file'
+dialog_usagepl_data: 'lipu nanpa', //'data files'
+dialog_usagepl_save: 'lipu tenpo', //'save files'
+dialog_usagepl_transcript: 'lipu pi toki musi', //'transcripts'
+dialog_usagepl_command: 'lipu pi nimi lawa', //'command scripts'
+dialog_usagepl_default: 'lipu', //'files'
+},
+exit_warning: 'musi li pini.',
+default_page_title: 'musi', // not used
+do_vm_autosave: true
+};
+</script>
+
+<script src="interpreter/anpa ma.gblorb.js" type="text/javascript"></script>
+  
+  <link rel="stylesheet" href="assets/kule.css">
+  <script src="assets/pali.js"></script>
+ </head>
+<body class="play">
+<div class="cover"><img src="assets/Cover_trans.png" alt="pictographs representing a cave"></div>
+
+<div id="gameport">
+<div id="windowport">
+<noscript><hr>
+<p>sina wile musi e musi ni lon ni la sina wile open e ilo JavaScript. toki Inli la: You'll need to turn on JavaScript in your web browser to play this game. (Or glulxe the gblorb, of course.)</p>
+<hr></noscript>
+</div>
+<div id="loadingpane">
+<img src="interpreter/waiting.gif" alt="pali..."><br>
+<em>&nbsp;&nbsp;&nbsp;pali...</em>
+</div>
+<div id="errorpane" style="display:none;"><div id="errorcontent">...</div></div>
+</div>
+
+<div class="interpretercredit"><a href="http://eblong.com/zarf/glulx/quixe/" target="_blank">ilo <i>Quixe for Inform 7 (v. 2.2.4)</i></a></div>
+</body>
+</html>
+
