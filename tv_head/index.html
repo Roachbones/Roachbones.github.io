@@ -35,9 +35,9 @@
 <div style="text-align:center;">
 <img src="tv_head2.jpg" title="Me in my TV head." alt="Me in my TV head costume. I'm wearing an old computer monitor on my head, with a cute bow on the front." style="border-radius: 4em; width: 50vh;">
 </div>
-<p>In Fall 2020, I got a broken CRT monitor from my college's <span title="Yes, we keep our recycling stuff behind a caged door for some reason.">recycling cage</span> and turned it into a helmet with a working RGB LED display. Here's some information about how I made it and how it works. If you want to make a TV head without the electronics, this method should still work if you ignore all the electronic parts. If you just want to see the finished costumes, <a href="#gallery">skip to the gallery</a>.</p>
+<p>In Fall 2020, I got a broken CRT monitor from my college's <span title="Yes, we keep our recycling stuff behind a caged door for some reason.">recycling heap</span> and turned it into a helmet with a working RGB LED display. Here's some information about how I made it and how it works. If you want to make a TV head without the electronics, this method should still work if you ignore all the electronic parts. If you just want to see the finished costumes, <a href="#gallery">skip to the gallery</a>.</p>
 <h2>Non-electronics</h2>
-<p>I disassembled the CRT monitor, being careful to discharge the cathode to avoid a painful electric shock. (I think my monitor was self-discharging anyway, but it's a good idea to be sure.) I put the big glass cathode ray tube away in a cardboard box so I wouldn't accidentally trip over it and make it implode, which would be unpleasant for multiple reasons. I cleaned out the inside of the monitor and shook out the dead ladybugs that had collected inside over the years. I used a <span title="Dremel is technically a brand, but let's just genericize it already.">dremel</span> to cut a hole in the bottom of the monitor just big enough to fit my head through.</p>
+<p>I disassembled the CRT monitor, being careful to discharge the cathode to avoid a painful electric shock. (I think my monitor was self-discharging anyway, but it's better to be sure.) I put the big glass cathode ray tube away in a cardboard box so I wouldn't accidentally trip over it and make it implode, which would be unpleasant for multiple reasons. I cleaned out the inside of the monitor and shook out the dead ladybugs that had collected inside over the years. I used a <span title="Dremel is technically a brand, but let's just genericize it already.">dremel</span> to cut a hole in the bottom of the monitor just big enough to fit my head through.</p>
 <p>My first prototype used plexiglass for the screen, but I found that a thinner sheet of polycarbonate was much lighter on my neck and flexible enough to bend into a convex shape, which makes the helmet look more realistic. I tinted the polycarbonate using some privacy window film.</p>
 <p>The most difficult and frustrating part of this project was getting the helmet to fit comfortably using upholstery foam. Other guides on the internet recommend using three blocks of foam cut into rectangles that you cram your head between, but that was unacceptable for me. I eventually figured out a good foam setup that leaves my ears uncovered, which is nice because it lets me hear and wear my glasses.</p>
 <p>I hot glued everything together. I eventually added <a href="antennae3.jpg">posable telescopic antennae</a> extracted from an old TV antenna from a thrift store.</p>
@@ -47,8 +47,8 @@
 	<div><a href="matrix2.jpg"><img src="matrix2.jpg" title="The LED matrix outside the helmet." alt="The LED matrix outside the helmet." style="border-radius: 2em;"></a></div>
 	<div><a href="matrix1.jpg"><img src="matrix1.jpg" title="The opened helmet, showing the foam and matrix." alt="The opened helmet, showing the foam and matrix." style="border-radius: 2em;"></a></div>
 </div>
-<p>It's like wearing sunglasses and slotted shades at the same time, so visibility is pretty good in a well-lit area, but bad enough in the dark that I need someone to hold my hand when I walk down unlit streets on Halloween night.</p>
-<p>A Circuit Playground Express microcontroller (similar to an Arduino) controls the lights using <a href="https://github.com/Roachbones/tv_head">a program I wrote</a>. A mini PS/2 keyboard connects to the microcontroller through an adapter for an input method. This lets me control the lights. Just a few buttons would suffice for playing animations, but I opted for a full keyboard so I can type words to appear on the screen. The microcontroller has a built-in accelerometer which I use for a few gravity-sensitive animations.</p>
+<p>It's like wearing sunglasses and slotted shades at the same time, so visibility is pretty good in a well-lit area, but bad enough in the dark that I need someone to hold my hand while I walk down unlit streets on Halloween night.</p>
+<p>A Circuit Playground Express microcontroller (similar to an Arduino) controls the lights using <a href="https://github.com/Roachbones/tv_head">a program I wrote</a>. A mini PS/2 keyboard connects to the microcontroller through an adapter, granting control of lights. Just a few buttons could suffice for playing animations, but I opted for a full keyboard to type words to appear on the screen. The microcontroller has a built-in accelerometer which I use for a few gravity-sensitive animations.</p>
 <p>Here's a circuit diagram of the whole thing.</p>
 <div style="text-align:center;">
 <a href="circuit.pdf"><img src="circuit.png" alt="A circuit diagram. It depicts a Circuit Playground Express microcontroller powered by a USB power bank, receiving data from a PS/2 keyboard through a PS/2 to UART converter, and sending data through a level shifter into the LED matrix." style="width:80%;"></a>
@@ -58,21 +58,21 @@
 <h1 style="padding-top:1em;" id="mk2">TV Head Mk. 2</h1>
 <p>In 2021, I collaborated with my friend Ellie to make them a TV head like mine, but better! The improvements were largely motivated by an added goal: Ellie wanted to display Chinese text on the screen. Chinese glyphs are more complicated than ASCII so we needed a resolution at least as big as mine despite the screen being smaller than mine.</p>
 <p>The issue was that you can only make LED strips so dense before you need to make them wider, too. 60 LEDs/meter seems to be the densest you can go without sacrificing strip narrowness. We cleverly worked around this by laying the strips <i>diagonally</i> across the screen rather than laterally! This resulted in a tighter grid of 24x18 resolution. We also used extra-narrow LED strips, which gives Ellie more room to see between them, at the cost of more light reflecting back into their face instead of getting blocked by the margins of the strips.</p>
-<p>This video shows the front panel detached, so you can see how the strips are arranged. <a href="mk2_back.jpg">Here's a photo of the back of the panel</a> if you want to see the wiring.</p>
+<p>This video shows the front panel detached, so you can see how the strips are arranged. <a href="mk2_back.jpg">Here's a photo of the back</a> if you want to see the wiring.</p>
 
 <div style="text-align:center;padding:2em;">
     <!--<img src="mk2_back.jpg" title="The back of the screen." alt="The back of Ellie's TV head's screen. The strips are arranged diagonally." style="width:40%;border-radius: 2em;">-->
     <video controls src="mk2_hearts.mp4"></video>
 </div>
 
-<p>The requirement of Chinese text also motivated a better input method. You can type Chinese on an English keyboard if you have a GUI, but it's hard without one. So, we used a Circuit Playground Bluefruit to control the helmet wirelessly from a phone, which is way easier than using a keyboard.<p>
-<p>For some reason, the Circuit Playground Bluefruit cannot control more than about 200 LEDs. I don't know if it's a hardware limitation or a fault with the FastLED library. We were running out of time to finish the helmet, so we fixed this by using two Circuit Playgrounds: a Circuit Playground Bluefruit to communicate with the phone, and a Circuit Playground Express to control the LEDs. It's a goofy bodge but it works; a better solution would be to use something like a <a href="https://www.adafruit.com/product/2479">Bluefruit LE UART Friend</a> in place of the Circuit Playground Bluefruit. It basically takes the place of the PS/2 to UART converter in the circuit diagram.</p>
+<p>The requirement of Chinese text also motivated a better input method. You can type Chinese on an English keyboard with a GUI, but it's harder without one. So, we used a Circuit Playground Bluefruit to control the helmet wirelessly from a phone, which is way easier than using a keyboard.<p>
+<p>(For some reason, the Circuit Playground Bluefruit cannot control more than about 200 LEDs. I don't know if it's a hardware limitation or a fault with the FastLED library. We were running out of time to finish the helmet, so we fixed this by using two Circuit Playgrounds: a Circuit Playground Bluefruit to communicate with the phone, and a Circuit Playground Express to control the LEDs. It's a goofy bodge but it works; a better solution would be to use something like a <a href="https://www.adafruit.com/product/2479">Bluefruit LE UART Friend</a> in place of the Circuit Playground Bluefruit. It basically takes the place of the PS/2 to UART converter in the circuit diagram.)</p>
 
 <h1 style="padding-top:1em;" id="respirator">Respirator</h1>
 
-<p>In 2022, I was excited to wear my TV head to Halloween parties, but I had started wearing a half-face respirator mask out of caution for airborne pathogens, and my mask does not fit inside my TV head. Because of this, I decided to combine the two by incorporating my TV head technology into a full-face respirator.</p>
+<p>In 2022, I was excited to wear my TV head to Halloween parties, but I had started wearing a half-face respirator mask out of caution for airborne pathogens, which does not fit inside my TV head. Because of this, I decided to combine the two by incorporating my TV head technology into a full-face respirator.</p>
 
-<p>My favorite half-face respirator is the 3M 6200, so I ordered a 3M 6800, basically the full-face version of the 3M 6200. As I hoped, it fit me similarly well.</p>
+<p>My favorite half-face respirator is the 3M 6200, so I ordered a 3M 6800, basically the full-face equivalent. As I had hoped, it fit me similarly well.</p>
 
 <p>Tinting the respirator lens required many careful attempts at cutting the window film into just the right shapes. Turns out it's hard to apply it to an arbitrarily curved surface!</p>
 
@@ -95,9 +95,9 @@
 <p>Here are some lessons I learned and tips to anyone who might want to try making one of these.</p>
 <ul>
 	<li>Make sure you get LED strips with black PCB, so they aren't visible through the tint.</li>
-	<li>You can buy clips to attach WS2812 strips to each other without soldering, but beware! They might give an unreliable data pin connection, which can cause the matrix to glitch out and strobe.</li>
+	<li>You can buy clips to attach WS2812 strips to each other without soldering, but beware! They give an unreliable data pin connection, which can cause the matrix to glitch out and strobe.</li>
 	<li>Of course, don't make your animations strobe on purpose either, or you might give someone a seizure.</li>
-	<li>To conserve battery life and lower current requirements, <a href="https://learn.adafruit.com/sipping-power-with-neopixels/">try minimizing the amount of light your animations use</a>. Program brightness adjustment too.</li>
+	<li>To conserve battery life and lower current requirements, <a href="https://learn.adafruit.com/sipping-power-with-neopixels/">try minimizing the amount of light your animations use</a>. Program brightness adjustment commands, too.</li>
 	<li>Don't get hot glue in your hair.</li>
 	<li>WS2812B strips, and even the USB/PS2 keyboard I used, operate happily at 3.3V.</li>
 	<li>Try to keep the helmet light so you don't strain your neck. Put the battery in the back to counterweight the screen.</li>
@@ -144,7 +144,7 @@
 <iframe width="560" height="315" style="max-width:100%;" src="https://www.youtube-nocookie.com/embed/O5jT5V8I14w" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-<p style="text-align:center;margin-top:2em;"><a href="others/"><strong>Check out this gallery of TV heads others have made using this writeup!</strong></a></p>
+<p style="text-align:center;margin-top:2em;font-size:larger;margin-bottom:2em;"><a href="others/"><strong>Check out this gallery of TV heads others have made using this writeup!</strong></a></p>
 
 </main>
 </body>
