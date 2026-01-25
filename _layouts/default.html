@@ -1,12 +1,24 @@
 <!doctype html>
-<html lang={{ page.lang | default: site.lang | default: 'en' }}>
-
+<html lang={{ page.lang | default: site.lang | default: 'en-US' }}>
 <meta charset=utf-8>
-
-<!-- excuse the default Jekyll SEO slop -->
-{% seo %}
 <meta name=viewport content="width=device-width, initial-scale=1.0">
-<link rel=stylesheet type=text/css href={{ '/style.css' | relative_url }}>
+<meta property=og:url content={{ page.url | absolute_url }}>
+<meta property=og:site_name content=rose.systems>
+<meta property=og:title content="{{ page.title }}">
+<meta property=og:locale content={{ page.lang | default: site.lang | default: 'en-us' }}>
+<meta name=theme-color content=mistyrose media=(prefers-color-scheme:light)>
+<meta name=theme-color content=plum media=(prefers-color-scheme:dark)>
+<meta name=fediverse:creator content=@vivianrose@mastodon.social>{% if page.description %}
+<meta name=description content="{{ page.description }}">
+<meta property=og:description content="{{ page.description }}">{% endif %}{% if page.date %}
+<meta property=og:type content=article>
+<meta property=article:published_time content="{{ page.date | date_to_xmlschema }}">{% else %}
+<meta property=og:type content=website>{% endif %}{% if paginator.previous_page %}
+<link rel=prev href="{{ paginator.previous_page_path | absolute_url }}" />{% endif %}{% if paginator.next_page %}
+<link rel=next href="{{ paginator.next_page_path | absolute_url }}" />{% endif %}
+
+<link rel=stylesheet type=text/css href=/style.css>
+
 <title>{{ page.title }}</title>
 
 <header>
