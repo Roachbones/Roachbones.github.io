@@ -53,7 +53,7 @@ body {
 h1 {
 	text-align: center;
 }
-main {
+main, body > hr {
 	max-width: 55em;
 	margin: auto;
 }

@@ -3,74 +3,71 @@ layout: vivpost
 title: "list animals until failure"
 subtitle: "About my little web game, <i>List Animals Until Failure</i>."
 description: "Making of List Animals Until Failure, the animal-naming game."
----
-
-<style>
-a[href^="https://www.wikidata.org/"] {
-    display: inline-block;
-    &::before {
-        content: url("/post_assets/Wikidata_favicon.png");
-    }
-}
-a[href^="https://en.wikipedia.org/"] {
-    display: inline-block;
-    &::before {
-        content: url("/post_assets/Wikipedia_favicon.png");
-    }
-}
-a::before {
-    vertical-align: middle;
-    margin-right: 2pt;
-}
-#🝳, samp { background-color: var(--color-bg-secondary); }
-#🝳 {
-    font-family: serif;
-    padding: 1em;
-    max-width: max-content;
-    border-style: inset;
-}
-#🝳[open] div { /* could use ::details-content but using div for compatibility */
-    display: flex; flex-wrap: wrap; justify-content: center; column-gap: 1em;
-    & section { flex: 1; min-width: 50% }
-    & img { flex: 1; min-width: 18em; max-width: 35em; align-self: center;}
-}
-@media (prefers-color-scheme: dark) {
-    #tree {
-        filter: invert(1);
-    }
-    #stamp {
-        mix-blend-mode: screen;
-    }
-    #cloudy > * {
-        background-color: color-mix(var(--color-bg-secondary) 50%, transparent 50%);
-    }
-}
-#devinscript {
-    margin: 2em;
-    & p {
-        padding: .5em;
-        padding-left: 1em; padding-right: 1em;
-        margin-left: 4em;
-        background-color: light-dark(lightblue, teal);
-        border-radius: 1em;
-        @media (prefers-contrast: more) { border-style: solid; border-width: 1px; }
-        max-width: max-content;
-        position: relative;
-        font-size: large;
+style: |
+    a[href^="https://www.wikidata.org/"] {
+        display: inline-block;
         &::before {
-            content: "";
-            background-image:  url("/post_assets/devin.webp");
-            display: inline-block;
-            width: 2em; height: 2em;
-            background-size: contain;
-            border-radius: 3em;
-            position: absolute; left: -2.5em;
+            content: url("/post_assets/Wikidata_favicon.png");
         }
     }
-}
-.bgdemo { padding: 4em; }
-
-</style>
+    a[href^="https://en.wikipedia.org/"] {
+        display: inline-block;
+        &::before {
+            content: url("/post_assets/Wikipedia_favicon.png");
+        }
+    }
+    a::before {
+        vertical-align: middle;
+        margin-right: 2pt;
+    }
+    #🝳, samp { background-color: var(--color-bg-secondary); }
+    #🝳 {
+        font-family: serif;
+        padding: 1em;
+        max-width: max-content;
+        border-style: inset;
+    }
+    #🝳[open] > div { /* could use ::details-content but using div for compatibility */
+        display: flex; flex-wrap: wrap; justify-content: center; column-gap: 1em;
+        & > div { flex: 1; min-width: 50% }
+        & img { flex: 1; min-width: 18em; max-width: 35em; align-self: center;}
+    }
+    @media (prefers-color-scheme: dark) {
+        #tree {
+            filter: invert(1);
+        }
+        #stamp {
+            mix-blend-mode: screen;
+        }
+        #cloudy > * {
+            background-color: color-mix(in oklch, var(--color-bg-secondary) 50%, transparent 50%);
+        }
+    }
+    #devinscript {
+        margin: 2em;
+        & p {
+            padding: .5em;
+            padding-left: 1em; padding-right: 1em;
+            margin-left: 4em;
+            background-color: light-dark(lightblue, teal);
+            border-radius: 1em;
+            @media (prefers-contrast: more) { border-style: solid; border-width: 1px; }
+            max-width: max-content;
+            position: relative;
+            font-size: large;
+            &::before {
+                content: "";
+                background-image:  url("/post_assets/devin.webp");
+                display: inline-block;
+                width: 2em; height: 2em;
+                background-size: contain;
+                border-radius: 3em;
+                position: absolute; left: -2.5em;
+            }
+        }
+    }
+    .bgdemo { padding: 4em; }
+---
 
 <p>I made a web game, <a href=/animalist>List Animals Until Failure</a>. You just name as many animals as you can. Play it and show me how far you get.
 
@@ -201,7 +198,7 @@ a::before {
 </div>
 
 
-<h2 id=emoji-summary>Emoji summary</h3>
+<h2 id=emoji-summary>Emoji summary</h2>
 
 <p>At game over, you get an emoji summary like this:</p>
 
@@ -220,11 +217,11 @@ a::before {
 
 <details id=🝳><summary>1600s bestiary excerpt: The Ounce</summary>
 <div>
-<section lang=emodeng>
+<div lang=en-emodeng>
 <p>The Ounce is a moſt cruel Beaſt, of the quantity of a village or maſtiffe Dog, having his face and ears like to a Lions, his body, tail, feet, and nails like a Cats, of a very terrible Aſpect, his teeth ſo ſtrong and ſharp, that he can even cut Wood in ſunder with them; he hath alſo in his nails ſo great ſtrength, that he only fighteth with them, and uſeth them for his greateſt defence…</p>
 <p>The gall of this Beaſt is deadly poyſon, it hateth all creatures, and deſtroyeth them, eſpecially men; and therefore it may well be ſaid to be poſſeſſed with ſome evill ſpirit. It loveth none but his own kinde. And thus much for the Ounce.</p>
-</section>
-<img src=/post_assets/ounce.jpg>
+</div>
+<img src=/post_assets/ounce.jpg alt="Drawing of a snow leopard">
 </div>
 <p style=text-align:center><cite><a href=https://archive.org/details/historyoffourfoo00tops/page/441/mode/2up>The History of Four-footed Beaſts and Serpents, p441-442</a></cite></p>
 </details>
@@ -232,9 +229,6 @@ a::before {
 
 <h2 id=remaining-bugs>Remaining bugs</h2>
 
-<p>There are still animals requiring manual intervention. <a href="https://en.wikipedia.org/wiki/Goanna">Goanna</a> for example isn't easily dataminable; it's a normal article with no infobox, and its Wikidata entity lacks a taxon. Maybe I could iterate over every article in every category like “Reptile common names” and look for a list of animals under a <i>Species</i> heading, but sometimes it's headed <i>Taxonomy</i> or <i>Classification</i> or <i>Genera</i>, and sometimes it's in paragraph or table form. So these cases are staying manual for the foreseeable future.
+<p>There are still animals requiring manual intervention. <a href="https://en.wikipedia.org/wiki/Goanna">Goanna</a> for example isn't easily dataminable; it's a normal article with no infobox, and its Wikidata entity lacks a taxon. Maybe I could iterate over every article in every category like “Reptile common names” and look for a list of animals under a <i>Species</i> heading, but sometimes it's headed <i>Taxonomy</i> or <i>Classification</i> or <i>Genera</i>, and sometimes it's in paragraph or table form. So these cases are staying manual for now.
 
 <p><a href=/contact>Hit me up</a> with bug reports. Or ideas. Or complaints, or whatever.</p>
-
-
-

@@ -1,27 +1,20 @@
 ---
 layout: default
 title: "blog"
+style: |
+    h2 { margin-bottom: 0; display: inline-block; }
+    p { margin: 0; }
+    span { color: var(--color-fg-subtle); margin-left: 1em; font-size:small }
 ---
-
-<style>
-h2 { margin-bottom: 0; display: inline-block; }
-p { margin: 0; }
-span { color: var(--color-fg-subtle); margin-left: 1em; font-size:small }
-</style>
 
 <main>
 
 <p style=text-align:center><a href=/feed.xml title="RSS/Atom feed"><img src=/post_assets/feed.svg alt="RSS" style=height:1em;vertical-align:middle;margin-right:1pt></a></p>
 
-<!--<p style=text-align:center><a href=/feed.xml style=background-color:orange;color:white;border-style:outset;border-color:darkorange;text-decoration:none;font-weight:bold;font-family:monospace;padding:1pt>RSS</a></p>-->
-
-
-
 {% for post in site.posts %}
 <a href="{{ post.url }}"><h2>{{ post.title }}</h2></a> <span>({{ post.date | date: "%b %d %Y" }})</span>
 <p>{{ post.subtitle }}</p>
 {% endfor %}
-
 
 <!--
 <ul>
