@@ -19,7 +19,7 @@ span { color: var(--color-fg-subtle); margin-left: 1em; font-size:small }
 
 {% for post in site.posts %}
 <a href="{{ post.url }}"><h2>{{ post.title }}</h2></a> <span>({{ post.date | date: "%b %d %Y" }})</span>
-<p>{{ post.desc }}</p>
+<p>{{ post.subtitle }}</p>
 {% endfor %}
 
 
