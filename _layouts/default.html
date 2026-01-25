@@ -21,6 +21,8 @@
 {% endif %}{% if paginator.previous_page %}<link rel=prev href="{{ paginator.previous_page_path | absolute_url }}" />
 {% endif %}{% if paginator.next_page %}<link rel=next href="{{ paginator.next_page_path | absolute_url }}" />{% endif %}
 
+<link rel="alternate" type="application/atom+xml" href="https://rose.systems/feed.xml" title="viv's blog">
+
 <link rel=stylesheet type=text/css href=/style.css>
 
 <title>{{ page.title }}</title>
