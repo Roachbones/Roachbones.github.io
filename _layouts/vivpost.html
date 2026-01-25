@@ -1,20 +1,15 @@
-<!doctype html>
-<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+---
+layout: default
+---
 
-<meta charset=utf-8>
-
-<!-- excuse the default Jekyll SEO slop -->
-{% seo %}
-<meta name=viewport content="width=device-width, initial-scale=1.0">
-<link rel=stylesheet type=text/css href="{{ '/style.css' | relative_url }}">
-<title>{{ page.title }}</title>
-
-<header>
-	<h1>{{ page.title }}</h1>
-</header>
 <main>
 
-{{ page.content }}
+{{ content }}
+
+<hr style=margin-top:4em;margin-bottom:4em;>
 
 </main>
 
+<footer>
+    <a href=/>index</a> &gt; <a href=/blog>blog</a> &gt; {{ page.title }}
+</footer>

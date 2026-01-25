@@ -1,12 +1,60 @@
+html {
+    color-scheme: light dark;
+    
+    --base-color-a: royalblue;
+
+    --base-color-bg-light: #f8f4ff;    
+    &:has(footer) { --base-color-bg-light: mistyrose; }
+    
+    @media (prefers-color-scheme: light) {
+        --base-color-bg: var(--base-color-bg-light);
+        --base-color-bg-secondary: oklch(from var(--base-color-bg) l c calc(h + 40));
+        --hc-color-mod: white;
+        --color-fg: black;
+        --color-a: var(--base-color-a);
+    }
+    @media (prefers-color-scheme: dark) {
+        --base-color-bg: oklch(from plum 0.3 calc(c * 0.5) h);
+        --base-color-bg-secondary: oklch(from plum 0.4 calc(c * 0.5) h);
+        --hc-color-mod: black;
+        --color-fg: white;
+        --color-a: color-mix(in oklch, var(--base-color-a) 50%, var(--color-fg) 50%);
+    }
+    
+    --color-bg: var(--base-color-bg);
+    --color-bg-secondary: var(--base-color-bg-secondary);
+    --color-fg-subtle: color-mix(in oklch, var(--color-fg) 50%, var(--color-bg) 50%);
+    @media (prefers-contrast: more) {
+        /* Mix bg colors with white/black to heighten contrast */
+        --color-bg: color-mix(in oklch, var(--base-color-bg) 50%, var(--hc-color-mod) 50%);
+        --color-bg-secondary: color-mix(in oklch, var(--base-color-bg-secondary) 50%, var(--hc-color-mod) 50%);
+        --color-fg-subtle: color-mix(in oklch, var(--color-fg) 70%, var(--color-bg) 30%);
+    }
+    
+    /* link colors */
+    --color-a-visited: oklch(from var(--color-a) l c calc(h + 30)); /* purpler than normal */
+    --color-a-hover: color-mix(in oklch, var(--color-a) 90%, var(--color-fg) 10%); /* higher-contrast than normal */
+    --color-a-visited-hover: color-mix(in oklch, var(--color-a-visited) 90%, var(--color-fg) 10%); /* both of the above */
+}
+
+a {
+    color: var(--color-a);
+    &:hover { color: var(--color-a-hover); }
+    &:visited { color: var(--color-a-visited); }
+    &:visited:hover { color: var(--color-a-visited-hover); }
+}
+
 body {
 	font-family: sans-serif;
-	background-color: #f8f4ff;	
+    background-color: #f8f4ff; /* fallback for barebones css support */
+	background-color: var(--color-bg);
+    color: var(--color-fg);
 }
 h1 {
 	text-align: center;
 }
 main {
-	max-width: 64em;
+	max-width: 55em;
 	margin: auto;
 }
 li {
@@ -16,7 +64,8 @@ li {
 	position: fixed;
 	bottom: 0;
 	right: 0;
-	background-color: #e4d4ff;
+	background-color: #e4d4ff; /* fallback */
+    background-color: light-dark(#e4d4ff, var(--color-bg-secondary));
 	border: 0.2em solid #c19eff;
 	margin: 1em;
 	padding: 0.25em;
@@ -26,3 +75,12 @@ li {
 img, video {
 	max-width: 100%;
 }
+
+/*
+.secondary {
+    background-color: var(--color-bg-secondary);
+    @media (prefers-contrast: more) {
+        border: solid
+    }
+}
+*/

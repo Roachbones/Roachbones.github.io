@@ -62,7 +62,7 @@ function showFlashingContent() {
 <p>To streamline the process, I made <strong>Sockbend</strong>, a set of Python scripts that applies audio transformations to images. To make the above image, I just had to type:</p>
 
 <!-- formatted with pygmentize -->
-<pre style="background: #f0f0f0"><span></span>b <span style="color: #666666">=</span> sockbend<span style="color: #666666">.</span>Bender(<span style="color: #4070a0">"rats.jpg"</span>)
+<pre style="background: #f0f0f0; color: black; padding: 1em; border-style: inset;"><span></span>b <span style="color: #666666">=</span> sockbend<span style="color: #666666">.</span>Bender(<span style="color: #4070a0">"rats.jpg"</span>)
 b<span style="color: #666666">.</span>bend(
     [(<span style="color: #4070a0">"echo"</span>, {<span style="color: #4070a0">"delays"</span>:[<span style="color: #40a070">0.5</span>], <span style="color: #4070a0">"decays"</span>:[<span style="color: #40a070">1</span>]})],
     out_path<span style="color: #666666">=</span><span style="color: #4070a0">"rats_echo.png"</span>

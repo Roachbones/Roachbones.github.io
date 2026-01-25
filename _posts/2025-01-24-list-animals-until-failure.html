@@ -1,0 +1,239 @@
+---
+title: "list animals until failure"
+layout: vivpost
+desc: "About my little web game, <i>List Animals Until Failure</i>."
+---
+
+<style>
+a[href^="https://www.wikidata.org/"] {
+    display: inline-block;
+    &::before {
+        content: url("/post_assets/Wikidata_favicon.png");
+    }
+}
+a[href^="https://en.wikipedia.org/"] {
+    display: inline-block;
+    &::before {
+        content: url("/post_assets/Wikipedia_favicon.png");
+    }
+}
+a::before {
+    vertical-align: middle;
+    margin-right: 2pt;
+}
+#🝳, samp { background-color: var(--color-bg-secondary); }
+#🝳 {
+    font-family: serif;
+    padding: 1em;
+    max-width: max-content;
+    border-style: inset;
+}
+#🝳[open] div { /* could use ::details-content but using div for compatibility */
+    display: flex; flex-wrap: wrap; justify-content: center; column-gap: 1em;
+    & section { flex: 1; min-width: 50% }
+    & img { flex: 1; min-width: 18em; max-width: 35em; align-self: center;}
+}
+@media (prefers-color-scheme: dark) {
+    #tree {
+        filter: invert(1);
+    }
+    #stamp {
+        mix-blend-mode: screen;
+    }
+    #cloudy > * {
+        background-color: color-mix(var(--color-bg-secondary) 50%, transparent 50%);
+    }
+}
+#devinscript {
+    margin: 2em;
+    & p {
+        padding: .5em;
+        padding-left: 1em; padding-right: 1em;
+        margin-left: 4em;
+        background-color: light-dark(lightblue, teal);
+        border-radius: 1em;
+        @media (prefers-contrast: more) { border-style: solid; border-width: 1px; }
+        max-width: max-content;
+        position: relative;
+        font-size: large;
+        &::before {
+            content: "";
+            background-image:  url("/post_assets/devin.webp");
+            display: inline-block;
+            width: 2em; height: 2em;
+            background-size: contain;
+            border-radius: 3em;
+            position: absolute; left: -2.5em;
+        }
+    }
+}
+.bgdemo { padding: 4em; }
+
+</style>
+
+<p>I made a web game, <a href=/animalist>List Animals Until Failure</a>. You just name as many animals as you can. Play it and show me how far you get.
+
+<details><summary>Inspired by a meme</summary>
+<p style=text-align:center><img src=/post_assets/brain_workout.jpg alt="">
+</details>
+
+<p>Each animal grants a point. You can be vague, but you don’t get extra points for nesting categories. E.g. you only get one point for listing “mammal” & “primate” & “human”, since those aren’t different animals.
+
+
+<h2 id=how-it-works>How it works</h2>
+
+<p style=text-align:center;min-height:19em><img id=stamp alt="Powered by Wikidata" src=/post_assets/Wikidata_stamp.svg style=width:20em></p>
+
+<p>I used Wikidata and Wikipedia. Read on for technical details.
+
+<h2 id=datamining>Datamining</h2>
+
+<p>This was the sort of datamining project that goes like this:
+<ul>
+    <li>I can parse [all these entities] and that will be a good start.
+    <li>That got me 90% of the way there, but there’s this other case I need to handle.
+    <li>Now I’m 95% of the way there, but there’s another edge case.
+    <li>Now I’m 98% of the way there, maybe if I parse this other thing too…?
+</ul>
+
+
+<h3 id=general-strategy>General strategy</h3>
+
+<p>Mine Wikidata entities representing taxons. Use those to build a <dfn>phylogenic</dfn> (evolutionary) tree. Get the taxons’ names from Wikipedia (since Wikidata entities link to Wikipedia pages, and Wikipedia has good judgement about what things should be called, and has good redirects). If an entity lacks a Wikipedia article, it’s probably not worth including — or if it is, the player should write a Wikipedia article for it! Also get names from the Wikidata entity itself since I later realized this would cover some missing cases; e.g. <a href=https://en.wikipedia.org/wiki/Person>Person</a> is its own Wikipedia article, but Wikidata lists it as a name for <a href=https://www.wikidata.org/wiki/Q5>Human</a>.
+
+<h3 id=combining-sources>Combining sources</h3>
+<p>The Wikidata entity doesn’t always have both taxon data <em>and</em> name data. For example, <a href=https://www.wikidata.org/wiki/Q146>Cat</a> represents the common name (and lacks taxon data), while <a href=https://www.wikidata.org/wiki/Q20980826>Felis catus</a> represents the species (and has poor name data).
+
+<p>How to reconcile this? The <code>taxon known by this common name</code> property links the two entities, so I use that. Get names from the common name entity and its Wikipedia page; get taxonomy from the species entity. I want to use common names as much as possible ingame; the phylogenic tree is just a means to construct a hierarchy of terminology.
+
+
+<h3 id=more-cases>More cases</h3>
+<ul>
+  <li>Handle disambiguation pages: if an animal (as identified by previous steps) is the first (fully-nested wikilink in a wikilist) in a term’s disambiguation page, then recognize that term as the animal. Example: <a href=https://en.wikipedia.org/wiki/Blood_worm>Blood worm</a>.
+  <li>Same with <a href=https://en.wikipedia.org/wiki/Category:Set_index_articles_on_animal_common_names>Category:Set index articles on animal common names</a>. Example: <a href=https://en.wikipedia.org/wiki/Pumpkin_spider>Pumpkin spider</a>.
+  <li>Same with <a href=https://en.wikipedia.org/wiki/Category:Set_index_articles_on_snakes>Category:Set index articles on snakes</a> since those aren’t marked with the previous category for some reason. Example: <a href=https://en.wikipedia.org/wiki/Diamondback_rattlesnake>Diamondback rattlesnake</a>.
+  <li>If there’s an animal called “common <b>X</b>”, then use it as a fallback for “<b>X</b>”. Example: guessing “<a href=https://en.wikipedia.org/wiki/Coquí>Coquí</a>” is equivalent to guessing “<a href=https://en.wikipedia.org/wiki/Common_coquí>Common coquí</a>”.
+</ul>
+
+
+<h3 id=paraphyly>Paraphyly</h3>
+
+<p>Ducks, egrets, gnats, buzzards, hawks, mites: none of these are defined solely by a phylogenic taxon; they’re what you might call “form taxa”. In other words: iff it looks like a duck and quacks like a duck, it’s a duck.
+
+<p>Sometimes the game uses the closest common ancestor of the group. So a player who lists “mite” only gets a point for “arachnid” and can’t score separately for “spider”. This is a bummer since tarantulas definitely aren’t mites, but it’s otherwise hard to define “mite” in a strict hierarchy.
+
+<!--<p>(We can find the closest common ancestor from the <code>parent</code> (or <code>taxon</code>) attribute of the <code>{{ '{{' }}Paraphyletic group}}</code> infobox.)-->
+
+<p>In other cases, there are better solutions. For example, <a href=https://en.wikipedia.org/wiki/Trout>Trout</a> doesn’t even have a paraphyletic group infobox, maybe because it’s so colloquial a term, and even if it did, many barely-related fish are called trout. So I manually add a redirect to a single representative for the group: “trout” becomes “brown trout”.
+
+<p>More extreme example: If you know of <a href=https://en.wikipedia.org/wiki/Carcinisation>Carcinization</a>, you can imagine the difficulty of defining crabs. So “crab” becomes “brown crab”.
+
+<h3 id=away-from-phylogeny>Away from phylogeny</h3>
+
+<p>A wasp is any Apocritan that isn’t a bee or an ant.
+
+<figure style=max-width:30em;margin:auto;padding:1em;min-height:30em>
+<img alt="Taxonomic tree showing that ants and bees descend from wasps but aren't considered wasps" src=/post_assets/Wasps_are_Paraphyletic.svg id=tree>
+<figcaption style=font-size:small;text-align:center><a href="https://commons.wikimedia.org/wiki/File:Wasps_are_Paraphyletic.svg">(diagram by several Wikimedia Commons contributors)</a></figcaption>
+</figure>
+
+<p>Everything in Apocrita is a wasp, <em>except</em> bees and ants.
+
+<p>If you’re an entomologist, or an evolutionary biologist, you might say “well, bees and ants are just wasps, really”, and I respect that. But colloquially, bees and ants aren’t wasps. If this game insists on a purely phylogenic approach, then it’s like, come on, I can’t get a point for saying wasp <i>and</i> ant? That’s unreasonable. If I ask a 2-year-old to list animals and she lists wasp <i>and</i> ant, I’m not gonna break out the DNA sequences like “Ohh well evolutionarily ants are technically wasps”. I’m gonna say yeah, good job, that’s two animals.
+
+<p>So I promoted bees and ants to siblings of wasps rather than descendants. Now bee, wasp, and ant count as different animals. My animal term hierarchy is thus not phylogenic; phylogeny is just its starting point.
+
+<p>I sorted out other groups, too; for examples, these groups of groups of birds distinguished chiefly by size: crows/ravens, hawks/eagles, ducks/geese/swans. (Ravens are bigger; Eagles are bigger; Geese are bigger and swans are yet bigger.)
+
+<p>My friend <a href=https://devin.gay>Devin</a> argued for a strictly phylogenic hierarchy:
+
+<blockquote id=devinscript>
+  <p>evolutionary biologists are professional animal listers
+  <p>so they should be the source of truth
+  <p>and I think it’s cool to learn that wasps or egrets or stuff are paraphyletic
+</blockquote>
+
+<p>Phylogeny can be fun (e.g. <a href=https://metazooa.com/>Metazooa</a>) but that's not the game I wanted to make. Maybe I’m failing to educate my players about phylogeny, but I’m learning a lot about phylogeny myself; so it averages out, you see.</p>
+
+
+<h2 id=performance>Performance</h2>
+
+<p>Initial page load includes the full list of animals; the game avoids network calls to instantly respond to guesses. Initial load is 18MB compressed, 58 MB decompressed. That's about how much outlook.com loads <em>while logged out</em> (19MB compressed, 33MB decompressed) which makes you wonder why a marketing page needs as much information as a list of every animal known to humanity.
+
+
+<h2 id=visuals>Visuals</h2>
+
+<p>I learned about SVG filters.
+
+<div style=background-image:url(https://rose.systems/animalist/media/tile_ether.svg) class=bgdemo>
+    <p>Here's the colorful background that shows up when you exceed 50 points. It's just the raw output of the builtin turbulence filter. I like it.
+    <details><summary>The source code is pretty short.</summary>
+    <pre>
+    &lt;svg width="400" height="400"&gt;
+        &lt;filter id="f" x="0" y="0" width="1" height="1"&gt;
+            &lt;feTurbulence numOctaves="1" baseFrequency="0.008" stitchTiles="stitch" /&gt;
+        &lt;/filter&gt;
+        &lt;rect width="400" height="400" filter="url(#f)" /&gt;
+    &lt;/svg&gt;
+    </pre>
+    </details>
+</div>
+
+<div style=background-image:url(https://rose.systems/animalist/media/tile_clouds.svg);background-size:90em id=cloudy class=bgdemo>
+    <p>These clouds show up if you list enough birds in a row.
+    <details><summary>The source code is only a little longer.</summary>
+    <pre>
+    &lt;svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg"&gt;
+        &lt;filter id="f" width="1" height="1" x="0" y="0"&gt;
+            &lt;feTurbulence numOctaves="5" baseFrequency="0.015" stitchTiles="stitch"
+                          width="400" height="400" /&gt;
+            &lt;feColorMatrix type="matrix"
+                   values="0    0    0    1    0
+                           0    0    0    1    0
+                           0    0    0    1    0
+                           0    -.3  -.7  2    0" /&gt;
+        &lt;/filter&gt;
+        &lt;rect x="0" y="0" width="400" height="400" style="filter:url(#f)" /&gt;
+    &lt;/svg&gt;
+    </pre>
+</details>
+</div>
+
+
+<h2 id=emoji-summary>Emoji summary</h3>
+
+<p>At game over, you get an emoji summary like this:</p>
+
+<samp style=max-width:40em;display:block;margin:auto;padding:1em;border-style:inset>https://rose.systems/animalist<br>
+<br>
+144 animals listed<br>
+
+🦀🦞🐦🐦🕊🕊️🦅🦅🐦🐟🐠🦈🦁🐅🐻🙀🐜🐛🐌🐦🐦🐦‍⬛🐦‍⬛🐦𓆣🐪🐊🐬🦈🦈🦈🐟🐡🦔𓇼🕸️🐦‍⬛🕷🐛🐋🐳🐋🫍🐄🦌🐺🐕🦬🦖🦕🐒🦍🦡🦨🐰🐙🐌🪱🪰🐛🦭🐓🦢🦆🐌🐛🝳🐆𓅣𓆉🐢🪰🪰🪰🐛🪳🐛🦥🐦🐛🐛🐝
+</samp>
+
+<p>Internally I call the emoji “mononyms” because they aren’t all emoji. Any single-character alias for an animal is a possible mononym for that animal. (Or any more-specific version of that animal; any bird becomes 🐦, unless a more specific mononym applies, such as 🦅 or 🦉.)
+
+<p>Most of these aliases arise from Wikipedia redirects. Wikipedia typically redirects emoji to what they depict, unless the emoji itself is notable<!-- (this is explained at <a href=https://en.wikipedia.org/wiki/WP:REMOJI>WP:REMOJI</a>)-->. For example, <a href=https://en.wikipedia.org/wiki/🕷>🕷</a> redirects to <a href=https://en.wikipedia.org/wiki/Spider>Spider</a>. Some mononyms I had to add manually; e.g. <a href=https://en.wikipedia.org/wiki/🦖>🦖</a> is somehow notable enough for an article.
+
+<p><a href=https://en.wikipedia.org/wiki/🝳>🝳</a> means ounce (as in the unit), but “ounce” also archaically means <i>snow leopard</i>. This silly indirection is cute enough to leave in.
+
+<details id=🝳><summary>1600s bestiary excerpt: The Ounce</summary>
+<div>
+<section lang=emodeng>
+<p>The Ounce is a moſt cruel Beaſt, of the quantity of a village or maſtiffe Dog, having his face and ears like to a Lions, his body, tail, feet, and nails like a Cats, of a very terrible Aſpect, his teeth ſo ſtrong and ſharp, that he can even cut Wood in ſunder with them; he hath alſo in his nails ſo great ſtrength, that he only fighteth with them, and uſeth them for his greateſt defence…</p>
+<p>The gall of this Beaſt is deadly poyſon, it hateth all creatures, and deſtroyeth them, eſpecially men; and therefore it may well be ſaid to be poſſeſſed with ſome evill ſpirit. It loveth none but his own kinde. And thus much for the Ounce.</p>
+</section>
+<img src=/post_assets/ounce.jpg>
+</div>
+<p style=text-align:center><cite><a href=https://archive.org/details/historyoffourfoo00tops/page/441/mode/2up>The History of Four-footed Beaſts and Serpents, p441-442</a></cite></p>
+</details>
+
+
+<h2 id=remaining-bugs>Remaining bugs</h2>
+
+<p>There are still animals requiring manual intervention. <a href="https://en.wikipedia.org/wiki/Goanna">Goanna</a> for example isn't easily dataminable; it's a normal article with no infobox, and its Wikidata entity lacks a taxon. Maybe I could iterate over every article in every category like “Reptile common names” and look for a list of animals under a <i>Species</i> heading, but sometimes it's headed <i>Taxonomy</i> or <i>Classification</i> or <i>Genera</i>, and sometimes it's in paragraph or table form. So these cases are staying manual for the foreseeable future.
+
+<p><a href=/contact>Hit me up</a> with bug reports. Or ideas. Or complaints, or whatever.</p>
+
+
+

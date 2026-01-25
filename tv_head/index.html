@@ -50,8 +50,8 @@
 <p>It's like wearing sunglasses and slotted shades at the same time, so visibility is pretty good in a well-lit area, but bad enough in the dark that I need someone to hold my hand while I walk down unlit streets on Halloween night.</p>
 <p>A Circuit Playground Express microcontroller (similar to an Arduino) controls the lights using <a href="https://github.com/Roachbones/tv_head">a program I wrote</a>. A mini PS/2 keyboard connects to the microcontroller through an adapter, granting control of lights. Just a few buttons could suffice for playing animations, but I opted for a full keyboard to type words to appear on the screen. The microcontroller has a built-in accelerometer which I use for a few gravity-sensitive animations.</p>
 <p>Here's a circuit diagram of the whole thing.</p>
-<div style="text-align:center;">
-<a href="circuit.pdf"><img src="circuit.png" alt="A circuit diagram. It depicts a Circuit Playground Express microcontroller powered by a USB power bank, receiving data from a PS/2 keyboard through a PS/2 to UART converter, and sending data through a level shifter into the LED matrix." style="width:80%;"></a>
+<div style="text-align:center">
+<a href="circuit.pdf"><img style="background-color:ghostwhite;width:80%" src="circuit.png" alt="A circuit diagram. It depicts a Circuit Playground Express microcontroller powered by a USB power bank, receiving data from a PS/2 keyboard through a PS/2 to UART converter, and sending data through a level shifter into the LED matrix."></a>
 </div>
 <p>I no longer recommend this circuit design because I later simplified it for projects described below, from 6 to 3 components. The level shifter, in particular, is not necessary; the LEDs and keyboard both happily operate at 3.3V.</p>
 

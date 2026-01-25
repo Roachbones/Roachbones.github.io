@@ -1,0 +1,46 @@
+---
+title: "new blog"
+layout: vivpost
+desc: "Stating goals of my to-be-abandoned blog."
+---
+
+<p>I want to write an abandoned blog. The kind that has a handful of posts over a year or so and then trails off.
+
+<p>The blog will follow this archetype, 2&ndash;5 posts total:
+
+<ul>
+<li>One pretty good, if unreadably boring, blogpost about a project of mine
+<li>The lowliest form of human literature: blogging about blogging. Maybe about writing plans, or about the static site generator.
+<li>Maybe a final post, after a hiatus, stating intent to get back to writing sometime this year &mdash; or maybe as a New Year's resolution, so it can be put off until next year &mdash; but then the blog tapers off and never updates again.
+</ul>
+
+<p>I'll do the blogpost-about-blogging first; it can introduce the goals of the abandoned blog. I won't really <em>publish</em> it first, though; I'll write all the posts in one go and backdate them. Then I can release the abandoned blog in one push instead of taking months or years.
+
+<p>I'd rather write the good blogpost about something recent though, so I'll date it 2026 to avoid anachronism. So you'll have to wait a few years for the abandoned blog vibe.
+
+<p>There is a slim chance the whim strikes to write additional posts in the future. If this happens, I'll include them with real publication dates. I will consider this project a failure if I end up uploading longform blogposts semi-regularly for over a year.
+
+<p>You can find the rest of my blogposts on <a href=/blog>the blog index page</a>, or below:
+
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+
+
+{% for tag in site.tags %}
+  <h3>{{ tag[0] }}</h3>
+  <ul>
+    {% for post in tag[1] %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endfor %}
+
+<p>^This list is dynamically generated in case something possesses me to write subsequent posts.
+
+<p>I'll set up an Atom/RSS feed here: <a href=/feed.xml><img src=/post_assets/feed.svg alt="RSS" style=height:1em;vertical-align:middle;margin-right:1pt>feed.xml</a>. If all goes according to plan, you can add it to your reader without getting bothered by notifications.
+
