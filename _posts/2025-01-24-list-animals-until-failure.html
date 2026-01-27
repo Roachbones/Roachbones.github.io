@@ -5,13 +5,11 @@ subtitle: "About my little web game, <i>List Animals Until Failure</i>."
 description: "Making of List Animals Until Failure, the animal-naming game."
 style: |
     a[href^="https://www.wikidata.org/"] {
-        display: inline-block;
         &::before {
             content: url("/post_assets/Wikidata_favicon.png");
         }
     }
     a[href^="https://en.wikipedia.org/"] {
-        display: inline-block;
         &::before {
             content: url("/post_assets/Wikipedia_favicon.png");
         }
@@ -48,7 +46,7 @@ style: |
         & p {
             padding: .5em;
             padding-left: 1em; padding-right: 1em;
-            margin-left: 4em;
+            margin-left: min(4em, 25%);
             background-color: light-dark(lightblue, teal);
             border-radius: 1em;
             @media (prefers-contrast: more) { border-style: solid; border-width: 1px; }
