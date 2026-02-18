@@ -58,8 +58,8 @@ function showFlashingContent() {
 	<figcaption>The previous image, but with an echo effect applied.</figcaption>
 	</figure>
 </div>
-<p>When I was younger, I would use Audacity to make these effects. You can import a bitmap file as raw data, apply an audio effect to it, and export the data back to a bitmap. This process is tricky and error-prone. You have to be careful not to mess up the BMP header at the beginning, or your file will be unreadable. (You can just leave the first millisecond or so of audio alone, but then you'll have an unaltered stripe at the bottom of your databent image.) You also have to be careful not to shorten the file, or it probably won't display.</p>
-<p>To streamline the process, I made <strong>Sockbend</strong>, a set of Python scripts that applies audio transformations to images. To make the above image, I just had to type:</p>
+<p>When I was younger, I used Audacity to make these effects. You import a bitmap file as raw data, apply an audio effect to it, and export the data back to a bitmap. This is tricky and error-prone. You have to be careful not to corrupt the BMP header at the beginning, or your file will be unreadable. (You can just leave the first millisecond or so of audio alone, but then you'll have an unaltered stripe at the bottom of your databent image.) You also have to be careful not to shorten the file, or it probably won't display.</p>
+<p>To streamline the process, I made <strong>Sockbend</strong>, a set of Python scripts that applies audio transformations to images. To make the above image, I typed:</p>
 
 <!-- formatted with pygmentize -->
 <pre style="background: #f0f0f0; color: black; padding: 1em; border-style: inset;"><span></span>b <span style="color: #666666">=</span> sockbend<span style="color: #666666">.</span>Bender(<span style="color: #4070a0">"rats.jpg"</span>)
@@ -68,7 +68,7 @@ b<span style="color: #666666">.</span>bend(
     out_path<span style="color: #666666">=</span><span style="color: #4070a0">"rats_echo.png"</span>
 )</pre>
 
-<p>It's a lot easier this way to fiddle around with the numbers until you find something that looks nice. I also added options for image masks and animations, so you can make cool GIFs with it too.</p>
+<p>It's a lot easier this way to fiddle with the numbers until you find something that looks nice. I also added options for image masks and animations, so you can make cool GIFs with it too.</p>
 
 <div class="figures">
 	<figure>
@@ -82,7 +82,7 @@ b<span style="color: #666666">.</span>bend(
 	</figure>
 </div>
 
-<p>If you want to play with this yourself, <a href="https://github.com/Roachbones/sockbend">here's my code on GitHub</a>. Let me know if you have trouble using it.</p>
+<p>To play with this yourself, find <a href="https://github.com/Roachbones/sockbend">my code on GitHub</a>, or try <a href=https://novalinium.com/Sockbend/web/>this online demo</a> made by my friend Nova.</p>
 
 <h2>Image Gallery</h2>
 <p>Here's a collection of some cool databent images.<br><strong onclick="innerHTML='Flashing content enabled.'; showFlashingContent()">(To show flashing GIFs that might be harmful to those with photosensitive epilepsy, click here.)</strong>
