@@ -1,0 +1,48 @@
+body {
+    --w: 352px;
+    --ε: 10px;
+    --w-ε: calc(var(--w) - var(--ε));
+    perspective: 600px;
+}
+* {transform-style: preserve-3d}
+brick-house {
+    display: block;
+    position: relative;
+    rotate: 1 1 1 5deg;
+    top: 200px;
+    transition: rotate 1s;
+    
+    width: var(--w);
+    margin-left: auto; margin-right: auto;
+    animation-name: doner; animation-duration:12s; animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+body:has(#b:checked) brick-house { rotate: -1 -1 -1 40deg; }
+brick-wall {
+    display: block;
+    background-color: rgb(0,0,0,40%);
+    width: var(--w);
+    position: absolute;
+    transform-origin: left;
+/*     TODO just z pull + rotate each one ??   */
+    &:nth-child(1) { translate: 0 0 calc(0.5 * var(--w-ε)); background-color: red;}
+    &:nth-child(2) { translate: calc(var(--w-ε)) 0 calc(0.5 * var(--w-ε)); transform-origin: left; rotate: y 90deg; }
+    &:nth-child(3) { translate: 0 0 calc(-.5 * var(--w-ε)); transform-origin: center; rotate: y 180deg;}
+    &:nth-child(4) { translate: 0 0 calc(-.5 * var(--w-ε)); transform-origin: left; rotate: y -90deg; }
+
+    overflow: clip;
+}
+brick-course {
+    display: flex;
+    position: relative;
+    &:nth-child(2n) { right: 22px; }
+    &:nth-child(2n+1) { right: 66px; }
+    & > * {
+        min-width: 88px;
+    }
+}
+
+@keyframes doner {
+    0% {rotate: y 0turn;}
+    to {rotate: y 1turn;}
+}
