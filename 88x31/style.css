@@ -17,7 +17,9 @@ brick-house {
     animation-name: doner; animation-duration:12s; animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
-body:has(#b:checked) brick-house { rotate: -1 -1 -1 40deg; }
+body:has(#b:checked) brick-house { animation-name: none }
+main { transition: rotate 1s; }
+body:has(#c:checked) main { rotate: -1 -1 -1 40deg; }
 brick-wall {
     display: block;
     background-color: rgb(0,0,0,40%);
