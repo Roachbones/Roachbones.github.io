@@ -20,6 +20,7 @@ brick-house {
 body:has(#b:checked) brick-house { animation-name: none }
 main { transition: rotate 1s; }
 body:has(#c:checked) main { rotate: -1 -1 -1 40deg; }
+body:has(#d:checked) main { image-rendering: pixelated; }
 brick-wall {
     display: block;
     background-color: rgb(0,0,0,40%);
