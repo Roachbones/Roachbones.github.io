@@ -1,0 +1,16 @@
+<svg width="88" height="31" version="1.1" viewBox="0 0 88 31" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="clip"><path id="heart-split" d="m0 0v31h44v-2.6953l-11.404-11.406-0.53906-0.53711c-3.1533-3.1537-3.1533-8.2686 0-11.422 3.1537-3.1533 8.2686-3.1533 11.422 0l0.52148 0.51953v-5.459zm44 5.459v22.846l0.1211 0.1211 11.287-11.496 0.53321-0.53321c3.1533-3.1534 3.1533-8.2682 0-11.422l2e-3 -0.00195c-3.1533-3.1533-8.2682-3.1533-11.422 0l-0.50391 0.50391z" shape-rendering="crispEdges"/></clipPath></defs><g id="lesbi" shape-rendering="crispEdges">
+      <path id="lesbi-5" d="m0 0h88v31h-88z" fill="#a20160"/>
+      <path id="lesbi-4" d="m0 0h88v25h-88z" fill="#d161a2"/>
+      <path id="lesbi-3" d="m0 0h88v19h-88z" fill="#fff"/>
+      <path id="lesbi-2" d="m0 0h88v12h-88z" fill="#fd9855"/>
+      <path id="lesbi-1" d="m0 0h88v6h-88z" fill="#d62e02"/>
+    </g><g id="trans" shape-rendering="crispEdges" clip-path="url(#clip)">
+      <path id="trans-5" d="m0 0h88v31h-88z" fill="#5bcefa"/>
+      <path id="trans-4" d="m0 0h88v25h-88z" fill="#f5a9b8"/>
+      <path id="trans-3" d="m0 0h88v19h-88z" fill="#fff"/>
+      <path id="trans-2" d="m0 0h88v12h-88z" fill="#f5a9b8"/>
+      <path id="trans-1" d="m0 0h88v6h-88z" fill="#5bcefa"/>
+    </g><g id="outset" shape-rendering="crispEdges">
+      <path id="outset-2" d="m0 6e-8h2v29l-2 2zm0 0h88l-2 2h-86z" fill="#fff" fill-opacity=".66667"/>
+      <path id="outset-1" d="m86 2 2-2v31h-2zm-84 27h86v2h-88z" fill="#000" fill-opacity=".66667"/>
+    </g></svg>
