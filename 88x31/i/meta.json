@@ -108,5 +108,51 @@
   "src": "suricrasia_online_88x31.png",
   "alt": "proud customer of Suricrasia Online",
   "href": "suricrasia.online"
+ },
+ {
+  "src": "Wikipedia_88x31_static.png",
+  "alt": "Wikipedia the free encyclopedia",
+  "href": "wikipedia.org"
+ },
+ {
+  "src": "email-icon.gif",
+  "alt": "Questions or Comments? E-Mail",
+  "href": "rose.systems/contact"
+ },
+ {
+  "src": "css.gif",
+  "alt": "made with cascading style sheets",
+  "href": "https://rose.systems/88x31/style.css"
+ },
+ {
+  "src": "chevrotains.png",
+  "alt": "chevrotain direct 2024",
+  "href": "chevrotains.com"
+ },
+ {
+  "src": "nonbinary.png",
+  "alt": "non-binary pride!"
+ },
+ {
+  "src": "lyra.horse.png",
+  "alt": "lyra.horse",
+  "href": "lyra.horse"
+ },
+ {
+  "src": "human.svg",
+  "alt": "made by a human"
+ },
+ {
+  "src": "mastodon_button_3.gif",
+  "alt": "Follow me on Mastodon",
+  "href": "mastodon.social/@vivianrose"
+ },
+ {
+  "src": "rainbow.gif"
+ },
+ {
+  "src": "sendit.gif",
+  "alt": "Send it to a friend!",
+  "onclick": "share({url:'https://rose.systems/88x31'})"
  }
 ]

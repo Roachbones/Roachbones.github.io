@@ -13,7 +13,7 @@ brick-house {
     transition: rotate 1s;
     width: var(--w);
     margin-left: auto; margin-right: auto;
-    animation-name: doner; animation-duration:12s; animation-timing-function: linear;
+    animation-name: doner; animation-duration:16s; animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
 body:has(#b:checked) brick-house { animation-name: none }
