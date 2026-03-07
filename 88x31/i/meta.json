@@ -154,5 +154,10 @@
   "src": "sendit.gif",
   "alt": "Send it to a friend!",
   "onclick": "share({url:'https://rose.systems/88x31'})"
+ },
+ {
+  "src": "valid-rss-rogers.png",
+  "alt": "Valid RSS",
+  "href": "rose.systems/blog"
  }
 ]

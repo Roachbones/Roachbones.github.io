@@ -1,8 +1,9 @@
 body {
     --w: 352px;
-    --ε: 1px;
+    --ε: 0.1px;
     --w-ε: calc(var(--w) - var(--ε));
     perspective: 600px;
+    transition: all 1s;
 }
 * {transform-style: preserve-3d}
 brick-house {
@@ -10,7 +11,7 @@ brick-house {
     position: relative;
     rotate: 1 1 1 5deg;
     top: 200px;
-    transition: rotate 1s;
+    transition: all 1s;
     width: var(--w);
     margin-left: auto; margin-right: auto;
     animation-name: doner; animation-duration:16s; animation-timing-function: linear;
@@ -20,13 +21,15 @@ body:has(#b:checked) brick-house { animation-name: none }
 main { transition: rotate 1s; }
 body:has(#c:checked) main { rotate: -1 -1 -1 40deg; }
 body:has(#d:checked) main { image-rendering: pixelated; }
+body:has(#e:checked) { perspective-origin: right; }
+body:has(#f:checked) { perspective: var(--w); }
 brick-wall {
     display: block;
-    background-color: rgb(0,0,0,40%);
+    background-color: rgb(0,0,0,25%);
     width: var(--w);
     position: absolute;
     line-height: 0;
-    &:nth-child(1) { transform: translateZ(calc(var(--w-ε) / 2)); background-color: red;}
+    &:nth-child(1) { transform: translateZ(calc(var(--w-ε) / 2)); }
     &:nth-child(2) { transform: rotateY(0.25turn) translateZ(calc(var(--w-ε) / 2)); }
     &:nth-child(3) { transform: rotateY(0.5turn) translateZ(calc(var(--w-ε) / 2)); }
     &:nth-child(4) { transform: rotateY(0.75turn) translateZ(calc(var(--w-ε) / 2)); }
