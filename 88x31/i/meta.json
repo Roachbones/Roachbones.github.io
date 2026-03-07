@@ -159,5 +159,10 @@
   "src": "valid-rss-rogers.png",
   "alt": "Valid RSS",
   "href": "rose.systems/blog"
+ },
+ {
+  "src": "corru.gif",
+  "alt": "corru.observer",
+  "href": "corru.observer"
  }
 ]
