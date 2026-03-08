@@ -1,11 +1,14 @@
 body {
-    --w: 352px;
+    --m: 1;
+    --w: calc(352px * var(--m));
     --ε: 0.1px;
     --w-ε: calc(var(--w) - var(--ε));
     perspective: 600px;
-    transition: all 1s;
 }
-* {transform-style: preserve-3d}
+* {
+    transform-style: preserve-3d;
+    transition: all 1s
+}
 brick-house {
     display: block;
     position: relative;
@@ -20,9 +23,20 @@ brick-house {
 body:has(#b:checked) brick-house { animation-name: none }
 main { transition: rotate 1s; }
 body:has(#c:checked) main { rotate: -1 -1 -1 40deg; }
-body:has(#d:checked) main { image-rendering: pixelated; }
+body:has(#d:checked) { image-rendering: pixelated; }
 body:has(#e:checked) { perspective-origin: right; }
 body:has(#f:checked) { perspective: var(--w); }
+body:has(#g:checked) {
+    --m: 2;
+    img {
+        width: calc(88px * var(--m));
+        height: calc(31px * var(--m));
+    }
+    input {
+        scale: 1.5;
+        rotate: 390deg;
+    }
+}
 brick-wall {
     display: block;
     background-color: rgb(0,0,0,25%);
@@ -38,10 +52,10 @@ brick-wall {
 brick-course {
     display: flex;
     position: relative;
-    &:nth-child(2n) { right: 22px; }
-    &:nth-child(2n+1) { right: 66px; }
+    &:nth-child(2n) { right: calc(22px * var(--m)); }
+    &:nth-child(2n+1) { right: calc(66px * var(--m)); }
     & > * {
-        min-width: 88px;
+        min-width: calc(88px * var(--m));
     }
 }
 
