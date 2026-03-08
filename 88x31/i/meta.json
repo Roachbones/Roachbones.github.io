@@ -186,5 +186,35 @@
  {
   "src": "transrightsnow.png",
   "alt": "trans rights now!"
+ },
+ {
+  "src": "socks.png",
+  "alt": "programming socks now!"
+ },
+ {
+  "src": "InternetPrivacy.gif",
+  "alt": "internet privacy now!"
+ },
+ {
+  "src": "webtiles.png",
+  "alt": "WebTiles",
+  "href": "https://webtiles.kicya.net/"
+ },
+ {
+  "src": "ubuntu.png",
+  "alt": "ubuntu"
+ },
+ {
+  "src": "diy.png",
+  "alt": "DIY"
+ },
+ {
+  "src": "underconstruction.png",
+  "alt": "under construction"
+ },
+ {
+  "src": "visor-of.44203.online.gif",
+  "alt": "beep! visor now!",
+  "href": "https://query.44203.online/topic/visor/"
  }
 ]
