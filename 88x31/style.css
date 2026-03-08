@@ -22,7 +22,13 @@ brick-house {
 }
 body:has(#b:checked) brick-house { animation-name: none }
 main { transition: rotate 1s; }
-body:has(#c:checked) main { rotate: -1 -1 -1 40deg; }
+body:has(#c:checked) {
+    main { rotate: -1 -1 -1 40deg; }
+    input {
+        margin: 1em;
+        scale: 2;
+    }
+}
 body:has(#d:checked) { image-rendering: pixelated; }
 body:has(#e:checked) { perspective-origin: right; }
 body:has(#f:checked) { perspective: var(--w); }

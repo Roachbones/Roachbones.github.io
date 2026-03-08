@@ -64,7 +64,7 @@
  {
   "src": "aliceinavocadoland_2.gif",
   "alt": "welcome to avocado land",
-  "title":"I have no idea what avocado land was but it sounds good"
+  "title": "I have no idea what avocado land was but it sounds good"
  },
  {
   "src": "bogleech.gif",
@@ -223,5 +223,17 @@
   "alt": "o moku e mun",
   "lang": "tok",
   "href": "pipi.la"
+ },
+ {
+  "src": "tokiponanow.png",
+  "alt": "toki pona lon tenpo ni a",
+  "lang": "tok",
+  "href": "https://lipu-sona.pona.la/"
+ },
+ {
+  "src": "ootsbanner_88x31_vaar.gif",
+  "alt": "Order of the Stick (Vaarsuvius)",
+  "href": "https://www.giantitp.com/Comics.html",
+  "title": "favorite elf wizard"
  }
 ]
