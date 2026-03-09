@@ -1,5 +1,6 @@
 body {
-    --m: 1;
+    --m: 1.2;
+    --s: 1;
     --w: calc(352px * var(--m));
     --ε: 0.1px;
     --w-ε: calc(var(--w) - var(--ε));
@@ -30,14 +31,11 @@ body:has(#c:checked) {
         scale: 2;
     }
 }
+body:has(#d:checked) { --s: 0; }
 body:has(#e:checked) { perspective-origin: right; }
 body:has(#f:checked) { perspective: var(--w); }
 body:has(#g:checked) {
     --m: 2;
-    img {
-        width: calc(88px * var(--m));
-        height: calc(31px * var(--m));
-    }
     input {
         scale: 1.5;
         rotate: 390deg;
@@ -58,11 +56,15 @@ brick-wall {
 brick-course {
     display: flex;
     position: relative;
-    &:nth-child(2n) { right: calc(22px * var(--m)); }
-    &:nth-child(2n+1) { right: calc(66px * var(--m)); }
+    &:nth-child(2n) { right: calc(22px * var(--m) * var(--s)); }
+    &:nth-child(2n+1) { right: calc(66px * var(--m) * var(--s)); }
     & > * {
         min-width: calc(88px * var(--m));
     }
+}
+img {
+    width: calc(88px * var(--m));
+    height: calc(31px * var(--m));
 }
 
 @keyframes doner {
