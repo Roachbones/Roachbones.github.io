@@ -15,7 +15,7 @@ brick-house {
     display: block;
     position: relative;
     rotate: 1 1 1 5deg;
-    top: min(200px, 20vh);
+    top: max(50px, 20vh);
     transition: all 1s;
     width: var(--w);
     margin-left: auto; margin-right: auto;
