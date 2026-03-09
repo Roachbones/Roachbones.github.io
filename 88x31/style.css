@@ -1,5 +1,5 @@
 body {
-    --m: 1.2;
+    --m: 1;
     --s: 1;
     --w: calc(352px * var(--m));
     --ε: 0.1px;
@@ -15,7 +15,7 @@ brick-house {
     display: block;
     position: relative;
     rotate: 1 1 1 5deg;
-    top: 200px;
+    top: min(200px, 20vh);
     transition: all 1s;
     width: var(--w);
     margin-left: auto; margin-right: auto;
@@ -56,7 +56,7 @@ brick-wall {
 brick-course {
     display: flex;
     position: relative;
-    &:nth-child(2n) { right: calc(22px * var(--m) * var(--s)); }
+    &:nth-child(2n) { right: calc(var(--m) * (22px + (1 - var(--s)) * 66px)); }
     &:nth-child(2n+1) { right: calc(66px * var(--m) * var(--s)); }
     & > * {
         min-width: calc(88px * var(--m));
