@@ -27,8 +27,9 @@ main { transition: rotate 1s; }
 body:has(#c:checked) {
     main { rotate: -1 -1 -1 40deg; }
     input {
-        margin: 2em;
-        scale: 4;
+        margin: 1em;
+        scale: 3;
+        transform: translateZ(calc(var(--w) / 4));
     }
 }
 body:has(#d:checked) { --s: 0; }
@@ -128,12 +129,10 @@ body:has(#j:checked):has(#k:checked):has(#l:checked):has(#m:checked) {
 #thanks {
     display: none;
     animation: thanks 1s;
-    margin-left: auto; margin-right: auto; margin-top: 88px;
-    width: calc(88px * 4);
-    height: calc(31px * 4);
+    margin-left: auto; margin-right: auto; margin-top: calc(var(--w) / 4);
 }
 body:has(#z:checked) {
-    brick-wall {
+    brick-wall, brick-house {
         scale: 0;
     }
     #thanks {
@@ -141,8 +140,8 @@ body:has(#z:checked) {
     }
 }
 @keyframes thanks {
-    0% { scale: 0; }
-    to { }
+    0% { max-width: 0; margin-top: 0; }
+    to { max-width: min(352px, 100%); }
 }
 
 brick-wall {
@@ -166,7 +165,7 @@ brick-course {
         min-width: calc(88px * var(--m));
     }
 }
-img {
+img:not(#thanks) {
     width: calc(88px * var(--m));
     height: calc(31px * var(--m));
 }
