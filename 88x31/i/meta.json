@@ -15,7 +15,7 @@
  },
  {
   "src": "query.44203.online.png",
-  "alt": "\u0394-44203",
+  "alt": "Δ-44203",
   "href": "https://query.44203.online"
  },
  {
@@ -299,8 +299,14 @@
  },
  {
   "src": "TomScott.png",
-  "alt": "Tom Scott: \"I am in an 88x31 web badge\"",
+  "alt": "Tom Scott: “I am in an 88x31 web badge”",
   "href": "https://www.tomscott.com/newsletter/2026-03-02/#:~:text=list%20animals%20until%20failure"
+ },
+ {
+  "src": "javascript-zero.png",
+  "alt": "Proudly zero JavaScript!",
+  "title": "The “Send it to a friend” button calls one line of JavaScript, but the rest of this page just uses CSS.",
+  "href": "https://lyra.horse/blog/2025/08/you-dont-need-js/"
  },
  {
   "src": "blank.gif",
