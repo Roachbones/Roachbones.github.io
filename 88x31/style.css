@@ -33,7 +33,7 @@ body:has(#c:checked) {
     }
 }
 body:has(#d:checked) { --s: 0; }
-body:has(#e:checked) { perspective-origin: right; }
+body:has(#e:checked) { perspective-origin: top left; }
 body:has(#f:checked) { perspective: var(--w); }
 body:has(#g:checked) {
     --m: 2;
