@@ -27,7 +27,7 @@ main { transition: rotate 1s; }
 body:has(#c:checked) {
     main { rotate: -1 -1 -1 40deg; }
     input {
-        margin: 1em;
+        margin: 2em;
         scale: 2;
     }
 }
@@ -38,9 +38,10 @@ body:has(#g:checked) {
     --m: 2;
     input {
         scale: 1.5;
-        rotate: 390deg;
+        rotate: -390deg;
     }
 }
+body:has(#h:checked) input { scale: 1 40; transform-origin: top; }
 brick-wall {
     display: block;
     background-color: rgb(0,0,0,25%);

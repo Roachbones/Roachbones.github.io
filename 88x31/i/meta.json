@@ -133,7 +133,8 @@
  },
  {
   "src": "nonbinary.png",
-  "alt": "non-binary pride!"
+  "alt": "non-binary pride!",
+  "href": "https://en.wikipedia.org/wiki/Postgenderism"
  },
  {
   "src": "lyra.horse.png",
@@ -142,7 +143,8 @@
  },
  {
   "src": "human.svg",
-  "alt": "made by a human"
+  "alt": "made by a human",
+  "href": "rose.systems/best_photo_of_me.jpg"
  },
  {
   "src": "mastodon_button_3.gif",
@@ -190,7 +192,8 @@
  },
  {
   "src": "socks.png",
-  "alt": "programming socks now!"
+  "alt": "programming socks now!",
+  "href": "https://en.wiktionary.org/wiki/programming_socks"
  },
  {
   "src": "InternetPrivacy.gif",
@@ -241,5 +244,59 @@
   "alt": "mou.sh",
   "title": "my friend olive",
   "href": "mou.sh"
+ },
+ {
+  "src": "guestbook.png",
+  "alt": "Sign the guestbook",
+  "href": "guestbook.rose.systems",
+  "data-comment": "from https://sweetfish.site/advent/2025"
+ },
+ {
+  "src": "sickos.png",
+  "alt": "YES... HA HA HA... YES!",
+  "href": "https://en.wikipedia.org/wiki/Sickos",
+  "data-comment": "from https://sweetfish.site/advent/2025"
+ },
+ {
+  "src": "paulallen.png",
+  "href": "https://en.wikipedia.org/wiki/American_Psycho_(film)",
+  "alt": "Paul Allen's businesscard",
+  "title": "let's see Paul Allen's button",
+  "data-comment": "from https://sweetfish.site/advent/2025"
+ },
+ {
+  "src": "rtts.png",
+  "alt": "Runaway to the Stars",
+  "href": "runawaytothestars.com"
+ },
+ {
+  "src": "17776.gif",
+  "alt": "17776",
+  "href": "https://www.sbnation.com/a/17776-football"
+ },
+ {
+  "src": "ifdb.png",
+  "alt": "IFDB: Interactive Fiction Database",
+  "href": "https://ifdb.org/viewgame?id=whfi64n7vjfwh7mk"
+ },
+ {
+  "src": "Nano.gif",
+  "alt": "Made using GNU nano",
+  "href": "https://en.wikipedia.org/wiki/GNU_nano"
+ },
+ {
+  "src": "UnknownReasons.png",
+  "alt": "Made for unknown reasons",
+  "title": "shrug"
+ },
+ {
+  "src": "MaskUp.GIF",
+  "alt": "Mask up! Stay safe!",
+  "title": "I prefer KN94 or the 3M 6200 with P100 cartridges"
+ },
+ {
+  "src": "TomScott.png",
+  "alt": "Tom Scott: \"I am in an 88x31 web badge\"",
+  "href": "https://www.tomscott.com/newsletter/2026-03-02/#:~:text=list%20animals%20until%20failure"
  }
 ]
