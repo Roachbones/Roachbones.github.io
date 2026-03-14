@@ -117,13 +117,14 @@ body:has(#m:checked):has(#i:checked) {
 
 #z {
     animation: charlie 3s;
+    scale: 1;
 }
 body:has(#j:checked):has(#k:checked):has(#l:checked):has(#m:checked) {
     #z { display: inline; }
 }
 @keyframes charlie {
     0% { opacity: 0; scale: 413; }
-    to { opacity: 1; scale: 1; }
+    to { opacity: 1; }
 }
 
 #thanks {
