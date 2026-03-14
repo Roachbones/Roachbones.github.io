@@ -136,6 +136,7 @@ body:has(#z:checked) {
     brick-wall, brick-house {
         scale: 0;
     }
+    main { rotate: none; }
     #thanks {
         display: block;
     }
