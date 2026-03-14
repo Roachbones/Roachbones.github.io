@@ -38,16 +38,18 @@
   "alt": "cogs"
  },
  {
-  "src": "built_with_microsoft_notepad.gif",
-  "alt": "Built with Microsoft Notepad."
+  "src": "ilikecomputer.png",
+  "alt": "I LIKE COMPUTER"
  },
  {
   "src": "buttons_now.gif",
   "alt": "Buttons Now!"
  },
  {
-  "src": "blank.gif",
-  "alt": ""
+  "src": "rose.systems-scribble.png",
+  "alt": "rose.systems",
+  "href": "rose.systems",
+  "title": "me"
  },
  {
   "src": "transbianheart.svg",
@@ -73,7 +75,8 @@
  },
  {
   "src": "mousepow.gif",
-  "alt": "Powered By: A mouse in a wheel"
+  "alt": "Powered By: A mouse in a wheel",
+  "href": "https://en.wikipedia.org/wiki/Turnspit_dog"
  },
  {
   "src": "neocities-pink.gif",
@@ -298,5 +301,9 @@
   "src": "TomScott.png",
   "alt": "Tom Scott: \"I am in an 88x31 web badge\"",
   "href": "https://www.tomscott.com/newsletter/2026-03-02/#:~:text=list%20animals%20until%20failure"
+ },
+ {
+  "src": "blank.gif",
+  "alt": ""
  }
 ]
