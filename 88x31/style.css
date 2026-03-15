@@ -139,6 +139,7 @@ body:has(#z:checked) {
     main { rotate: none; }
     #thanks {
         display: block;
+        transform: translateZ(0.01px);
     }
 }
 @keyframes thanks {
