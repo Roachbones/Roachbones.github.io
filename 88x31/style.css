@@ -119,8 +119,8 @@ body:has(#m:checked):has(#i:checked) {
     animation: charlie 3s;
     scale: 1;
 }
-body:has(#j:checked):has(#k:checked):has(#l:checked):has(#m:checked) {
-    #z { display: inline; }
+body:has(#j:checked):has(#k:checked):has(#l:checked):has(#m:checked) #z, #z:checked {
+    display: inline;
 }
 @keyframes charlie {
     0% { opacity: 0; scale: 413; }
