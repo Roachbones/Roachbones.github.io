@@ -9,7 +9,7 @@ body {
 }
 * {
     transform-style: preserve-3d;
-    transition: all 1s
+    transition: all 1s;
 }
 brick-house {
     display: block;
@@ -22,8 +22,35 @@ brick-house {
     animation-name: doner; animation-duration:16s; animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
+@keyframes doner {
+    0% { rotate: y 0turn; }
+    to { rotate: y 1turn; }
+}
+brick-wall {
+    display: block;
+    background-color: rgb(0,0,0,25%);
+    width: var(--w);
+    position: absolute;
+    line-height: 0;
+    &:nth-child(1) { transform: translateZ(calc(var(--w-ε) / 2)); }
+    &:nth-child(2) { transform: rotateY(0.25turn) translateZ(calc(var(--w-ε) / 2)); }
+    &:nth-child(3) { transform: rotateY(0.5turn) translateZ(calc(var(--w-ε) / 2)); }
+    &:nth-child(4) { transform: rotateY(0.75turn) translateZ(calc(var(--w-ε) / 2)); }
+    overflow-x: clip;
+}
+brick-course {
+    display: flex;
+    position: relative;
+    &:nth-child(2n) { right: calc(var(--m) * (22px + (1 - var(--s)) * 66px)); }
+    &:nth-child(2n+1) { right: calc(66px * var(--m) * var(--s)); }
+    & > * { min-width: calc(88px * var(--m)); }
+}
+img:not(#thanks) {
+    width: calc(88px * var(--m));
+    height: calc(31px * var(--m));
+}
+
 body:has(#b:checked) brick-house { animation-name: none }
-main { transition: rotate 1s; }
 body:has(#c:checked) {
     main { rotate: -1 -1 -1 40deg; }
     input {
@@ -50,29 +77,23 @@ body:has(#h:checked) input { scale: 1 40; transform-origin: top; }
     margin-left: calc(var(--w) / 4);
 }
 body:has(#i:checked), body:has(#b:not(:checked)):has(#d:checked):has(#e:checked) {
-    #i {
-        display: inline;
-    }
+    #i { display: inline; }
 }
-
 #i, #j, #k, #l, #m, #z {
     display: none;
     margin: 0;
     animation: appear 1s;
 }
-body:has(#i:checked) {
-    #i { scale: 0.5; }
-    #j, #k, #l, #m {
-        display: inline;
-    }
-}
 @keyframes appear {
     0% { scale: 0 1; margin: 0; }
     to { }
 }
+body:has(#i:checked) {
+    #i { scale: 0.5; }
+    #j, #k, #l, #m { display: inline; }
+}
 
 a { border-style: solid; border-width: 0; }
-
 body:has(#j:checked):has(#i:checked) {
     a { rotate: 10deg; margin: 7px; scale: 1.1; }
     img:not(#thanks) { rotate: -5deg; }
@@ -116,21 +137,15 @@ body:has(#m:checked):has(#i:checked) {
 }
 
 #z {
-    animation: charlie 3s;
     scale: 1;
-}
-body:has(#j:checked):has(#k:checked):has(#l:checked):has(#m:checked) #z, #z:checked {
-    display: inline;
+    animation: charlie 3s;
 }
 @keyframes charlie {
     0% { opacity: 0; scale: 413; }
     to { opacity: 1; }
 }
-
-#thanks {
-    display: none;
-    animation: thanks 1s;
-    margin-left: auto; margin-right: auto; margin-top: calc(var(--w) / 4);
+body:has(#j:checked):has(#k:checked):has(#l:checked):has(#m:checked) #z, #z:checked {
+    display: inline;
 }
 body:has(#z:checked) {
     brick-wall, brick-house {
@@ -142,38 +157,12 @@ body:has(#z:checked) {
         transform: translateZ(0.01px);
     }
 }
+#thanks {
+    display: none;
+    margin-left: auto; margin-right: auto; margin-top: calc(var(--w) / 4);
+    animation: thanks 1s;
+}
 @keyframes thanks {
     0% { max-width: 0; margin-top: 0; }
     to { max-width: min(352px, 100%); }
-}
-
-brick-wall {
-    display: block;
-    background-color: rgb(0,0,0,25%);
-    width: var(--w);
-    position: absolute;
-    line-height: 0;
-    &:nth-child(1) { transform: translateZ(calc(var(--w-ε) / 2)); }
-    &:nth-child(2) { transform: rotateY(0.25turn) translateZ(calc(var(--w-ε) / 2)); }
-    &:nth-child(3) { transform: rotateY(0.5turn) translateZ(calc(var(--w-ε) / 2)); }
-    &:nth-child(4) { transform: rotateY(0.75turn) translateZ(calc(var(--w-ε) / 2)); }
-    overflow-x: clip;
-}
-brick-course {
-    display: flex;
-    position: relative;
-    &:nth-child(2n) { right: calc(var(--m) * (22px + (1 - var(--s)) * 66px)); }
-    &:nth-child(2n+1) { right: calc(66px * var(--m) * var(--s)); }
-    & > * {
-        min-width: calc(88px * var(--m));
-    }
-}
-img:not(#thanks) {
-    width: calc(88px * var(--m));
-    height: calc(31px * var(--m));
-}
-
-@keyframes doner {
-    0% {rotate: y 0turn;}
-    to {rotate: y 1turn;}
 }
