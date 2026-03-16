@@ -155,7 +155,8 @@
   "href": "mastodon.social/@vivianrose"
  },
  {
-  "src": "rainbow.gif"
+  "src": "rainbow.gif",
+  "alt": "rainbow"
  },
  {
   "src": "sendit.gif",
@@ -183,7 +184,8 @@
  },
  {
   "src": "foi-aacs.png",
-  "href": "https://en.wikipedia.org/wiki/Illegal_number"
+  "href": "https://en.wikipedia.org/wiki/Illegal_number",
+  "alt": "AACS encryption key"
  },
  {
   "src": "cookiefree.png",
