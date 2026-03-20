@@ -152,10 +152,8 @@ body:has(#z:checked) {
         scale: 0;
     }
     main { rotate: none; }
-    #thanks {
-        display: block;
-        transform: translateZ(0.01px);
-    }
+    #thanks { display: block; transform: translateZ(0.1px);}
+    input { transform: none; }
 }
 #thanks {
     display: none;
