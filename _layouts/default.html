@@ -6,7 +6,8 @@
 <meta property=og:site_name content=rose.systems>
 <meta property=og:title content="{{ page.title }}">
 <meta property=og:locale content={{ page.lang | default: site.lang | default: 'en-us' }}>
-<meta name=theme-color content=mistyrose media=(prefers-color-scheme:light)>
+{% if page.ogimage %}<meta property=og:image content="{{ page.ogimage }}">
+{% endif %}<meta name=theme-color content=mistyrose media=(prefers-color-scheme:light)>
 <meta name=theme-color content=plum media=(prefers-color-scheme:dark)>
 <meta name=fediverse:creator content=@vivianrose@mastodon.social>
 {% if page.description %}<meta name=description content="{{ page.description }}">
