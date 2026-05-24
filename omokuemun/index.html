@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang=en>
+<meta name=viewport content="width=device-width, initial-scale=1.0">
+<title>o moku e mun</title>
+<link rel=stylesheet type=text/css href=../style.css>
+<style>
+@font-face {font-family: "nasin nanpa"; src: url(https://rose.systems/anpa_ma/assets/nasin-nanpa-4.0.1.otf);}
+
+html {
+    --size-tile: 1cm;
+    --size-2-tiles: calc(var(--size-tile) * 2);
+    --not-color-bg: #202230;
+    --color-bg: #1a1c2c;
+    --color-fg: #f4f4f4;
+    --color-frog: #88a464;
+    --not-color-frog: #89a565;
+    --color-a: #41a6f6;
+    --margin-tower: 1rem;
+    --vside: round(up, calc(100% + var(--margin-tower) * 2), var(--size-tile));
+    --vw: round(up, calc(100% + var(--margin-tower) * 4), var(--size-tile));
+    --w: round(down, min(100vw, 37rem), var(--size-tile));
+    --side: var(--w);
+}
+body {
+    image-rendering: pixelated;
+}
+main, #hell {
+    width: calc(var(--w));
+    position: relative;
+}
+section {
+    &::before, &::after {
+        background-image: url(i/brick.png);
+        background-size: contain;
+        width: var(--size-2-tiles);
+        position: absolute;
+        height: 100%;
+        height: round(up, 100%, var(--size-tile));
+        content: '';
+        top: 0;
+        z-index: -9;
+    }
+    &::before { left: calc(-2 * var(--size-tile)); }
+    &::after { right: calc(-2 * var(--size-tile)); }
+}
+section:not(:has(section)) {
+    &::before, &::after {
+        height: 100%
+    }
+}
+p {
+    margin-left: 1rem; margin-right: 1rem;
+    &:first-of-type { Vmargin-top: 1rem; }
+}
+n{resize:both;overflow:scroll;}
+section { width: 100%; }
+
+h1, h2 {
+    text-align: center;
+    position: relative;
+}
+h2 {
+    margin-top: 0; margin-bottom: 0;
+    height: var(--size-tile); line-height: var(--size-tile);
+    &::before, &::after {
+        background-image: url(i/squarebrick.png);
+        background-size: contain;
+        width: var(--size-tile); height: var(--size-tile);        
+        position: absolute;
+        content: '';
+        top: 0;
+        position: absolute;
+    }
+    &::before { right: calc(var(--side) - var(--size-tile)); }
+    &::after { left: calc(var(--side) - var(--size-tile)); }
+}
+
+#web {
+    width: var(--size-tile);
+    rotate: y .5turn;
+    vleft: calc(var(--side) - var(--size-tile));
+    right: 0;
+}
+#bee {
+    padding-top: var(--size-tile);
+    padding-bottom: var(--size-tile);
+    padding-right: calc(var(--size-tile) / 8);
+    right: calc(-1 * var(--size-tile));
+}
+#tree {
+    position: relative;
+    width: calc(var(--size-tile) * 5);
+    height: calc(var(--size-tile) * 4);
+    display: block;
+    margin-left: var(--size-tile);
+}
+[src="i/shopleft.png"] {
+    position: absolute;
+    --shop-width: calc(28 * var(--size-tile));
+    width: var(--shop-width);
+    height: calc(13 * var(--size-tile));
+    left: calc(-1 * var(--shop-width));
+    max-width: none;
+    top: round(down, 30%, var(--size-tile));
+}
+
+#b {
+    width: var(--size-2-tiles);
+}
+
+section {
+    position: absolute;
+    top: round(up, 100%, var(--size-tile));
+}
+img {  }
+.aside { position: absolute; }
+.clobber { background-color: var(--color-bg); }
+.right { left: var(--side);}
+.left { right: var(--side);}
+.one-wide { width: var(--size-tile); }
+
+.sp {
+    font-family: "nasin nanpa";
+    background-color: var(--color-fg);
+    color: var(--color-bg);
+    border-radius: .2rem;
+    display: inline-block;
+}
+
+img.fanart {
+    margin: 2rem auto;
+}
+
+hr {
+    background-image: url(i/brick.png);
+    background-size: var(--size-2-tiles);
+    height: var(--size-tile);
+    border: none;
+    width: var(--w);
+    margin: 0;
+}
+
+#hell {
+    &[open] summary { 
+        background-image: none;
+        animation-name: smash;
+    }
+    &:not([open]) summary {
+        cursor: grabbing;
+    }
+    summary {
+        background-color: var(--color-bg);
+        background-image: url(i/breakable.png);
+        background-size: contain;
+        width: var(--size-2-tiles);
+        height: var(--size-tile);
+        position: absolute;
+        right: var(--size-2-tiles);
+        top: calc(-1 * var(--size-tile));
+        list-style-type: none;
+    }
+    background: linear-gradient(var(--color-bg), #aa000666);
+    Vh2:first-of-type { padding-top: calc(var(--size-tile) * 4); }
+}
+
+[src^="i/lynnroom"], [src^="i/procgenroom"] {
+    width: round(down, 100%, 136px); height: auto;
+    p:has(> &) { margin: 2em; }
+}
+
+.inline-tile, [src="i/tawa.png"], [src="i/kili.png"] {
+    margin-left: 1px; margin-right: 1px;
+    width: round(up, 1em, 16px);
+    vertical-align: middle;
+}
+
+[src="i/tawa.png"], [src="i/kili.png"] {
+    margin: 0; margin-right: -4px;
+    width: round(up, 1.5em, 16px);
+    vertical-align: middle;
+}
+
+hanging-vine {
+    position: absolute;
+    height: round(down, 40%, var(--size-tile));
+    background-image: url(i/vine.png);
+    background-position-y: var(--size-tile);
+    left: calc(var(--side) - var(--size-tile));
+    top: 0;
+    &, &::before, &::after {
+        display: block;
+        width: var(--size-tile);
+        background-size: contain;
+    }
+    &::before, &::after {
+        background-size: contain;
+        height: var(--size-tile);
+        position: absolute;
+        content: '';
+    }
+    &::before {
+        background-image: url(i/vineblock.png);
+        top: 0;        
+    }
+    &::after {
+        background-image: url(i/vineend.png);
+        background-color: var(--color-bg);
+        bottom: 0;
+    }
+}
+
+</style>
+
+<main>
+
+<section>
+
+<!--<left-wall></left-wall><right-wall></right-wall> -->
+
+<hr>
+<br>
+
+<img src=i/logo.png alt="o moku e mun" lang=tok style=width:calc(var(--size-tile)*8);margin:auto;display:block>
+
+<p>In 2025, <a href=https://lynn.github.io>Lynn</a> and I made <a href=https://pipi.la>o moku e mun</a> (literally: <i>Eat the Moon</i>) for <a href=><i>pali musi</i></a>, a toki pona game jam. <a href=https://en.wikipedia.org/wiki/Toki_pona>toki pona</a> is a constructed language, but you don't really need to know it to play <i>o moku e mun</i>.
+
+<p><i>o moku e mun</i> is a platformer where you play as a bug on a mission to the moon. Along the way, you eat fruit and metamorphose to unlock movement options. The whole game only uses two buttons: ← and → to fly up-left and up-right.
+
+<p>You have two meters: <img src=i/tawa.png alt=tawa> («tawa», “travel”) and <img src=i/kili.png alt=kili> («kili», “fruit”). Each ←/→ press costs 1 tawa. tawa recharges at rest. kili increases by collecting fruit and is used to upgrade your movement.
+
+<p><img src=i/gameplay.gif style=width:100%>
+
+<section>
+<h2 title='procgen means procedural generation'>Procgen</h2>
+
+<hanging-vine></hanging-vine>
+
+<p>Recurring premade rooms are called <dfn>lynnrooms</dfn> because Lynn made them. Two&nbsp;lynnrooms:
+
+<p style=text-align:center>
+<img width=240 height=136 src=i/lynnroom_tokipona.png alt="toki pona lynnroom">
+<img width=240 height=136 src=i/lynnroom_fruittree.png alt="Fruit tree lynnroom">
+
+<p><img alt=esun class=inline-tile src=i/esun.png>s are placeholders where shops can spawn. We call shops “shops” because they exchange collected fruit for upgrades, but I interpret them as safe hidey-holes where you can metamorphose using calories you've consumed. (Others interpret the floating chrysalises as big fruits you eat.)</p>
+
+<p>The game's map data also contains screens split into four sections I'll call “components”. Two such screens:
+
+<p style=text-align:center id=components>
+<img width=240 height=136 src=i/procgenroom1.png alt="Procgen components">
+<img width=240 height=136 src=i/procgenroom2.png alt="Procgen components">
+
+<p>Each component guarantees passable areas on its top, bottom, and side (marked with placeholder <img src=i/reddot.png alt="red dot" class=inline-tile> tiles) so any combination of components can be assembled arbitrarily to form a playable route. <img alt="maybe-spikes" src=i/maybespikes.png class=inline-tile> marks where spikes <i>may</i> spawn, with greater probability higher up.
+
+<img src=i/shopleft.png title="shops look like this">
+
+<section><h2>Physics</h2>
+
+<p title="I actually showed it off to my physics profs at my alma mater.">I'm proud of the physics. You only have two buttons, but the movement is so satisfying!
+
+<p>The first code I wrote defined velocity, acceleration, and air resistance. Here's the very first build:
+
+<iframe></iframe>
+
+<p>Right away, it felt like controlling a moth. You know when a bug tries to fly out a window or something, but keeps missing? <i>o moku e mun</i> helps you relate to that bug.
+
+<section><h2>Enemies</h2>
+
+<img alt=frog src=i/frog.png class="aside left one-wide clobber">
+
+<img alt=bee src=i/bee.png id=bee class="aside one-wide clobber">
+
+<p>Frogs jump around and chase you. They prefer to nap on the left side of the tower due to a thermal differential caused by outside weather. They're programmed not to do this, but they do it anyway. This is called <b style=color:var(--color-frog)>frog logic</b>.
+
+<p>Bees accelerate toward you when they have line of sight and you are not at full tawa.</p>
+
+<section><h2>Sprites</h2>
+
+<img alt=spiderweb src=i/web.png class=aside id=web>
+
+<p>The game looks so good because Lynn drew most of it. I drew a few sprites though, like the spiderweb!
+
+<section>
+<!--<img alt=spiderweb src=i/brick.png class="aside right" id=b>-->
+
+
+<h2>Development</h2>
+
+<p><i>o moku e mun</i> runs in <a href=https://en.wikipedia.org/wiki/TIC-80>TIC-80</a>, a fantasy console like PICO-8 but FOSS and buggy.
+
+<p>We source-controlled with git. TIC-80 stores each line of the entire 240x136 map as a line of text in the cartridge file, so we had to be careful to work on different rows of rooms to avoid merge conflicts.
+
+<p><a href=https://github.com/Roachbones/mokumun>Here's the source code.</a>
+
+
+
+<zimg src=tiles.png width=400>
+
+
+<section>
+<img src=i/tree.png id=tree>
+<hr>
+
+<details id=hell open>
+<summary></summary>
+
+<div style=height:var(--size-tile)></div>
+
+<h2>Fanart</h2>
+
+<p>[rachel33c3 TODO] drew this fanart of mun Kekan San:
+
+<img alt="jan Kekan San as the butterfly, being slain by a bee despite standing on a platform" src=i/kekan.png class=fanart>
+
+<p>We later rephrased the sign from <span class=sp lang=tok>sina lon supa la pipi jelo li tawa ala.</span> to <span class=sp lang=tok>sina lon supa la pipi jelo li alasa ala e sina.</span>.
+
+
+<p style=margin-bottom:0><a href=https://bsky.app/profile/weeble.bsky.social/post/3lt5arwdgkc2c>Annette drew this lovely fanart</a>:
+
+<img alt="angel and devil" src=i/jan.webp class=fanart>
+
+</section></section></section>
+
+</section></section></section>
+</section></section></section>
+
+
+</main>
+
+<!--
+
+todo write tic-80 issue to store map data in more lines for easier source control? maybe? maybe not
+
+.-->
+
+
+
+
+<!--
+todo
+
+left and right borders can be the brick texture so the page looks like the tower.
+
+
+lynn found bugs in the py implementation (link to them)
+
+someone else found bugs via trying to run the game in the dev version of tic-80 (link)
+
+spider web to the side alt="I'm proud of this spiderweb."
+-->
