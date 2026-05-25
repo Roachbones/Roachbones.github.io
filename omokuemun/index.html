@@ -43,7 +43,11 @@ section {
     &::before { left: calc(-2 * var(--size-tile)); }
     &::after { right: calc(-2 * var(--size-tile)); }
 }
-#hell section { &::before, &::after { background-image: url(i/hellbrick.png); z-index: 2; } }
+#hell section { &::before, &::after {
+    background-image: url(i/hellbrick.png);
+    z-index: 2;
+    height: 100%;
+}}
 p { margin-left: var(--margin-tower); margin-right: var(--margin-tower); }
 n{resize:both;overflow:scroll;}
 
@@ -105,7 +109,6 @@ img {  }
 .right  { right:  calc(var(--x) * var(--size-tile)); }
 .top    { top:    calc(var(--y) * var(--size-tile)); }
 .bottom { bottom: calc(var(--y) * var(--size-tile)); }
-.flip { rotate: y .5turn; }
 .atop {
     position: absolute;
     width: var(--size-tile); height: var(--size-tile);
@@ -150,11 +153,13 @@ hr {
         width: var(--size-2-tiles);
         height: var(--size-tile);
         position: absolute;
-        left: round(down, 60%, var(--size-2-tiles));
+        left: round(down, 70%, var(--size-2-tiles));
         top: calc(-1 * var(--size-tile));
         list-style-type: none;
     }
-    background: linear-gradient(var(--color-bg), #aa000666);
+    & > section {
+        background: linear-gradient(var(--color-bg), #aa000666);
+    }
     Vh2:first-of-type { padding-top: calc(var(--size-tile) * 4); }
 }
 
@@ -203,13 +208,11 @@ hanging-vine {
         bottom: 0;
     }
 }
-
 </style>
 
 <main>
 
 <section>
-
 <hr>
 <br>
 
@@ -227,7 +230,6 @@ hanging-vine {
 <h2 title='procgen means procedural generation'>Procgen</h2>
 <img src=i/grass2.png class="atop left">
 <img src=i/grass1.png class="atop right">
-
 <hanging-vine></hanging-vine>
 
 <p>Recurring premade rooms are called <dfn>lynnrooms</dfn> because Lynn made them. Two&nbsp;lynnrooms:
@@ -271,7 +273,7 @@ hanging-vine {
 
 <section>
 <h2>Sprites</h2>
-<img alt=spiderweb src=i/web.png class="one-wide right flip" style=--x=1;--y=1>
+<img alt=spiderweb src=i/web.png class="one-wide right" style=--x:0;--y:1>
 
 <p>The game looks so good because Lynn drew most of it. I drew a few sprites though, like the spiderweb!
 
@@ -293,7 +295,7 @@ hanging-vine {
 <section>
 <img src=i/tree.png>
 <hr>
-<details id=hell open>
+<details id=hell>
 <summary></summary>
 
 <section>
@@ -315,7 +317,9 @@ hanging-vine {
 
 <p style=margin-top:2lh><a href=https://bsky.app/profile/weeble.bsky.social/post/3lt5arwdgkc2c>Annette drew this lovely fanart</a>:
 
-<p style=margin-bottom:0;padding-bottom:2rem><img alt="angel and devil" src=i/jan.webp>
+<p><img alt="angel and devil" src=i/jan.webp>
+
+<br><br>
 
 </details>
 
