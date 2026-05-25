@@ -1,23 +1,22 @@
 <!doctype html>
-<html lang=en>
-<meta name=viewport content="width=device-width, initial-scale=1.0">
+<html lang=en-US>
 <title>o moku e mun</title>
+<meta name=viewport content="width=device-width, initial-scale=1.0">
+<meta name=description content="o moku e mun, the two-button toki pona platformer">
+<meta name=theme-color content=#f4f4f4 media=(prefers-color-scheme:light)>
+<meta name=theme-color content=#1a1c2c media=(prefers-color-scheme:dark)>
+<link rel=icon href=i/pipi.png>
 <link rel=stylesheet type=text/css href=../style.css>
 <style>
-@font-face {font-family: "nasin nanpa"; src: url(https://rose.systems/anpa_ma/assets/nasin-nanpa-4.0.1.otf);}
-
+@font-face { font-family: "nasin nanpa"; src: url(https://rose.systems/anpa_ma/assets/nasin-nanpa-4.0.1.otf); }
 html {
     --size-tile: 1cm;
     --size-2-tiles: calc(var(--size-tile) * 2);
-    --not-color-bg: #202230;
     --color-bg: #1a1c2c;
     --color-fg: #f4f4f4;
     --color-frog: #88a464;
-    --not-color-frog: #89a565;
     --color-a: #41a6f6;
     --margin-tower: 1rem;
-    --vside: round(up, calc(100% + var(--margin-tower) * 2), var(--size-tile));
-    --vw: round(up, calc(100% + var(--margin-tower) * 4), var(--size-tile));
     --w: round(down, min(100vw, 37rem), var(--size-tile));
     --side: var(--w);
     --x: 0; --y: 0;
@@ -25,10 +24,10 @@ html {
 body {
     image-rendering: pixelated;
 }
-main, #hell {
+main {
     width: calc(var(--w));
-    position: relative;
 }
+main, #hell { position: relative; }
 section {
     &::before, &::after {
         background-image: url(i/brick.png);
@@ -44,17 +43,9 @@ section {
     &::before { left: calc(-2 * var(--size-tile)); }
     &::after { right: calc(-2 * var(--size-tile)); }
 }
-section:not(:has(section)) {
-    &::before, &::after {
-        height: 100%
-    }
-}
-p {
-    margin-left: 1rem; margin-right: 1rem;
-    &:first-of-type { Vmargin-top: 1rem; }
-}
+#hell section { &::before, &::after { background-image: url(i/hellbrick.png); z-index: 2; } }
+p { margin-left: var(--margin-tower); margin-right: var(--margin-tower); }
 n{resize:both;overflow:scroll;}
-section { width: 100%; }
 
 h1, h2 {
     text-align: center;
@@ -72,27 +63,22 @@ h2 {
         top: 0;
         position: absolute;
     }
-    &::before { right: calc(var(--side) - var(--size-tile)); }
-    &::after { left: calc(var(--side) - var(--size-tile)); }
+    &::before { right: calc(var(--w) - var(--size-tile)); }
+    &::after { left: calc(var(--w) - var(--size-tile)); }
 }
 
 #bee {
-    padding-top: var(--size-tile);
-    padding-bottom: var(--size-tile);
+    padding-top: calc(var(--size-tile) / 2);
+    padding-bottom: calc(var(--size-tile) / 2);
     padding-right: calc(var(--size-tile) / 8);
 }
-#tree {
-    position: relative;
+[src="i/tree.png"] {
     width: calc(var(--size-tile) * 5);
     height: calc(var(--size-tile) * 4);
     display: block;
     margin-left: var(--size-tile);
 }
-.atop {
-    position: absolute;
-    width: var(--size-tile); height: var(--size-tile);
-    top: calc(-1 * var(--size-tile));
-}
+
 [src="i/shopleft.png"] {
     position: absolute;
     --shop-width: calc(28 * var(--size-tile));
@@ -120,10 +106,11 @@ img {  }
 .top    { top:    calc(var(--y) * var(--size-tile)); }
 .bottom { bottom: calc(var(--y) * var(--size-tile)); }
 .flip { rotate: y .5turn; }
-
-
-.right1 { right: calc(-1 * var(--size-tile)); }
-.left1 { left: calc(-1 * var(--size-tile)); }
+.atop {
+    position: absolute;
+    width: var(--size-tile); height: var(--size-tile);
+    top: calc(-1 * var(--size-tile));
+}
 
 .one-wide { width: var(--size-tile); }
 
@@ -282,18 +269,14 @@ hanging-vine {
 
 <p>Bees accelerate toward you when they have line of sight and you are not at full tawa.</p>
 
-<section><h2>Sprites</h2>
-
+<section>
+<h2>Sprites</h2>
 <img alt=spiderweb src=i/web.png class="one-wide right flip" style=--x=1;--y=1>
 
 <p>The game looks so good because Lynn drew most of it. I drew a few sprites though, like the spiderweb!
 
 <section>
-<!--<img alt=spiderweb src=i/brick.png class="aside right" id=b>-->
-
-
 <h2>Development</h2>
-
 <img src=i/grass1.png class=atop>
 <img src=i/dicot.png class="atop right">
 
@@ -307,14 +290,13 @@ hanging-vine {
 
 <p><a href=https://github.com/Roachbones/mokumun>Here's the source code.</a>
 
-
 <section>
-<img src=i/tree.png id=tree>
+<img src=i/tree.png>
 <hr>
-
 <details id=hell open>
 <summary></summary>
 
+<section>
 <div style=height:var(--size-tile)></div>
 
 <h2>Fanart</h2>
@@ -340,7 +322,6 @@ hanging-vine {
 </section></section></section>
 </section></section></section>
 </section></section></section>
-
 
 </main>
 
