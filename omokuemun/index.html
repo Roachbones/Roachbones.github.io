@@ -20,12 +20,14 @@ html {
     --color-frog: #88a464;
     --color-a: #41a6f6;
     --margin-tower: 1rem;
-    --w: round(down, min(100vw, 37rem), var(--size-tile));
+    --w: round(down, min(calc(100vw - var(--size-2-tiles)), 38rem), var(--size-tile));
     --x: 0; --y: 0;
 }
 main, section { width: calc(var(--w)); }
 main, #hell { position: relative; }
 section {
+    position: absolute;
+    top: round(up, 100%, var(--size-tile));
     &::before, &::after {
         background-image: url(i/brick.png);
         background-size: contain;
@@ -90,15 +92,6 @@ h2 {
     top: round(down, 30%, var(--size-tile));
 }
 
-#b {
-    width: var(--size-2-tiles);
-}
-
-section {
-    position: absolute;
-    top: round(up, 100%, var(--size-tile));
-}
-img {  }
 .aside { position: absolute; }
 .clobber { background-color: var(--color-bg); z-index: -1; }
 .left, .right, .top, .bottom { position: absolute; }
@@ -129,26 +122,20 @@ img {  }
 hr {
     background-image: url(i/brick.png);
     background-size: var(--size-2-tiles);
-    height: var(--size-tile);
+    height: var(--size-tile); width: var(--w);
     border: none;
-    width: var(--w);
     margin: 0;
 }
 
 #hell {
-    &[open] summary { 
-        background-image: none;
-        animation-name: smash;
-    }
     &:not([open]) summary {
         cursor: grabbing;
+        background-image: url(i/breakable.png);
     }
     summary {
         background-color: var(--color-bg);
-        background-image: url(i/breakable.png);
         background-size: contain;
-        width: var(--size-2-tiles);
-        height: var(--size-tile);
+        width: var(--size-2-tiles); height: var(--size-tile);
         position: absolute;
         left: round(down, 70%, var(--size-2-tiles));
         top: calc(-1 * var(--size-tile));
@@ -157,7 +144,6 @@ hr {
     & > section {
         background: linear-gradient(var(--color-bg), #aa000666);
     }
-    Vh2:first-of-type { padding-top: calc(var(--size-tile) * 4); }
 }
 
 [src^="i/lynnroom"], [src^="i/procgenroom"], [src="i/prototype.gif"],  [src="i/gameplay.gif"] {
@@ -165,33 +151,32 @@ hr {
     p:has(> &) { margin: 2em; text-align: center; }
 }
 
-.inline-tile, [src="i/tawa.png"], [src="i/kili.png"] {
+.inline-tile {
     margin-left: 1px; margin-right: 1px;
-    width: round(up, 1em, 16px);
+    width: 1em;
     vertical-align: middle;
 }
 
 [src="i/tawa.png"], [src="i/kili.png"] {
     margin-left: 4px;
-    scale: 1.5;
+    width: 1em; scale: 1.5;
+    vertical-align: middle;
 }
 
 hanging-vine {
-    position: absolute;
-    height: round(down, 40%, var(--size-tile));
+    height: round(down, 36%, var(--size-tile));
     background-image: url(i/vine.png);
     background-position-y: var(--size-tile);
     right: 0;
     top: 0;
     &, &::before, &::after {
+        position: absolute;
         display: block;
         width: var(--size-tile);
         background-size: contain;
     }
     &::before, &::after {
-        background-size: contain;
         height: var(--size-tile);
-        position: absolute;
         content: '';
     }
     &::before {
@@ -200,8 +185,7 @@ hanging-vine {
     }
     &::after {
         background-image: url(i/vineend.png);
-        background-color: var(--color-bg);
-        bottom: 0;
+        bottom: calc(-1 * var(--size-tile));
     }
 }
 </style>
@@ -214,13 +198,13 @@ hanging-vine {
 
 <img src=i/logo.png alt="o moku e mun" style=width:calc(var(--size-tile)*8);margin:auto;display:block>
 
-<p>In 2025, <a href=https://lynn.github.io>Lynn</a> and I made <a href=https://pipi.la>o moku e mun</a> (literally: <i>Eat the Moon</i>) for <a href=><i>pali musi</i></a>, a toki pona game jam. <a href=https://en.wikipedia.org/wiki/Toki_pona>toki pona</a> is a constructed language, but you don't really need to know it to play <i>o moku e mun</i>.
+<p>In 2025, <a href=https://lynn.github.io>Lynn</a> and <a href=/>I</a> made <a href=https://pipi.la>o moku e mun</a> (literally: <i>Eat the Moon</i>) for <a href=><i>pali musi</i></a>, a toki pona game jam. <a href=https://en.wikipedia.org/wiki/Toki_pona>toki pona</a> is a constructed language, but you don't really need to know it to play <i>o moku e mun</i>.
 
 <p><i>o moku e mun</i> is a platformer where you play as a bug on a mission to the moon. Along the way, you eat fruit and metamorphose to unlock movement options. The whole game only uses two buttons: ← and → to fly up-left and up-right.
 
 <p>You have two meters: <img src=i/tawa.png alt=tawa> («tawa», “travel”) and <img src=i/kili.png alt=kili> («kili», “fruit”). Each ←/→ press costs 1 tawa. tawa recharges at rest. kili increases by collecting fruit and is used to upgrade your movement.
 
-<p><img src=i/gameplay.gif style=width:100%>
+<p><img src=i/gameplay.gif style=width:100% alt="platformer gameplay footage of a butterfly collecting fruit">
 
 <section>
 <h2 title='procgen means procedural generation'>Procgen</h2>
@@ -232,7 +216,7 @@ hanging-vine {
 
 <p>
 <img width=240 height=136 src=i/lynnroom_tokipona.png alt="toki pona lynnroom">
-<img width=240 height=136 src=i/lynnroom_fruittree.png alt="Fruit tree lynnroom">
+<img width=240 height=136 src=i/lynnroom_fruittree.png alt="fruit tree lynnroom">
 
 <p><img alt=esun class=inline-tile src=i/esun.png>s are placeholders where shops can spawn. We call shops “shops” because they exchange collected fruit for upgrades, but I interpret them as safe hidey-holes where you can metamorphose using calories you've consumed. (Others interpret the floating chrysalises as big fruits you eat.)</p>
 
@@ -244,9 +228,10 @@ hanging-vine {
 
 <p>Each component guarantees passable areas on its top, bottom, and side (marked with placeholder <img src=i/reddot.png alt="red dot" class=inline-tile> tiles) so any combination of components can be assembled arbitrarily to form a playable route. <img alt="maybe-spikes" src=i/maybespikes.png class=inline-tile> marks where spikes <i>may</i> spawn, with greater probability higher up.
 
-<img src=i/shopleft.png title="shops look like this">
+<img src=i/shopleft.png title="shops look like this" alt=shop>
 
-<section><h2>Physics</h2>
+<section>
+<h2>Physics</h2>
 
 <p title="I actually showed it off to my physics profs at my alma mater.">I'm proud of the physics. You only have two buttons, but the movement is so satisfying!
 
@@ -256,7 +241,8 @@ hanging-vine {
 
 <p>Right away, it felt like controlling a moth. You know when a bug tries to fly out a window or something, but keeps missing? <i>o moku e mun</i> helps you relate to that bug.
 
-<section><h2>Enemies</h2>
+<section>
+<h2>Enemies</h2>
 
 <img alt=frog src=i/frog.png class="one-wide left top clobber" style=--x:-1;--y:1>
 <img alt=bee src=i/bee.png id=bee class="one-wide right top clobber" style=--x:-1;--y:1>
@@ -322,4 +308,3 @@ hanging-vine {
 </section></section></section></section></section></section></section>
 
 </main>
-
