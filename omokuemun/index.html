@@ -10,6 +10,8 @@
 <link rel=stylesheet type=text/css href=../style.css>
 <style>
 @font-face { font-family: "nasin nanpa"; src: url(https://rose.systems/anpa_ma/assets/nasin-nanpa-4.0.1.otf); }
+body { image-rendering: pixelated; }
+
 html {
     --size-tile: 1cm;
     --size-2-tiles: calc(var(--size-tile) * 2);
@@ -19,15 +21,9 @@ html {
     --color-a: #41a6f6;
     --margin-tower: 1rem;
     --w: round(down, min(100vw, 37rem), var(--size-tile));
-    --side: var(--w);
     --x: 0; --y: 0;
 }
-body {
-    image-rendering: pixelated;
-}
-main, section {
-    width: calc(var(--w));
-}
+main, section { width: calc(var(--w)); }
 main, #hell { position: relative; }
 section {
     &::before, &::after {
@@ -49,6 +45,7 @@ section {
     z-index: -9;
     height: 100%;
 }}
+
 p { margin-left: var(--margin-tower); margin-right: var(--margin-tower); }
 main:has(#testbox:checked) p { resize: vertical; overflow: scroll; }
 
@@ -63,7 +60,6 @@ h2 {
         background-image: url(i/squarebrick.png);
         background-size: contain;
         width: var(--size-tile); height: var(--size-tile);        
-        position: absolute;
         content: '';
         top: 0;
         position: absolute;
@@ -104,7 +100,7 @@ section {
 }
 img {  }
 .aside { position: absolute; }
-.clobber { background-color: var(--color-bg); }
+.clobber { background-color: var(--color-bg); z-index: -1; }
 .left, .right, .top, .bottom { position: absolute; }
 .left   { left:   calc(var(--x) * var(--size-tile)); }
 .right  { right:  calc(var(--x) * var(--size-tile)); }
@@ -185,7 +181,7 @@ hanging-vine {
     height: round(down, 40%, var(--size-tile));
     background-image: url(i/vine.png);
     background-position-y: var(--size-tile);
-    left: calc(var(--side) - var(--size-tile));
+    right: 0;
     top: 0;
     &, &::before, &::after {
         display: block;
