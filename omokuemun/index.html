@@ -25,7 +25,7 @@ html {
 body {
     image-rendering: pixelated;
 }
-main {
+main, section {
     width: calc(var(--w));
 }
 main, #hell { position: relative; }
@@ -50,7 +50,7 @@ section {
     height: 100%;
 }}
 p { margin-left: var(--margin-tower); margin-right: var(--margin-tower); }
-n{resize:both;overflow:scroll;}
+main:has(#testbox:checked) p { resize: vertical; overflow: scroll; }
 
 h1, h2 {
     text-align: center;
@@ -217,7 +217,7 @@ hanging-vine {
 <hr>
 <br>
 
-<img src=i/logo.png alt="o moku e mun" lang=tok style=width:calc(var(--size-tile)*8);margin:auto;display:block>
+<img src=i/logo.png alt="o moku e mun" style=width:calc(var(--size-tile)*8);margin:auto;display:block>
 
 <p>In 2025, <a href=https://lynn.github.io>Lynn</a> and I made <a href=https://pipi.la>o moku e mun</a> (literally: <i>Eat the Moon</i>) for <a href=><i>pali musi</i></a>, a toki pona game jam. <a href=https://en.wikipedia.org/wiki/Toki_pona>toki pona</a> is a constructed language, but you don't really need to know it to play <i>o moku e mun</i>.
 
@@ -268,7 +268,7 @@ hanging-vine {
 <img src=i/spikes.png class="one-wide left top" style=--x:1;--y:0;rotate:90deg>
 <img src=i/spikes.png class="one-wide right top" style=--x:1;--y:0;rotate:-90deg>
 
-<p>Frogs jump around and chase you. They prefer to nap on the left side of the tower due to a thermal differential caused by outside weather. They're programmed not to do this, but they do it anyway. This is called <b style=color:var(--color-frog)>frog logic</b>.
+<p>Frogs jump around and chase you. They prefer to nap on the left side of the tower due to a thermal differential caused by outside weather. They're programmed not to do this, but they do it anyway. This is called <label for=testbox><b style=color:var(--color-frog)>frog logic</b></label>.
 
 <p>Bees accelerate toward you when they have line of sight and you are not at full tawa.</p>
 
@@ -316,20 +316,15 @@ hanging-vine {
 
 <p style=margin-top:2lh><a href=https://bsky.app/profile/weeble.bsky.social/post/3lt5arwdgkc2c>Annette drew this lovely fanart</a>:
 
-<p><img alt="angel and devil" src=i/jan.webp>
+<p><img alt="angel and devil" src=i/jan.webp></p>
 
-<br><br>
+<input id=testbox type=checkbox style=display:none></input>
 
+<br>
+
+</section>
 </details>
-
-</section></section></section>
-</section></section></section>
-</section></section></section>
+</section></section></section></section></section></section></section>
 
 </main>
 
-<!--
-lynn found bugs in the py implementation (link to them)
-
-someone else found bugs via trying to run the game in the dev version of tic-80 (link)
--->
