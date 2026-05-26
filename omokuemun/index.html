@@ -2,10 +2,11 @@
 <html lang=en-US>
 <title>o moku e mun</title>
 <meta name=viewport content="width=device-width, initial-scale=1.0">
-<meta name=description content="o moku e mun, the two-button toki pona platformer">
+<meta name=description content="the two-button toki pona platformer">
 <meta name=theme-color content=#f4f4f4 media=(prefers-color-scheme:light)>
 <meta name=theme-color content=#1a1c2c media=(prefers-color-scheme:dark)>
-<link rel=icon href=i/pipi.png>
+<meta property=og:image content=https://rose.systems/omokuemun/i/gameplay.gif>
+<link rel=icon href=i/favicon.ico>
 <link rel=stylesheet type=text/css href=../style.css>
 <style>
 @font-face { font-family: "nasin nanpa"; src: url(https://rose.systems/anpa_ma/assets/nasin-nanpa-4.0.1.otf); }
@@ -38,14 +39,14 @@ section {
         height: round(up, 100%, var(--size-tile));
         content: '';
         top: 0;
-        z-index: -9;
+        z-index: -8;
     }
     &::before { left: calc(-2 * var(--size-tile)); }
     &::after { right: calc(-2 * var(--size-tile)); }
 }
 #hell section { &::before, &::after {
     background-image: url(i/hellbrick.png);
-    z-index: 2;
+    z-index: -9;
     height: 100%;
 }}
 p { margin-left: var(--margin-tower); margin-right: var(--margin-tower); }
@@ -299,9 +300,7 @@ hanging-vine {
 <summary></summary>
 
 <section>
-<div style=height:var(--size-tile)></div>
-
-<h2>Fanart</h2>
+<h2 style=margin-top:1cm>Fanart</h2>
 
 <p>jan Weso drew this fanart of <a href=https://mun.la/>jan Kekan San</a> losing:
 
