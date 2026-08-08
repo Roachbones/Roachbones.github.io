@@ -1,0 +1,117 @@
+<!doctype html>
+<title>HTML Energy</title>
+<style>
+* {
+    transform-style: preserve-3d;
+    transition: all 1s;
+    backface-visibility: hidden;
+
+}
+img { max-width: 100%; }
+#beetle { position: absolute; bottom: 0; opacity: .9; }
+body {
+    background-color: lavender;
+    --w: 20rem;
+    --2w: calc(var(--w) * 2);
+    --h: calc(var(--w) * 2);
+    position: relative;
+    perspective: 60em;
+    --foldyness: 1;
+    --fold2yness: 1;
+    &:has(#fold:checked) { --foldyness: 0; }
+    &:has(#fold2:checked) { --fold2yness: 0; }
+    perspective-origin: bottom;
+    
+}
+input {
+    zoom: 9;
+    Vtransform: rotateY(calc(var(--foldyness) * 90));
+    transition: all 30s;
+}
+body:has(#fold2:checked) main {
+    Vwidth: 100%;
+    Vtransform: rotateY(calc((1 - var(--foldyness)) * -180deg));
+    Vtransform: rotateY(calc(var(--foldyness) * 180deg));
+}
+main {
+    margin-left: 20em;
+    width: calc(var(--w) * (3 - var(--foldyness) * 2));
+    border: 0px solid purple;
+    margin-left: auto;
+    margin-right: auto;
+    transform: rotateY(calc((1 - var(--fold2yness)) * -180deg));
+}
+
+section:has(h1#heading1) { 
+    
+}
+
+p {
+    width: 10em;
+    width: calc(var(--w) - 1em);
+    margin: auto;
+}
+
+section {
+    border: 1px solid burlywood;
+    position: absolute;
+    width: var(--w);
+    height: var(--h);
+    background-color: antiquewhite;
+    transform-origin: left;
+    &#p1 {
+        transform: rotateY(calc(10deg + (1 - var(--fold2yness)) * 0deg));
+        Vmargin-left: calc(50% * var(--foldyness) - 50% * var(--fold2yness));
+    }
+    &#p2 {
+        left: var(--w);
+        transform: rotateY(calc(-30deg - var(--foldyness) * 149deg));
+        color: purple;
+    }
+    &#p3 {
+        left: var(--w);
+        transform: rotateY(calc(30deg + var(--foldyness) * 139deg));
+    }
+    &.a {
+        Vbackground-color: grey;
+        transform: rotateY(.5turn);
+        transform-origin: center;
+    }
+    top: 0;
+}
+</style>
+<input id=fold type=checkbox></input>
+<input id=fold2 type=checkbox></input>
+<!--<input type=button value=Robin></input>-->
+<main>
+<section id=p1>
+    <p>Brochure
+    <section class=a>
+        <p>hewwo this is the back page of the brochure
+        <p style=font-size:xxx-large>🐞🐞🐞🐞🐞🐞🐞🐞🐞
+    </section>
+<section id=p2>
+    <p>hi
+    <p>Thanks Internet Archive Europe for hosting this event!! I had fun :3
+    <section class=a>
+        hello world
+        <p><a href=http://lynn.github.io>Lynn</a> is watching me type
+    </section>
+<section id=p3>
+    <h1>html is all around us</h1>
+    <h2>So you have woken up in the future</h2>
+    <p>that's because you went to sleep in the past. there are new CSS properties now</p>
+    <img id=beetle src=https://upload.wikimedia.org/wikipedia/commons/7/78/Yiu_di_Palo%2C_Aruba_%28Zopherus_chilensis%29_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original alt=beetle>
+    <section class=a style=>
+        <hr><hr><hr><hr>
+        <hr><hr><hr><hr>
+        <hr><hr><hr><hr>
+        <hr><hr><hr><hr>
+        <hr><hr><hr><hr>
+        <hr><hr><hr><hr>
+        <p style=font-size:50px;rotate:60deg;font-family:fantasy>hello Amsterdam</mark>
+    </section>
+</section>
+</section>
+</section>
+</main>
