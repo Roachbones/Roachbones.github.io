@@ -319,5 +319,62 @@
  {
   "src": "88by31.png",
   "alt": "88by31"
+ },
+ {
+  "src": "ari.lt.png",
+  "alt": "ari-web",
+  "href": "https://ari.lt/"
+ },
+ {
+  "src": "opal.cafe.png",
+  "href": "https://opal.cafe",
+  "alt": "opal.cafe"
+ },
+ {
+  "src": "right2repair.gif",
+  "alt": "I support right to repair",
+  "title": "I like when I can take things apart and put them back together"
+ },
+ {
+  "src": "preserve.gif",
+  "alt": "preserve",
+  "href": "archive.org"
+ },
+ {
+  "src": "css.jpg",
+  "CSS": "is awesome"
+ },
+ {
+  "src": "alex.gif",
+  "alt": "alex",
+  "href": "nim.cx",
+  "title": "ona li pana e sona tawa tawa mi"
+ },
+ {
+  "src": "responsive.png",
+  "alt": "Responsive website"
+ },
+ {
+  "src": "Inform7.png",
+  "alt": "Inform 7",
+  "href": "https://ganelson.github.io/inform-website/",
+  "title": "A design system for interactive fiction"
+ },
+ {
+  "src": "cicada.png",
+  "alt": "cicada",
+  "href": "songsofinsects.com/cicadas"
+ },
+ {
+  "src": "loves-cloudy-weather.webp",
+  "alt": "This user loves cloudy weather!"
+ },
+ {
+  "src": "download-sburb.gif",
+  "alt": "download SBURB"
+ },
+ {
+  "src": "tumblr.png",
+  "alt": "This content has been removed for violating tumblr's community guidelines."
  }
 ]
