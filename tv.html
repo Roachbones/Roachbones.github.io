@@ -1,0 +1,56 @@
+<!doctype html>
+
+<title>test</title>
+
+<style>
+tv-chassis {
+    display: block;
+    border-radius: .1em;
+    background-color: grey;
+    width: 9em; height: 9em;
+    padding: 1em;
+    padding-bottom: 2em;
+}
+tv-screen {
+    display: block;
+    border: 1px solid black; /* HOW is this load-bearing */
+    background-color: black;
+    width: 100%; height: 100%;
+    border-radius: .5em;
+}
+tv-eye {
+    display: block;
+    border-radius: 80% 0 80% 0 / 80% 0 80% 0;
+    width: 5em;
+    height: 5em;
+    border: 3px solid white;
+    rotate: 45deg;
+    margin-left: auto; margin-right: auto; margin-top: 2em;
+    overflow: clip;
+    background-color: black;
+}
+tv-pupil {
+    display: block;
+    border-radius: 9in;
+    width: 2.5em; height: 2.5em;
+    background-color: purple;
+    position: absolute;
+    left: 3em; top: 1em;
+}
+tv-button {
+    display: block;
+    border-radius: 9in;
+    width: .6em; height: .6em;
+    margin-left: auto; margin-top: .5em; margin-right: 1em;
+    background-color: black;
+}
+</style>
+
+<tv-chassis>
+<tv-screen>
+<tv-eye>
+<tv-pupil></tv-pupil>
+</tv-eye>
+</tv-screen>
+<tv-button></tv-button>
+</tv-chassis>
