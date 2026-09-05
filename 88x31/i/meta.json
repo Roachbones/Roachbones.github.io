@@ -314,8 +314,10 @@
   "href": "https://lyra.horse/blog/2025/08/you-dont-need-js/"
  },
  {
-  "src": "blank.gif",
-  "alt": ""
+  "src": "163.gif",
+  "alt": "Internet phonebook #163",
+  "title": "Internet phonebook #163",
+  "href": "https://internetphonebook.net/?call=163&issue=1#dial-a-site"
  },
  {
   "src": "88by31.png",
@@ -387,5 +389,9 @@
   "src": "Kraszewski_z_siedmioletniej_wojny_1.png",
   "title": "dingbat from an old book, only coincidentally 88x31",
   "href": "https://commons.wikimedia.org/wiki/File:Kraszewski_z_siedmioletniej_wojny_1.png"
+ },
+ {
+  "src": "blank.gif",
+  "alt": ""
  }
 ]
