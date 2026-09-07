@@ -1,0 +1,132 @@
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://rose.systems/style.css');
+
+html {
+    --base-color-bg-light: linen;
+    @media (prefers-color-scheme: light) { --base-color-bg-secondary: burlywood; )
+}
+
+head {
+    display: block;
+    font-family: "Atkinson Hyperlegible Next", sans;
+}
+
+style[style=x], style[style=y] {
+    &::after, &::before {
+        position: absolute;
+        padding: .5rem;
+        box-sizing: border-box;
+        background-color: var(--color-bg);
+        font-size: x-large;
+    }
+}
+style[style=x] {
+    display: block;
+    width: 100vmin; height: calc(50vh - 1px);
+    left: calc(50vw - 50vmin);
+    border-bottom: 2px dashed black;
+    position: absolute;
+    &::after, &::before {
+        content: 'Sounds bad';
+        bottom: 0;
+        --p: -1;
+        transform: translateY(50%) translateX(calc(min(100%, 50vw - 50vmin) * var(--p)));
+    }
+    &::before {
+        content: 'Sounds good';
+        right: 0;
+        --p: 1;
+    }
+}
+style[style=y] {
+    display: block;
+    width: calc(50vw - 1px); height: 100vh;
+    border-right: 2px dashed black;
+    position: absolute;
+    &::before, &::after {
+        position: absolute;
+        right: 0; transform: translateX(50%);
+    }
+    &::before {
+        content: 'D&D 5e spell is good';
+    }
+    &::after {
+        content: 'Is bad';
+        bottom: 0;
+    }
+}
+
+style[style=yep] {
+    display: block;
+    width: calc(50vw); height: 100vmin;
+    position: absolute; top: calc(50vh - 50vmin);
+    border-right: 1px dashed black;
+    rotate: 45deg; transform-origin: center right;
+    &::after {
+        content: '“yep”';
+        position: absolute;
+        right: -2rem; top: 3.5rem;
+        rotate: -90deg;
+        font-style: italic;
+    }
+}
+
+style[style^="--"] {
+    display: block;
+    position: absolute;
+    top: calc(50vh - 40vmin * var(--g));
+    left: calc(50vw + 40vmin * var(--s));
+    font-size: large;
+    &::before {
+        content: '';
+        position: absolute;
+        --w: .5rem;
+        --wh: calc(var(--w) / -2);
+        width: var(--w); height: var(--w);
+        top: var(--wh); left: var(--wh);
+        background-color: red;
+        border-radius: 9in;
+    }
+    &::after {
+        content: var(--comment);
+        display: block;
+        background-color: var(--color-bg-secondary);
+        padding: .1em .2em;
+        margin: auto;
+        border: 2px outset;
+        width: fit-content; max-width: 18em;
+        font-size: small;
+    }
+    &:not(:hover)::after {
+        display: none;
+    }
+}
+style[style$="🥺'"]::after { font-size: xx-large; }
+
+</style>
+
+<style style=x></style>
+<style style=y></style>
+<style style=yep></style>
+
+<style style=--s:0;--g:0>Giant Insect</style>
+<style style=--s:.1;--g:.5>Goodberry</style>
+<!--<style style=--s:.2;--g:.1>Find Traps</style>
+<style style=--s:.3;--g:-.6>Evard's Black Tentacles</style>-->
+<style style=--s:-.55;--g:-.55>Inflict Wounds</style>
+<style style=--s:-.2;--g:-.3>Chill Touch</style>
+<style style="--s:-.3;--g:-.15;--comment:'Does not necessarily burn hands.'">Burning Hands</style>
+<style style=--s:-.01;--g:.75>Prayer of Healing</style>
+<style style="--s:.5;--g:-.45;--comment:'🥺'">Hold Person</style>
+<style style="--s:-.9;--g:-.9;--comment:'Yep. It hurts.'">Power Word Pain</style>
+<style style=--s:.25;--g:.25>Create Food and Water</style>
+<style style=--s:.4;--g:.4>Spare the Dying</style>
+<style style=--s:.6;--g:.6>Cure Wounds</style>
+<style style="--s:0.01;--g:-.8;--comment:'Attacks a crowd with illusions of their worst fears.'">Weird</style>
+<style style="--s:.9;--g:-.05;--comment:'Slight mind control.'">Friends</style>
+<style style="--s:-.5;--g:0;--comment:'Makes you invisible and produces an illusory double. There are worse ways to mislead someone.">Mislead</style>
+<style style=--s:-0.29;--g:.25>Mind Blank</style>
+<style style=--s:-0.25;--g:.1>Faerie Fire</style>
+<style style=--s:0.88;--g:.88>Resurrection</style>
