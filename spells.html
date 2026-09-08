@@ -25,15 +25,15 @@ style[style=x], style[style=y] {
 }
 style[style=x] {
     display: block;
-    width: 100vmin; height: calc(50vh - 1px);
-    left: calc(50vw - 50vmin);
+    width: 100svmin; height: calc(50svh - 1px);
+    left: calc(50vw - 50svmin);
     border-bottom: 2px dashed black;
     position: absolute;
     &::after, &::before {
         content: 'Sounds bad';
         bottom: 0;
         --p: -1;
-        transform: translateY(50%) translateX(calc(min(100%, 50vw - 50vmin) * var(--p)));
+        transform: translateY(50%) translateX(calc(min(100%, 50vw - 50svmin) * var(--p)));
     }
     &::before {
         content: 'Sounds good';
@@ -43,7 +43,7 @@ style[style=x] {
 }
 style[style=y] {
     display: block;
-    width: calc(50vw - 1px); height: 100vh;
+    width: calc(50vw - 1px); height: 100svh;
     border-right: 2px dashed black;
     position: absolute;
     &::before, &::after {
@@ -61,8 +61,8 @@ style[style=y] {
 
 style[style=yep] {
     display: block;
-    width: calc(50vw); height: 100vmin;
-    position: absolute; top: calc(50vh - 50vmin);
+    width: calc(50vw); height: 100svmin;
+    position: absolute; top: calc(50svh - 50svmin);
     border-right: 1px dashed black;
     rotate: 45deg; transform-origin: center right;
     &::after {
@@ -77,8 +77,8 @@ style[style=yep] {
 style[style^="--"] {
     display: block;
     position: absolute;
-    top: calc(50vh - 40vmin * var(--g));
-    left: calc(50vw + 40vmin * var(--s));
+    top: calc(50svh - 40svmin * var(--g));
+    left: calc(50vw + 40svmin * var(--s));
     font-size: large;
     &::before {
         content: '';
