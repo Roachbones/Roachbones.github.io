@@ -40,8 +40,7 @@
  {
   "src": "ilikecomputer.png",
   "alt": "I LIKE COMPUTER"
- }
-,
+ },
  {
   "src": "mundis_OriginalByJDR.png",
   "alt": "MUNDIS",
@@ -287,7 +286,8 @@
  {
   "src": "ifdb.png",
   "alt": "IFDB: Interactive Fiction Database",
-  "href": "https://ifdb.org/viewgame?id=whfi64n7vjfwh7mk"
+  "href": "https://ifdb.org/viewgame?id=whfi64n7vjfwh7mk",
+  "data-comment": "from https://sweetfish.site/advent/2025"
  },
  {
   "src": "Nano.gif",
