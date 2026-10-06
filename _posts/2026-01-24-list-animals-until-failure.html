@@ -1,7 +1,7 @@
 ---
 layout: vivpost
 title: "about list animals until failure"
-subtitle: "About my little web game, <i>List Animals Until Failure</i>."
+subtitle: "About my web game, <i>List Animals Until Failure</i>."
 description: "Making of List Animals Until Failure, the animal-naming game."
 style: |
     a[href^="https://www.wikidata.org/"] {
@@ -116,13 +116,15 @@ style: |
 
 <p>Ducks, egrets, gnats, buzzards, hawks, mites: none of these are defined solely by a phylogenic taxon; they’re what you might call “form taxa”. In other words: iff it looks like a duck and quacks like a duck, it’s a duck.
 
-<p>Sometimes the game uses the closest common ancestor of the group. So a player who lists “mite” only gets a point for “arachnid” and can’t score separately for “spider”. This is a bummer since tarantulas definitely aren’t mites, but it’s otherwise hard to define “mite” in a strict hierarchy.
+<p>I handle many of these manually. As a last resort, the game grabs the closest common ancestor of the group, or one arbitrary taxon belonging to it, which can cause bugs.
+
+<!--<p>Sometimes the game uses the closest common ancestor of the group. So a player who lists “mite” only gets a point for “arachnid” and can’t score separately for “spider”. This is a bummer since tarantulas definitely aren’t mites, but it’s otherwise hard to define “mite” in a strict hierarchy.-->
 
 <!--<p>(We can find the closest common ancestor from the <code>parent</code> (or <code>taxon</code>) attribute of the <code>{{ '{{' }}Paraphyletic group}}</code> infobox.)-->
 
-<p>In other cases, there are better solutions. For example, <a href=https://en.wikipedia.org/wiki/Trout>Trout</a> doesn’t even have a paraphyletic group infobox, maybe because it’s so colloquial a term, and even if it did, many barely-related fish are called trout. So I manually add a redirect to a single representative for the group: “trout” becomes “brown trout”.
+<p><!--In other cases, there are better solutions. For example, --><a href=https://en.wikipedia.org/wiki/Trout>Trout</a> doesn’t have a paraphyletic group infobox, maybe because it’s so colloquial a term, and even if it did, many barely-related fish are called trout. So I manually add a redirect to a single representative for the group: “trout” becomes “brown trout”.
 
-<p>More extreme example: If you know of <a href=https://en.wikipedia.org/wiki/Carcinisation>Carcinization</a>, you can imagine the difficulty of defining crabs. So “crab” becomes “brown crab”.
+<p><!--More extreme example: -->If you know of <a href=https://en.wikipedia.org/wiki/Carcinisation>Carcinization</a>, you can imagine the difficulty of defining crabs. So “crab” becomes “brown crab”.
 
 <h3 id=away-from-phylogeny>Away from phylogeny</h3>
 
