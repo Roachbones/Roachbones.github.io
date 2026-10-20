@@ -322,8 +322,9 @@
   "href": "https://internetphonebook.net/?call=163&issue=1#dial-a-site"
  },
  {
-  "src": "88by31.png",
-  "alt": "88by31"
+  "src": "elerosv88x31_simple.gif",
+  "href": "https://elerosv.pet",
+  "alt": "elerosv's P.E.T."
  },
  {
   "src": "ari.lt.png",
@@ -409,5 +410,9 @@
   "src": "poorly-planned-comics.png",
   "alt": "king ludolph",
   "href": "https://plorg.neocities.org/ppc/1400/"
+ },
+ {
+  "src": "88by31.png",
+  "alt": "88by31"
  }
 ]
