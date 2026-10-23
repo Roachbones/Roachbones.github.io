@@ -183,8 +183,9 @@
   "href": "crouton.net"
  },
  {
-  "src": "badapple.gif",
-  "alt": "bad apple"
+  "src": "poorly-planned-comics.png",
+  "alt": "king ludolph",
+  "href": "https://plorg.neocities.org/ppc/1400/"
  },
  {
   "src": "foi-aacs.png",
@@ -407,12 +408,11 @@
   "alt": "Buttons Now!"
  },
  {
-  "src": "poorly-planned-comics.png",
-  "alt": "king ludolph",
-  "href": "https://plorg.neocities.org/ppc/1400/"
- },
- {
   "src": "88by31.png",
   "alt": "88by31"
+ },
+ {
+  "src": "badapple.gif",
+  "alt": "bad apple"
  }
 ]
