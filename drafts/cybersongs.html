@@ -1,0 +1,43 @@
+---
+layout: vivpost
+title: Cybersongs & BrainDogs
+subtitle: Recovering lost media from a floppy disk
+style: |
+    [href$=disk_front.png] {border:3em solid black}
+    * { transition: all 1s; transform-style: preserve-3d; }
+    center { perspective: 9in; }
+    floppy-disk {
+        width: 3.5in; display: block;
+        position: relative;
+        transform: rotateY(.5turn);
+        animation-name: doner;
+        animation-duration: 9s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        & > img {
+            width: 3.5in;
+            backface-visibility: hidden;
+            &.back {
+                position: absolute;
+                left: 0; top: 0;
+                transform: rotateY(.5turn);
+            }
+        }
+    }
+    @keyframes doner {
+        0% { transform: rotateY(0turn); }
+        to { transform: rotateY(1turn); }
+    }
+---
+
+<center>
+<floppy-disk>
+<img alt='Disk: CyberSongs & Braindogs' src=/post_assets/cybersongs/disk_front.png class=front>
+<img alt='Disk anterior' src=/post_assets/cybersongs/disk_back.png class=back>
+</floppy-disk>
+</center>
+
+<!--
+gw convert --format mac.800 mac800_mydisk/mydisk.scp cyberdogs.img
+
+-->
