@@ -1,0 +1,126 @@
+---
+layout: default
+title: Why I had a nosebleed at the CTF
+description: Writeup for my team's unintended solution for Just A Pinch.
+style: |
+    blockquote {
+        margin: 2em;
+        background-color: var(--color-bg-secondary);
+        border: 2px outset;
+        padding: 1ex 2ex;
+        font-family: serif;
+    }
+    chat-transcript {
+        display: block;
+        margin: 2em;
+        & > chat-message {
+            display: block;
+            padding: .5em;
+            margin: .5em;
+            /* continuation messages */
+            &:not(:has(user-name)) {
+                margin-top: calc(-.5em + 1px);
+                border-top-left-radius: 0em;
+                &::before { display: none; }
+            }
+            /* messages not preceding continuations */
+            &:has(+ chat-message > user-name), &:last-child {
+                border-bottom-left-radius: 1em;
+            }
+            border-radius: 1em 1em 1em 0;
+            & > user-name {
+                font-size: small;
+                font-weight: bold;
+                display: block;
+                &.organizer { color: rebeccapurple; }
+            }
+
+            padding-left: 1em; padding-right: 1em;
+            margin-left: min(4em, 25%);
+            background-color: light-dark(lightblue, teal);
+            @media (prefers-contrast: more) { border-style: solid; border-width: 1px; }
+            max-width: max-content;
+            position: relative;
+            font-size: large;
+            
+            &::before {
+                content: "";
+                background-image:  url("/post_assets/devin.webp");
+                display: inline-block;
+                width: 2em; height: 2em;
+                background-size: contain;
+                border-radius: 3em;
+                position: absolute; left: -2.5em;
+            }
+            &:has(.me)::before { background-image: url(/tv_head6.jpg); }
+            &:has(.urfamiliar)::before { background-image: url(urfamiliar.webp); }
+            &:has(.xenia)::before { background-image: url(xenia.png); }
+            &:has(.ogg)::before { background-image: url(ogg.jpg); }
+        }
+    }
+---
+
+<main>
+
+<p>I accidentally got hurt during <i>Just a Pinch</i>. Here's the challenge inscription:
+
+<blockquote style=margin:2em;background-color:--color-bg-secondary;border-width:2px>
+<p><b>Just A Pinch</b> (15pts) (by <a target=_blank href=https://glaceon.social/@monorail>monorail</a>)
+<p>The flag is embedded in a hex applied to the target object, defended by two layers of protection. There is a circle of salt around the target, but it's slightly imperfect, providing suboptimal coverage. But does that matter when the other layer of defense is a welded-shut door? Break the seal through a reinforced glass window and read the flag to complete this challenge.
+</blockquote>
+
+<p>Diagram:
+
+<center><img src=challengelight.svg alt="Diagram of described challenge; ceiling is about 10ft high; window is slightly larger than my head and mounted at shoulder-height"></center>
+
+<p>We were stumped for a long time. We figured out the door is lead-lined <i>but not the window</i>, but when I scryed through I couldn't see into the protection spells. So we figured it had something to do with astral projecting through the salt imperfection but none of us has projected before so we gave up and skipped it. But eventually we circled back and I had an idea.
+
+<p>I'm thin. The window is small enough that I could fit through if not for the (reinforced-but-not-leaded) glass. So, other than astral projection, how can you pass through a solid object?
+
+<h2>Teleportation</h2>
+
+<p>The door blocks teleportation, but not the window. So teleport through the window, not through the door. We have reduced the first obstacle to a geometry problem:
+
+<center><img src=solutionlight.svg alt="Diagram of me casting misty step while prone on a ladder"></center>
+
+<p>My very helpful teammates held a ladder steady while I went horizontal. Getting stuck is fair game, so I prepared <em>two</em> misty steps so I could try to get out again.
+
+<p>And I teleported through. I tried to swing my legs under me to catch myself but it turns out that's really hard when you start at zero angular momentum so I hit my face on the floor. That's how I got my nosebleed.
+
+<p>So then I was physically in the room. The salt circle didn't matter! (To me, anyway; I'm human.) At the time I thought “so that's what the description was getting at by '<i>does that matter</i>'!”. I was wrong, but I'll get to that.
+
+<p>The first protection was a target loophole: it was set to defend anything in the salt circle, so I spent like 20 minutes gingerly sweeping the circle over so it no longer intersected the object.
+
+<p>The other protection spell... did nothing. I stuck my hand straight through. This was perplexing but I ignored it.
+
+<p>I Identified and rescribed the hex so my teammates could decipher the flag. (I later felt foolish for this since it was fairly trivial and I should not have needed to waste the scroll but whatever.)
+
+<p>Then I teleported back out. I didn't have a ladder or levitation so I had to sorta plank diagonally with my forehead pressed against the window. (<a href=https://types.pl/@haskal>xenia</a> photographed me doing this — with eyebrows furrowed and arms scrunched up to do the somatic components with just my fingers since I couldn't poke out of the window volume — but mercifully resisted the urge to post it.) I did not hurt myself going back out, despite appearing higher, because I already had my legs mostly under me. Should have done that on the way in. <small>(But I didn't want to fizzle on a failed teleport and the ladder seemed more reliable, and I could at least show my team the hex through the window even if I got stuck....)</small> Oh well, live and learn.
+
+<p>I later found out teleportation was totally unintended!
+
+<chat-transcript>
+    <chat-message><user-name class="ogg organizer">Ogg</user-name> <b>@vivian</b> wait what</chat-message>
+    <chat-message>the door should forbid teleportation</chat-message>
+    <chat-message>did you go around somehow?</chat-message>
+    <chat-message><user-name class=me>vivian</user-name> No I went through the window!</chat-message>
+    <chat-message><user-name class="ogg organizer">Ogg</user-name> like</chat-message>
+    <chat-message><user-name class="urfamiliar organizer">urfamiliar</user-name>??</chat-message>
+    <chat-message><user-name class="ogg organizer">Ogg</user-name>did you polymorph?</chat-message>
+    <chat-message><user-name class=xenia>witch hat hacker</user-name>no xe shattered it with er bare hands (jk) (unless)</chat-message>
+    <chat-message><user-name class=me>vivian</user-name>No I like.. I used a ladder and misty-stepped horizontally while prone</chat-message>
+    <chat-message><user-name class="urfamiliar organizer">urfamiliar</user-name>LOL???</chat-message>
+    <chat-message><user-name class="ogg organizer">Ogg</user-name>fhat is so cursed</chat-message>
+</chat-transcript>
+
+<p>I've heard the second defense spell solely(?) rebukes anyone affected by any(?) transmutation (in the past 24 hours, probably?). So this strategy doesn't work if you have to Reduce yourself to fit through the window. They just didn't expect anyone to do it <i>without</i> shrinking. I'm weirdly scrawny, plus the rotation thing is unintuitive.
+
+<p>In the dirnitz the other teams saw me with a bloody nose and the rest of my team patting me on the back, and I remember being embarrassed. But in retrospect I think the other teams were freaked out that I must have busted a blood vessel straining some crazy spell!
+
+<p>I appreciate how many challenges this year had non-divinatory solutions even though it means I did a lot worse than last year. It's fun to branch out! I melted ice with a heat spell and it was fun! Solving this with a teleport rather than some inscrutable scry-locate-scry chain was really satisfying even though it was unintended and I got hurt.
+
+<p><strong>I still don't know what the intended solution is though!!!!</strong>
+
+<br><br><br>
+
+</main>
