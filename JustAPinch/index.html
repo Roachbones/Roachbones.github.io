@@ -37,6 +37,14 @@ style: |
 
             padding-left: 1em; padding-right: 1em;
             margin-left: min(4em, 25%);
+            
+            &:has(.me) {
+                margin-left: auto; margin-right: min(4em, 25%);
+                user-name { text-align: right; display: none; }
+                &::before { left: unset; right: -2.5em; }
+                background-color: light-dark(skyblue, mediumslateblue);
+            }
+            
             background-color: light-dark(lightblue, teal);
             @media (prefers-contrast: more) { border-style: solid; border-width: 1px; }
             max-width: max-content;
