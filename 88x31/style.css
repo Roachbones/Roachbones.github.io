@@ -48,7 +48,7 @@ img:not(#thanks) {
     height: calc(31px * var(--m));
 }
 
-body:has(#b:checked) brick-house { animation-name: none }
+body:has(#b:checked) brick-house { animation-play-state: paused; }
 body:has(#c:checked) {
     main { rotate: -1 -1 -1 40deg; }
     input {
