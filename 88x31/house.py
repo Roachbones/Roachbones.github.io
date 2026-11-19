@@ -30,6 +30,7 @@ print("""<!doctype html>
 </div>
 
 <img width=354 id=thanks src=thanks.png alt="Thanks for visiting :)" data-comment="from https://sweetfish.site/advent/2025">
+<p>You can add my 88x31 to your site: <a href=https://rose.systems><img src=i/rose.systems-scribble.png alt=rose.systems></a>
 """)
 
 import json

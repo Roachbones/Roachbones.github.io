@@ -43,7 +43,7 @@ brick-course {
     &:nth-child(2n+1) { right: calc(66px * var(--m) * var(--s)); }
     & > * { min-width: calc(88px * var(--m)); }
 }
-img:not(#thanks) {
+brick-course img {
     width: calc(88px * var(--m));
     height: calc(31px * var(--m));
 }
@@ -91,10 +91,9 @@ body:has(#i:checked) {
     #j, #k, #l, #m, #x { display: inline; }
 }
 
-a { border-style: solid; border-width: 0; }
 body:has(#j:checked):has(#i:checked) {
     a { rotate: 10deg; margin: 7px; scale: 1.1; }
-    img:not(#thanks) { rotate: -5deg; }
+    brick-course img { rotate: -5deg; }
     brick-wall { background-color: transparent; }
     #j { rotate: -10deg; }
 }
@@ -104,7 +103,7 @@ body:has(#k:checked):has(#i:checked) {
         outline: outset 6px;
         margin: 6px;
     }
-    a {
+    brick-house a {
         outline-style: outset;
         outline-width: 6px; margin: 6px;
         min-width: calc(88px * var(--m) - 12px);
@@ -152,7 +151,7 @@ body:has(#z:checked) {
         scale: 0;
     }
     main { rotate: none; }
-    #thanks { display: block; transform: translateZ(0.1px);}
+    #thanks, p { display: block; transform: translateZ(0.1px); }
     input { transform: none; }
 }
 #thanks {
@@ -160,7 +159,18 @@ body:has(#z:checked) {
     margin-left: auto; margin-right: auto; margin-top: calc(var(--w) / 4);
     animation: thanks 1s;
 }
+p {
+    display: none;
+    margin-top: 2em;
+    text-align: center;
+    img { vertical-align: middle; }
+    animation: p 1s;
+}
 @keyframes thanks {
     0% { max-width: 0; margin-top: 0; }
     to { max-width: min(352px, 100%); }
+}
+@keyframes p {
+    0% { scale: 0; }
+    to { scale: 1; }
 }
