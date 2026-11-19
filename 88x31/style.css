@@ -16,7 +16,6 @@ brick-house {
     position: relative;
     rotate: 1 1 1 5deg;
     top: max(50px, 20vh);
-    transition: all 1s;
     width: var(--w);
     margin-left: auto; margin-right: auto;
     animation-name: doner; animation-duration:16s; animation-timing-function: linear;
@@ -28,7 +27,6 @@ brick-house {
 }
 brick-wall {
     display: block;
-    background-color: rgb(0,0,0,25%);
     width: var(--w);
     position: absolute;
     line-height: 0;
@@ -79,7 +77,7 @@ body:has(#h:checked) input { scale: 1 40; transform-origin: top; }
 body:has(#i:checked), body:has(#b:not(:checked)):has(#d:checked):has(#e:checked) {
     #i { display: inline; }
 }
-#i, #j, #k, #l, #m, #z {
+#i, #j, #k, #l, #m, #x, #z {
     display: none;
     margin: 0;
     animation: appear 1s;
@@ -90,7 +88,7 @@ body:has(#i:checked), body:has(#b:not(:checked)):has(#d:checked):has(#e:checked)
 }
 body:has(#i:checked) {
     #i { scale: 0.5; }
-    #j, #k, #l, #m { display: inline; }
+    #j, #k, #l, #m, #x { display: inline; }
 }
 
 a { border-style: solid; border-width: 0; }
@@ -135,6 +133,8 @@ body:has(#m:checked):has(#i:checked) {
     }
     #m { transform: translateY(calc(var(--w) / 8)); }
 }
+
+body:has(#x:not(:checked)) brick-course:first-child { scale: 1 0; }
 
 #z {
     scale: 1;

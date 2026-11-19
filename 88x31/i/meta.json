@@ -399,11 +399,6 @@
   "alt": ""
  },
  {
-  "src": "mundis_OriginalByJDR.png",
-  "alt": "MUNDIS",
-  "href": "https://unicornjelly.com/alt77.html"
- },
- {
   "src": "buttons_now.gif",
   "alt": "Buttons Now!"
  },
@@ -414,5 +409,58 @@
  {
   "src": "badapple.gif",
   "alt": "bad apple"
+ },
+ {
+  "src": "HORSES.gif",
+  "alt": "DESTROY ALL HORSES."
+ },
+ {
+  "src": "museumofzzt.png",
+  "alt": "Museum of ZZT",
+  "href": "https://museumofzzt.com/"
+ },
+ {
+  "src": "iheartbeingtrans.png",
+  "alt": "I ♥ Being Trans"
+ },
+ {
+  "src": "thedigitalme.gif",
+  "alt": "The Digital Me"
+ },
+ {
+  "src": "Icon-trains.png",
+  "alt": "train",
+  "href": "https://commons.wikimedia.org/wiki/File:Icon-trains.png",
+  "data-copyright": "public domain"
+ },
+ {
+  "src": "itchio.png",
+  "href": "https://roachbones.itch.io",
+  "alt": "itch.io"
+ },
+ {
+  "src": "appleeater.png",
+  "alt": "apple eater"
+ },
+ {
+  "src": "ERROR.png",
+  "alt": "ERROR"
+ },
+ {
+  "src": "hiking-club.png",
+  "alt": "hiking club"
+ },
+ {
+  "src": "lawfulgood.png",
+  "alt": "lawful good"
+ },
+ {
+  "src": "takeme.png",
+  "alt": "UFO TAKE ME"
+ },
+ {
+  "src": "octofriends.garden.png",
+  "href": "https://octofriends.garden/",
+  "alt": "The OctoFriend's Garden"
  }
 ]
