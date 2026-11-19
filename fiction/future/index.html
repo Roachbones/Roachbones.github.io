@@ -1,0 +1,625 @@
+<!doctype html>
+<link rel=preconnect href=https://fonts.googleapis.com>
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+<title>Orientation packet</title>
+<meta name=description content="You are revived many years in the future. They give you a folder.">
+<!--<meta name=viewport content="width=device-width,interactive-widget=resizes-content">-->
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap" rel=stylesheet>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&family=Palanquin:wght@100;200;300;400;500;600;700&display=swap" rel=stylesheet>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols:wght@100..900&display=swap" rel=stylesheet>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols+2&display=swap" rel=stylesheet>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Math&display=swap" rel=stylesheet>
+<style>
+* {
+    transform-style: preserve-3d;
+    transition: all 1s, visibility 1ms;
+    backface-visibility: hidden;
+}
+html, body { transform-style: flat; }
+img { max-width: 100%; }
+body {
+    Vbackground-image: url(clinic.jpg);
+    Vbackground-blend-mode:soft-light;
+    font-family: "Noto Sans Symbols", "Noto Sans Symbols 2";
+    color-scheme: light dark;
+    background-color: light-dark(gray, grey);
+    --ptych-width: calc(11in / 3); --brochure-height: calc(8.5in);
+    --ptych-width: calc(297mm / 3); --brochure-height: 210mm;
+    --folder-width: 225mm; --folder-height: 305mm;
+    --vs-width: 210mm; --vs-height: 297mm;
+    position: relative;
+    --brochure-flip: 0;
+    &:has(#brochure-flip:checked) { --brochure-flip: 1; }
+    --brochure-open: 0;
+    &:has(#brochure-open:checked) { --brochure-open: 1; }
+    --brochure-closed: calc(1 - var(--brochure-open));
+    --brochure-in: calc(1 - var(--brochure-out));
+}
+replica-clinic {
+    display: block;
+    perspective: 60cm; perspective-origin: center bottom;
+}
+input {
+    zoom: 1;
+}
+brochure-uplifter {
+    display: block; position: absolute;
+    width: 100%; bottom: 0;
+    pointer-events: none;
+}
+#brochure {
+    pointer-events: none;
+    > * { pointer-events: all; }
+    --out: var(--brochure-out);
+    margin-left: 20em;
+    width: calc(var(--ptych-width) * (3 - var(--brochure-closed) * 2));
+    height: var(--brochure-height);
+    margin-left: auto; margin-right: auto;
+    transform: translateZ(.2mm) rotateY(calc(var(--brochure-flip) * -180deg));
+    font-family: "Atkinson Hyperlegible Next", "Noto Sans Math", "Noto Sans Symbols", "Noto Sans Symbols 2";
+}
+#brochure section {
+    --border-width: 1px;
+    border: var(--border-width) solid gainsboro;
+    position: absolute;
+    width: var(--ptych-width);
+    height: var(--brochure-height);
+    background-color: ghostwhite;
+    transform-origin: left;
+    p {  margin-left: 1cm; margin-right: 1cm; }
+    h1, h2, h3 { margin-left: 5mm; margin-right: 5mm; }
+    h3 { margin-bottom: 1mm; }
+    hr {
+        margin: 1cm; color: #dde;
+    }
+    .bluebox {
+        padding: 3mm 5mm 5mm 2mm; border-radius: 1em; background-color: #dde; margin: .5cm;
+        h3 { text-align: center; }
+    }
+    
+    &#p1 {
+        transform: rotateY(calc((10deg + var(--brochure-open) * 0deg)) * var(--brochure-out));
+    }
+    &#p2 {
+        left: var(--ptych-width);
+        transform: rotateY(calc(-20deg - var(--brochure-closed) * 156deg - 3.9deg * var(--brochure-in)));
+    }
+    &#p3 {
+        left: var(--ptych-width);
+        transform: rotateY(calc(20deg + var(--brochure-closed) * 156deg + 3.9deg * var(--brochure-in)));
+    }
+    &.a {
+        transform: rotateY(.5turn);
+        transform-origin: center;
+    }
+    top: calc(-1 * var(--border-width));
+}
+
+.manicule { font-size: 9mm; vertical-align: middle; line-height: 0; font-style: normal; }
+
+#vs {
+    --out: var(--vs-out);
+    width: 210mm; height: 297mm;
+    pointer-events: none;
+    section {
+        pointer-events: all;
+        position: relative;
+        background-color: white;
+        color: black;
+        box-sizing: border-box;
+        width: var(--vs-width); height: var(--vs-height);
+        --print-margin: 2cm;
+        padding: var(--print-margin);
+        h3 { margin: 0; }
+        p { margin: 6px; }
+        font-family: Palanquin, "Noto Sans Symbols", "Noto Sans Symbols 2";
+        h1 { font-weight: 400; }
+        h2 { font-weight: 400; }
+        h3 { font-weight: 500; }
+        h2, h3 { margin-bottom: 0;}
+        h2 { color: tomato }
+        h1, h3 { color: dodgerblue }
+        hr { color: gold; margin-top: 2em; margin-bottom: 2em; }
+        line-height: 1.5;
+        footer { position: absolute; bottom: 0; }
+        border: 1px solid black;
+        big.i { font-size: xx-large; vertical-align: middle; display: inline-block; }
+        position: absolute;
+        left: 0; top: 0;
+        transform: rotateY(calc(var(--vs-flip) * .5turn));
+        &:not(:first-child) {
+            transform: rotateY(calc((var(--vs-flip) + 1) * .5turn));
+        }
+    }
+}
+
+body {
+    --folder-out: 0; --folder-open: 0;
+    --brochure-out: 0;
+    --vs-out: 0; --vs-flip: 0;
+}
+body:has(#folder-open:checked) { --folder-open: 1; }
+body:has(#vs-out:checked) { --vs-out: 1; }
+body:has(#brochure-out:checked) { --brochure-out: 1; }
+body:has(#folder-out:checked) { --folder-out: 1; }
+body:has(#vs-flip:checked) { --vs-flip: 1; }
+
+body:has(#brochure-out:checked), body:has(#vs-out:checked) {
+    label[for=folder-open] { visibility: hidden; }
+}
+body:has(#folder-open:not(:checked)) {
+    label[for=brochure-out], label[for=vs-out] { visibility: hidden; }
+}
+body:has(#vs-out:checked) #vs label[for=vs-out].allover { visibility: hidden; }
+body:has(#vs-out:not(:checked)) label[for=vs-flip] { visibility: hidden; }
+body:has(#brochure-out:checked) #brochure label.allover[for=brochure-out] { visibility: hidden; }
+body:has(#brochure-open:checked) label[for=brochure-out] {
+    visibility: hidden; /* todo does this work? */
+}
+body:has(#brochure-out:not(:checked)) {
+    label[for=brochure-flip], label[for=brochure-open] { visibility: hidden; }
+}
+body:has(#folder-out:checked) label[for=folder-out] { visibility: hidden; }
+body:has(#folder-out:not(:checked)) label[for=folder-open] { visibility: hidden; }
+
+orientation-packet {
+    display: block;
+    width: var(--folder-width);
+    left: max(50lvw, var(--folder-width) - 5cm);
+    margin: auto;
+    position: absolute;
+    top: calc(8lvh + 1cm + var(--vs-out) * var(--vs-height) * 1.2 + var(--brochure-out) * var(--brochure-height) * 1.2);
+    --folder-in: calc(1 - var(--folder-out));
+    body:has(#folder-out:not(:checked)) & {
+        transform: translateZ(-100cm) translateY(60lvh) rotateX(89deg) rotateZ(9deg);
+    }
+    transform: translateZ(-32cm);
+    folder-side {
+        display: block;
+        width: var(--folder-width); height: var(--folder-height);
+        box-sizing: border-box;
+        background-color: LightBlue;
+        --folder-crease-border: 1mm solid #0001; /* todo potential border-box scenario */
+        &:first-child {
+            position: absolute;
+            transform-origin: right;
+            right: 100%;
+            transform: rotateY(calc(1turn * (.498 - var(--folder-open) * 0.46)));
+            border-right: var(--folder-crease-border);
+        }
+        &:not(:first-child) {
+            border-left: var(--folder-crease-border);
+        }
+        folder-pocket {
+            display: block;
+            position: absolute;
+            background-color: inherit;
+            bottom: 0;
+            width: 100%; height: 40%;
+            border-top: 2px solid black;
+        }
+        &::before {
+            content: '';
+            display: block;
+            position: absolute; left: 0;
+            background-color: inherit;
+            width: 100%; height: 100%;
+            transform: rotateY(.5turn);
+        }
+        & > article {
+            position: absolute;
+            &#vs {
+                left: 9mm;
+                bottom: calc(4mm + (var(--folder-height) + 6cm) * var(--vs-out));
+            }
+            &#brochure {
+                left: 4.4cm;
+            }
+        }
+    }
+}
+
+
+body:has(#folder-out:not(:checked), #folder-open:not(:checked)) {
+    :not(label) { pointer-events: none; }
+}
+
+body:has(#brochure-out:checked) brochure-uplifter {
+    transition-property: all, transform;
+    transition-delay: 0s, .2s;
+    transition-duration: 1s, 1s;
+}
+body:has(#brochure-out:not(checked)) brochure-uplifter {
+    transition-property: all, transform;
+    transition-delay: 0s, 0s;
+    transition-duration: 1s, .4s;
+    transition-timing-function: ease linear;
+}
+brochure-uplifter { bottom: 4mm; }
+body:has(#brochure-out:checked) brochure-uplifter {
+    bottom: calc((var(--folder-height) + 6cm) * var(--brochure-out) * (var(--vs-out)*.9 + var(--brochure-out)));
+    width: 150%;
+    transform: translateZ(24cm) translateX(calc(0 * var(--folder-width)));
+}
+
+body:has(#vs-out:checked) #vs {
+    transition-property: all, transform;
+    transition-delay: 0s, .2s;
+    transition-duration: 1s, 1s;
+}
+body:has(#vs-out:not(checked)) #vs {
+    transition-property: all, transform;
+    transition-delay: 0s, 0s;
+    transition-duration: 1s, .4s;
+    transition-timing-function: ease linear;
+}
+body:has(#vs-out:checked) #vs {
+    transform: translateZ(30cm) translateX(calc(-.5 * var(--folder-width)));
+}
+
+.allover {
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    width: 100%; height: 100%;
+    top: 0; left: 0;
+}
+.allup {
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    height: 100%;
+    top: 0;
+}
+.allacross {
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    left: 0;
+}
+.lefter, .righter { width: 30%; } .lefter { left: 0; } .righter { right: 0; }
+
+.flip { transform: rotateY(.5turn); }
+
+label { cursor: pointer; pointer-events: all; }
+
+input { display: none; }
+
+body:has(#debug:checked) label {
+    background-color: #f002;
+    &[for=brochure-flip] { background-color: #0f02; }
+    &[for=brochure-open] { background-color: #ff01; }
+    &[for=brochure-out] { background-color: #0ff1; }
+    &[for=vs-out] { background-color: #f0f1; }
+    &[for=folder-out] { background-color: #f163; }
+}
+
+#safari-workaround {
+    display: flex;
+    position: fixed;
+    --height: 2em;
+    --border-width: 2mm;
+    font-size: min(calc(1cm*e), 6lvw);
+    height: var(--height);
+    top: calc(100svh - var(--height) - var(--border-width) * 4);
+    width: 100%;
+    font-family: "Noto Sans Math", "Noto Sans Symbols", "Noto Sans Symbols 2";
+    label {
+        flex: 1 1 auto;
+        border: var(--border-width) outset;
+        height: 2em; width: var(--height);
+        background: linear-gradient(aliceblue, pink);
+        &::before {
+            content: '';
+            text-align: center;
+            display: block;
+        }
+        &[for=folder-out]::before { content: '🕏🖑'; font-size: min(2cm, 6lvw); }
+        &[for=folder-open]::before { content: '🗁'; }
+        body:has(#folder-open:checked) &[for=folder-open]::before { content: '🗀'; }
+        &[for=brochure-out]::before { content: '🖺↑'; }
+        &[for=vs-out]::before { content: '🖹↑'; }
+        body:has(#brochure-out:checked) &[for=brochure-out]::before { content: '🖺↓'; }
+        body:has(#vs-out:checked) &[for=vs-out]::before { content: '🖹↓'; }
+        &[for=brochure-open]::before { content: '↫'; }
+        &[for$=-flip]::before { content: '↶'; }
+        body:has(#brochure-out:checked) &[for^=vs-] { visibility: hidden; }
+        body:has(#vs-out:checked):has(#brochure-out:not(:checked)) &[for^=brochure-] { visibility: hidden; }
+    }
+    pointer-events: none;
+}
+
+</style>
+
+
+<body onload="debug.checked=location.hash">
+
+<replica-clinic>
+
+<orientation-packet>
+<folder-side>
+<label for=folder-open class=allover></label>
+<big class="allover flip" style=font-size:12cm;text-align:center;color:#eee7>🕏</big>
+<label for=folder-open class="allover flip"></label>
+<label for=folder-out class="allover flip"></label>
+
+<brochure-uplifter>
+<article id=brochure>
+<section id=p1>
+    <big style=font-size:5cm;width:100%;display:block;text-align:center;color:#dde;margin-top:1.5cm>⁂</big>
+    <div style=position:absolute;top:40%>
+        <p><b>Your body was regenerated from scratch</b> (or nearly) alongside modern preventive care techniques. (Preventive care is the practice of <i>preventing</i> disease and injury before they occur.)
+        <p>You may notice missing scars. If malnutrition stunted your previous growth, you may now be taller. If an untreated hormone disorder exaggerated your previous growth, you may be a bit shorter. If your eyesight had been impaired by environmental factors, it may be better.
+        <p>Damage from injuries, infections, endocrine disruption, and preventable aging should all be gone.</p>
+    </div>
+
+    <label for=brochure-flip class="allup lefter"></label>
+    <label for=brochure-open class="allup righter"></label>
+    <label for=brochure-out class=allover></label>
+    
+    <section class=a style=overflow:clip>
+
+    <big style=font-size:6cm;width:100%;display:block;text-align:center;color:#dde;height:9.5cm;margin-top:-2.5cm>🕏</big>
+    <h1 style=text-align:center;font-style:italic>Ongoing care</h1>
+    <p>It's important to take care of your new body. You should come in regularly for routine treatments:
+    <div class=bluebox>
+        <ul>
+            <li><dfn>Vaccines</dfn> are injections, pills, and swabs that prevent disease. Everyone needs vaccines.
+            <li><dfn>Hormone therapy</dfn> prevents endocrine disorders. Most people need it regularly, and almost everyone needs it at some point in her life.
+            <li><dfn>Blood tests</dfn> and <dfn>T scans</dfn> measure your health. Ask your doctor how often you need these.
+        </ul>
+    </div>
+    
+    <footer style=font-family:monospace;position:absolute;bottom:5mm;right:0;font-size:calc(e*1mm)><p>[en-lmodeng-6.12.0]</footer>
+    
+    <label for=brochure-out class=allacross style=bottom:0;height:9%></label>
+    <label for=brochure-open class="allup lefter"></label>
+    <label for=brochure-flip class="allup righter"></label>
+    <label for=brochure-out class=allover></label>
+    
+    </section>
+
+<section id=p2>
+
+    <br>
+    <p>Your <b>DNA</b> (the genetic code that defines most of your biology) <strong>was not changed</strong> without permission from either yourself or a genetic descendant, with certain exceptions defined by federal law. (Any DNA changes can be found on your visit&nbsp;summary.)
+    <p>You may be experiencing muscle weakness or vertigo; <b>these are normal</b> and will likely subside. Ask your doctor about other symptoms.
+    <br><br>
+    <p>You may need a little practice to regain hand-eye coordination, especially if your hand size changed. Try the following exercises with this brochure:
+    <div class=bluebox>
+        <h3 style=font-style:italic>
+            <big class=manicule>☞ </big>Hand exercises<big class=manicule> ☜</big>
+        </h3>
+        <ol>
+            <li>Unfold this brochure.
+            <li>Grab the brochure by its right edge, and flip it.
+            <li>Grab the brochure by a crease, and refold it.
+            <li>Grab the folded brochure by its left edge and flip it back to the front page.
+            <li>Repeat, or practice tucking the brochure into a pocket or folder.
+        </ol>
+    </div>
+
+    <label for=brochure-open class="allup lefter"></label>
+    <label for=brochure-open class="allup righter"></label>
+    <label for=brochure-out class=allover></label>
+
+    <section style=background-color:gainsboro;font-family:serif class=a>
+        <p style=font-size:9mm;text-align:center;margin-top:7em;>
+            <big style="background-color:#aaaa;font-weight:bold;padding:.5em 1em">MINMO.</big>
+            <p style=text-align:center;font-family:sans;font-size:5.5mm>just works
+        <p style=position:absolute;bottom:0;text-align:right;font-style:italic;color:#0004;font-size:3mm>Sponsored ad</p>
+        <label for=brochure-open class="allup lefter"></label>
+        <label for=brochure-open class="allup righter"></label>
+        <label for=brochure-out class=allover></label>
+    </section>
+    
+
+<section id=p3>
+
+    <h1 style=text-align:center;margin-top:6em><i>Your new body</i></h1>
+    <h2 style=text-align:center>an explainer</h2>
+    
+    <aside style=margin-top:50%;color:SlateBlue;position:absolute;left:1mm;width:max-content;text-align:center>
+        <big style=font-size:1cm>↫</big>
+        <p style=margin-top:-1em>unfold
+    </aside>
+    <aside style=margin-top:50%;color:SlateBlue;position:absolute;right:1mm;width:max-content;text-align:center;>
+        <big style=font-size:1cm>↶</big>
+        <p style=margin-top:-1em>flip
+    </aside>
+    
+    <label for=brochure-out class=allacross style=bottom:0;height:9%></label>
+    <label for=brochure-open class="allup lefter"></label>
+    <label for=brochure-flip class="allup righter"></label>
+    <label for=brochure-out class=allover></label>
+
+    <section class=a>
+        
+        <h1 style=font-size:5mm;text-align:center;font-style:italic;margin-top:5mm>Common questions</h1>
+        
+        <h3>How old am I?</h3>
+        <p>Legally, your birthdate has not changed. If it's important to you to know the timeline of your body's restoration, ask your doctor.
+
+        <h3>I had long hair on my&nbsp;chin. Why is it gone?</h3>
+        <p>You may have had an untreated hormone disorder. Check your visit summary for <dfn>androgenism</dfn>, a common disorder that causes <dfn>hirsutism</dfn> (abnormal hair growth) among other symptoms. It is now easily treatable. It can cause exaggerated height, so you may now be a bit shorter.</p>
+        
+        <h3>Where can I exercise here?</h3>
+        <p>During your stay, you can hike our indoor&nbsp;courtyard.<br><br>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Parc_Olbius_Riquier_%28Greenhouse%29_-_Calliandra_haematocephala_%28plant%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" alt=garden style="filter:opacity(.5)"></p>
+
+        <label for=brochure-open class="allup righter"></label>
+        <label for=brochure-flip class="allup lefter"></label>
+        <label for=brochure-out class=allover></label>
+    </section>
+
+</section>
+</section>
+</section>
+</article>
+</brochure-uplifter>
+<folder-pocket style=width:51%;transform-origin:left;transform:rotateY(-3deg)>
+    <label class=allover for=brochure-out></label>
+</folder-pocket>
+<folder-pocket style=width:51%;transform-origin:right;transform:rotateY(3deg);right:0;>
+    <label class=allover for=brochure-out></label>
+</folder-pocket>
+</folder-side>
+<folder-side>
+<article id=vs>
+    <section>
+        <h1>Visit summary</h1>
+        <h3>Vitals</h3>
+        <p><b>Height:</b> 172 cm (from 181 cm)
+        <p><b>Weight:</b> 53 kg (from approx. 61 kg)
+        <p><b>Heart rate:</b> 101 bpm
+        <p><b>Eyesight:</b> 6/3.1
+        <h2>Problem list</h2>
+        <h3>Androgenism</h3>
+        <p>Hormone imbalance causing acne, alopecia, body odor, chondrolaryngomegaly, dyslipidemia, hirsutism, involuntary tumescence, and shortened life expectancy. Associated&nbsp;with depression and satyriasis.
+        <br>Status: Controlled.
+        <h3>Dental caries</h3>
+        <p>Breakdown of teeth due to acids produced by a disrupted oral&nbsp;microbiome.
+        <br>Status: Resolved.
+        <h3>Myopia</h3>
+        <p>An eye condition where light from distant objects focuses in front of, instead of on, the retina. As a result, distant objects appear blurry.
+        <br>Status: Resolved.
+        <br>Notes: <i>Patient askedof cosmetic eyeglasses; cited near shops per</i>
+        <hr>
+        <h3>You are allergic to the following</h3>
+        <p>No active allergies
+        <hr>
+        <footer style=position:absolute;left:var(--print-margin);bottom:var(--print-margin)>
+        <p>Automatically translated from English to English (Late Modern English)
+        <p>This is confidential information.
+        </footer>
+        <p style=position:absolute;right:var(--print-margin);bottom:var(--print-margin)>Page 1 of 2</p>
+        <label for=vs-flip class=allover></label>
+        <label for=vs-out class=allover></label>
+        <label for=vs-out class=allacross style=bottom:0;height:9%></label>
+    </section>
+    <section>
+        <h2>Today's medication changes</h2>
+        <p style=margin-bottom:0;color:forestgreen>
+            <big>▶</big>
+            START taking:
+        <ul style=margin-top:0;line-height:1.25>
+        <li>ceftaroline [Zeforil]
+        <br>	For: antibiotic prophylaxis (prevent infections)
+        </ul>
+        <hr>
+        <h2>Follow-ups</h2>
+        <h3>Return in about 4 weeks*</h3>
+        <p>Scheduled for: schedule at front desk
+        <p>	Why: Check-up
+        <h3>REFERRAL endocrinology - in 6 to 8 months*</h3>
+        <p>Scheduled for: schedule at front desk
+        <p>	Why: Implant follow-up
+
+        <br><p style=text-align:right;font-style:italic>* = required
+    
+        <hr>
+
+        <h2>Information on file</h2>
+
+        <p>Addresses: None on file
+        <p>E-Addresses: None on file
+        <p>Preferred language: English (Late Modern English)
+
+        <hr>
+
+        <p>For additional care or counsel, call your doctor or return to her office during business hours.
+        
+        <footer style=position:absolute;left:var(--print-margin);bottom:var(--print-margin)>
+        <p>Automatically translated from English to English (Late Modern English)
+        <p>This is confidential information.
+        </footer>
+        <p style=position:absolute;right:var(--print-margin);bottom:var(--print-margin)>Page 2 of 2</p>
+        <label for=vs-flip class=allover></label>
+        <label for=vs-out class=allover></label>
+        <label for=vs-out class=allacross style=bottom:0;height:9%></label>
+    </section>
+</article>
+<folder-pocket><label class=allover for=vs-out></label></folder-pocket>
+</folder-side>
+
+</orientation-packet>
+
+<input type=checkbox id=debug>
+<input type=checkbox id=brochure-open>
+<input type=checkbox id=brochure-flip>
+<input type=checkbox id=folder-open>
+<input type=checkbox id=brochure-out>
+<input type=checkbox id=vs-out>
+<input type=checkbox id=vs-flip>
+<input type=checkbox id=folder-out>
+
+
+<!-- scrapped ideas: -->
+
+	<!--<big style=font-size:6cm>⚕</big>
+	<big style=font-size:6cm>☥</big>
+	<big style=font-size:6cm>🕏</big>-->
+	
+	<!--
+	<section>
+	<p><big>If you have trouble reading this document, show this page to a doctor or nurse.</big>
+	❦
+	</section>
+	-->
+	
+	<!--
+	        <p><big class=i style=rotate:.5turn>↨</big>Height: 172 cm (from 178 cm)
+	        <p><big class=i >⚖</big>Weight: 54 kg (from approx. 55 kg)
+	        <p><big class=i >❣</big>Heart rate: 101 bpm
+	-->
+
+</replica-clinic>
+
+<div id=safari-workaround style=display:none>
+<label for=folder-out></label>
+<label for=folder-open></label>
+<label for=brochure-out></label>
+<label for=brochure-open></label>
+<label for=brochure-flip></label>
+<label for=vs-out></label>
+<label for=vs-flip></label>
+</div>
+
+<script>
+
+////////////////////////////////////////////////////////////////////////
+// This webpage works JSless on most browsers,                        //
+// but clicktargets misbehave on Safari,                              //
+// so here's a small script to detect that and show an alternate UI.  //
+////////////////////////////////////////////////////////////////////////
+
+ə = (x) => document.getElementById(x);
+
+document.addEventListener('click', e => {
+    if (location.hash=='#t') alert('target: '+e.target+' '+e.target.id+' '+e.target.tagName);
+    if (e.target.tagName=='HTML' && !ə('folder-out').checked) {
+        ə('safari-workaround').style = '';
+    }
+}, true);
+
+</script>
+
+
+<!--
+
+    🙞 AUTHOR'S NOTE 🙜
+
+https://www.tumblr.com/vullen/774768997145149440 except they just do that to everyone!
+Think of all that's been pathologized and depathologized over the eras.
+
+Other readings that reminded me of this idea:
+- Project Lawful; in particular its mentions of:
+  - Medianworlds
+  - People forced to be cryopreserved and presumed taken to a Future that probably won't share their ethics
+- The Super Happy People (3/8)
+
+-->
+
+
+
