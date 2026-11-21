@@ -1,13 +1,13 @@
 ---
 layout: vivpost
 title: CyberSongs & Braindogs
-subtitle: Recovering lost media from a floppy disk
+subtitle: “sprung from a belief that every sound embodies every other sound”
 style: |
-    [href$=disk_front.png] {border:3em solid black}
-    * { transition: all 1s; transform-style: preserve-3d; }
+    * { transform-style: preserve-3d; }
     center { perspective: 9in; }
     floppy-disk {
-        width: 3.5in; display: block;
+        display: block;
+        width: 3.5in;
         position: relative;
         transform: rotateY(.5turn);
         animation-name: doner;
@@ -15,7 +15,7 @@ style: |
         animation-timing-function: linear;
         animation-iteration-count: infinite;
         & > img {
-            width: 3.5in;
+            width: 100%;
             backface-visibility: hidden;
             &.back {
                 position: absolute;
@@ -31,7 +31,8 @@ style: |
     table { margin: auto; }
     td, th { padding: .1em .3em; text-align: right; }
     td:first-child { font-family: serif; }
-    li img { vertical-align: middle; padding: 8px; margin: -20px 0; }
+    li img { vertical-align: middle; padding: 4px; margin: -20px 0; }
+    li { margin-bottom: 15px; }
     iframe { display: block; margin: auto; }
 ---
 
@@ -39,16 +40,16 @@ style: |
 
 <center>
     <floppy-disk>
-        <img alt='Disk: CyberSongs & Braindogs' src=/post_assets/cybersongs/disk_front.png class=front>
-        <img alt='Disk anterior' src=/post_assets/cybersongs/disk_back.png class=back>
+        <img alt="Disk: CyberSongs & Braindogs" src=/post_assets/cybersongs/disk_front.png class=front>
+        <img alt="Disk back" src=/post_assets/cybersongs/disk_back.png class=back>
     </floppy-disk>
 </center>
 
 <p>A mysterious stranger gave away this disk at a zinefest in Wisconsin.
 
-<p>I brought it to a retro computer museum show, where a <a href=>Wisconsin Computer Club</a>ber named Jamie kindly <span title="greaseweazle is a thing for archiving floppy disks">greaseweazled</span> it for me.
+<p>I brought it to a retro computer museum show, where a <a href=https://wisconsincomputerclub.com target=b>Wisconsin Computer Club</a>ber named Jamie kindly <span title="greaseweazle is a thing for archiving floppy disks">greaseweazled</span> it for me.
 
-<p><a href=https://lynn.github.io>My friend Lynn</a> recovered the data with me. It contains song files for MacroMind MusicWorks ver 1.1, last modified in 1988.
+<p><a href=https://lynn.github.io>My friend Lynn</a> recovered the data with me. It contains songs for MacroMind MusicWorks, a music composition program from 1985. Converted to a modern audio format by recording a Macintosh SE emulator:
 
 <!--
 <details><summary>disk recovery nitty-gritty</summary>
@@ -66,104 +67,95 @@ style: |
 </tr>
 <tr>
  <td>Concrazom Avertax</td>
- <td><audio controls src="/post_assets/cybersongs/audio/Concrazom Avertax.wav"></audio></td>
+ <td><audio controls src="/post_assets/cybersongs/audio/Concrazom Avertax.mp3"></audio></td>
  <td><time datetime="1988-10-23 17:28:58.000000000 -0500">Oct 23 1988</time></td>
 </tr>
 <tr>
  <td>Slap Bitch Slaven</td>
- <td><audio controls src="/post_assets/cybersongs/audio/Slap Bitch Slaven.wav"></audio></td>
+ <td><audio controls src="/post_assets/cybersongs/audio/Slap Bitch Slaven.mp3"></audio></td>
  <td><time datetime="1988-10-26 13:19:44.000000000 -0500">Oct 26 1988</time></td>
 </tr>
 <tr>
  <td>Goatboy Tealady Sweet</td>
- <td><audio controls src="/post_assets/cybersongs/audio/Goatboy Tealady Sweet.wav"></audio></td>
+ <td><audio controls src="/post_assets/cybersongs/audio/Goatboy Tealady Sweet.mp3"></audio></td>
  <td><time datetime="1988-11-10 13:38:26.000000000 -0600">Nov 10 1988</time></td>
 </tr>
 <tr>
  <td>MOGUL BUTTRESS SPLEECH</td>
- <td><audio controls src="/post_assets/cybersongs/audio/MOGUL BUTTRESS SPLEECH.wav"></audio></td>
+ <td><audio controls src="/post_assets/cybersongs/audio/MOGUL BUTTRESS SPLEECH.mp3"></audio></td>
  <td><time datetime="1988-11-10 13:46:14.000000000 -0600">Nov 10 1988</time></td>
 </tr>
 <tr>
  <td>Zelbazoth Encanter</td>
- <td><audio controls src="/post_assets/cybersongs/audio/Zelbazoth Encanter.wav"></audio></td>
+ <td><audio controls src="/post_assets/cybersongs/audio/Zelbazoth Encanter.mp3"></audio></td>
  <td><time datetime="1988-11-15 11:06:58.000000000 -0600">Nov 15 1988</time></td>
 </tr>
 <tr>
  <td>For VaVa HepCat</td>
- <td><audio controls src="/post_assets/cybersongs/audio/For VaVa HepCat.wav"></audio></td>
+ <td><audio controls src="/post_assets/cybersongs/audio/For VaVa HepCat.mp3"></audio></td>
  <td><time datetime="1988-12-03 15:34:50.000000000 -0600">Dec 03 1988</time></td>
 </tr>
 <tr>
  <td>VaVa Hepcat Reprise?</td>
- <td><audio controls src="/post_assets/cybersongs/audio/VaVa Hepcat Reprise.wav"></audio></td>
+ <td><audio controls src="/post_assets/cybersongs/audio/VaVa Hepcat Reprise.mp3"></audio></td>
  <td><time datetime="1988-12-03 16:58:01.000000000 -0600">Dec 03 1988</time></td>
 </tr>
 <tr>
  <td>Mrs Boogers First Sad Song</td>
- <td><audio controls src="/post_assets/cybersongs/audio/Mrs Boogers First Sad Song.wav"></audio></td>
+ <td><audio controls src="/post_assets/cybersongs/audio/Mrs Boogers First Sad Song.mp3"></audio></td>
  <td><time datetime="1988-12-05 22:13:22.000000000 -0600">Dec 05 1988</time></td>
 </tr>
 <tr>
  <td>Kicktch</td>
- <td><audio controls src="/post_assets/cybersongs/audio/Kicktch.wav"></audio></td>
+ <td><audio controls src="/post_assets/cybersongs/audio/Kicktch.mp3"></audio></td>
  <td><time datetime="1988-12-06 06:20:16.000000000 -0600">Dec 06 1988</time></td>
 </tr>
 <tr>
  <td>[Rough Sexy Ghost?]</td>
- <td><audio controls src="/post_assets/cybersongs/audio/[Rough Sexy Ghost].wav"></audio></td>
+ <td><audio controls src="/post_assets/cybersongs/audio/Rough Sexy Ghost.mp3"></audio></td>
  <td><time datetime="1988-12-18 15:00:06.000000000 -0600">Dec 18 1988</time></td>
 </tr>
 <tr>
  <td>the mushroom uncaged</td>
- <td><audio controls src="/post_assets/cybersongs/audio/the mushroom uncaged.wav"></audio></td>
+ <td><audio controls src="/post_assets/cybersongs/audio/the mushroom uncaged.mp3"></audio></td>
  <td><time datetime="1988-12-24 16:45:44.000000000 -0600">Dec 24 1988</time></td>
 </tr>
 </table>
 
-<p>Alternatively, here's an entire Mac emulator running MusicWorks in-browser. It's finnicky, but if it works, you should be able to:
+<p>Alternatively, <a href=https://infinitemac.org/1988/System%206.0?infinite_hd=false&saved_hd=false&cdrom=https%3A%2F%2Farchive.org%2Fdownload%2FCyberSongs_and_Braindogs%2FCyberSongs.img>here's an in-browser emulator with the CyberSongs disk already mounted.</a> Once you're there:
 <ol>
-<li>Wait for the desktop to appear, then click here: <input type=button id=diskbutton value="Insert Cybersongs disk"
-
-onclick='
-mac.contentWindow.postMessage( 
-    {
-        type: "emulator_load_disk",
-        url: "https://archive.org/download/CyberSongs_and_Braindogs/CyberSongs.img",
-    },
-    "*"
-);
-'
-
-></input>
-<li>Wait seconds for the disk to load. You should now have both <img src=/post_assets/cybersongs/icon/MusicWorks Disk.png alt="MusicWorks Disk"> and <img src=/post_assets/cybersongs/icon/CyberSongs.png alt="CyberSongs & Braindogs"> on the desktop.
-<li>Open <img src=/post_assets/cybersongs/icon/MusicWorks Disk.png alt="MusicWorks Disk">; open <img src=/post_assets/cybersongs/icon/MusicWorks.png alt="MusicWorks">
+<li>Click <b>Macintosh Garden</b>
+<li>Find <b>MusicWorks</b>
+<li>Under MusicWorks, click the first link under “Downloads”
+<li>Wait seconds for the disk to load. You should now have both <img src="/post_assets/cybersongs/icon/MusicWorks Disk.png" alt="MusicWorks Disk"> and <img src=/post_assets/cybersongs/icon/CyberSongs.png alt="CyberSongs & Braindogs"> on the desktop.
+<li>Open <img src="/post_assets/cybersongs/icon/MusicWorks Disk.png" alt="MusicWorks Disk">; open <img src=/post_assets/cybersongs/icon/MusicWorks.png alt="MusicWorks">
 <li>File > Open
-<li>Click <img src=/post_assets/icon/Drive.png alt="Drive"> until the CyberSongs drive is selected
+<li>Click <img src=/post_assets/cybersongs/icon/Drive.png alt="Drive"> until the CyberSongs drive is selected
 <li>Open a song
 <li>Click <img src=/post_assets/cybersongs/icon/Play.png alt="Play">
 </ol>
 
-<iframe id=mac width=512 height=342 allow=cross-origin-isolated src="https://infinitemac.org/embed?disk=System%206.0&machine=Mac%20SE%20(Snow)&library_url=https%3A%2F%2Fold.mac.gdn%2Fapps%2FMusicWorks_0.42.image_.sit&settings=%7B%22speed%22%3A7%7D"></iframe>
-
-<p><small>Emulator provided by <a href=https://infinitemac.org target=b>infinitemac.org</a>; CyberSongs hosted by <a href=https://archive.org/details/CyberSongs_and_Braindogs target=b>archive.org</a>; MusicWorks hosted by <a href=https://macintoshgarden.org/apps/musicworks target=b>macintosh.garden</a>; this demo breaks if any of these go offline.</small>
-
 <noscript><p>Of course, this is moot because we both know you're too cool to have JavaScript enabled.</noscript>
 
-<p>Hearing these, you might think we blundered data recovery. But I think <i>floating concrete orchestra</i> is just like that. Here's another piece:
+<p>Hearing these, you might think we blundered data recovery, but I think <i>Floating Concrete Orchestra</i> is just like that. Here's another piece:
 
 <p>
-<iframe src="https://w.soundcloud.com/player/?visual=true&url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F123239600&show_artwork=true" style=margin:auto;display:block></iframe>
+<iframe src="https://w.soundcloud.com/player/?visual=true&url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F123239600&show_artwork=true" style="margin:2em auto;display:block"></iframe>
 
+I think <i>Floating Concrete Orchestra</i> was Lyx Ish and mIEKAL aND. You can read more about their work in <a href=https://isthmus.com/arts/what-ever-happened-to-the-church-of-anarchy/ target=b><i>What ever happened to the Church of Anarchy?</i></a> and on <a href=https://www.dreamtimevillage.org/ target=b>the website of their commune, Dreamtime Village</a>.
 
-<br><br><br><br>
-<img src=/post_assets/cybersongs/spine.png alt="Floating Concrete Orchestra  CyberSongs & Braindogs">
+<p>Here's the cover art from the disk case. I can't read all the text.
 
+<img src=/post_assets/cybersongs/cover.jpg alt="Image of raccoon with pony parts and antlers, captioned: the floating concrete orchestra; cybersongs & braindogs; sprung from the belief that every sound embodies every other sound; A new species of collective noisemakers; audio … integrating … of noise with the power of …" style="margin:2em auto;max-width:30em;display:block">
 
-<!--
-gw convert --format mac.800 mac800_mydisk/mydisk.scp cyberdogs.img
--->
+<p>The other side says:
 
+<p style="font-family:serif;width:fit-content;border:2px solid;padding:1ex;margin-left:auto;margin-right:auto">
+AutoCeptor Experimedia<br>
+xerbudox techneologiesⓇ <span style=font-family:sans>[sic]</span><br>
+1341 Williamson Madison WI 53703
+
+<!--<img src=/post_assets/cybersongs/spine.png alt="Floating Concrete Orchestra  CyberSongs & Braindogs">-->
 
 <!--
 Concrazom Avertax ♢ 1988-10-23 17:28:58.000000000 -0500
@@ -181,44 +173,4 @@ System � ♢ 1989-01-11 14:33:47.000000000 -0600
 the mushroom uncaged ♢ 1988-12-24 16:45:44.000000000 -0600
 VaVa Hepcat Reprise? ♢ 1988-12-03 16:58:01.000000000 -0600
 Zelbazoth Encanter ♢ 1988-11-15 11:06:58.000000000 -0600
-
-  
-Concrazom Avertax♢1988-10-23 17:28:58.000000000 -0500♢Sun Oct 23 1988 17:28:58 GMT-0500 (Central Daylight Time) debugger eval code:1:73
-CyberSongs & Braindogs♢1989-01-01 17:11:37.000000000 -0600♢Sun Jan 01 1989 17:11:37 GMT-0600 (Central Standard Time) debugger eval code:1:73
-Desktop♢1989-01-11 14:35:49.000000000 -0600♢Wed Jan 11 1989 14:35:49 GMT-0600 (Central Standard Time) debugger eval code:1:73
-For VaVa HepCat♢1988-12-03 15:34:50.000000000 -0600♢Sat Dec 03 1988 15:34:50 GMT-0600 (Central Standard Time) debugger eval code:1:73
-Goatboy Tealady Sweet♢1988-11-10 13:38:26.000000000 -0600♢Thu Nov 10 1988 13:38:26 GMT-0600 (Central Standard Time) debugger eval code:1:73
-Jukebox �♢1989-01-11 14:33:46.000000000 -0600♢Wed Jan 11 1989 14:33:46 GMT-0600 (Central Standard Time) debugger eval code:1:73
-Kicktch♢1988-12-06 06:20:16.000000000 -0600♢Tue Dec 06 1988 06:20:16 GMT-0600 (Central Standard Time) debugger eval code:1:73
-MOGUL BUTTRESS SPLEECH♢1988-11-10 13:46:14.000000000 -0600♢Thu Nov 10 1988 13:46:14 GMT-0600 (Central Standard Time) debugger eval code:1:73
-Mrs Boogers First Sad Song♢1988-12-05 22:13:22.000000000 -0600♢Mon Dec 05 1988 22:13:22 GMT-0600 (Central Standard Time) debugger eval code:1:73
-[Rough Sexy Ghost?]♢1988-12-18 15:00:06.000000000 -0600♢Sun Dec 18 1988 15:00:06 GMT-0600 (Central Standard Time) debugger eval code:1:73
-Slap Bitch Slaven♢1988-10-26 13:19:44.000000000 -0500♢Wed Oct 26 1988 13:19:44 GMT-0500 (Central Daylight Time) debugger eval code:1:73
-System �♢1989-01-11 14:33:47.000000000 -0600♢Wed Jan 11 1989 14:33:47 GMT-0600 (Central Standard Time) debugger eval code:1:73
-the mushroom uncaged♢1988-12-24 16:45:44.000000000 -0600♢Sat Dec 24 1988 16:45:44 GMT-0600 (Central Standard Time) debugger eval code:1:73
-VaVa Hepcat Reprise?♢1988-12-03 16:58:01.000000000 -0600♢Sat Dec 03 1988 16:58:01 GMT-0600 (Central Standard Time) debugger eval code:1:73
-Zelbazoth Encanter♢1988-11-15 11:06:58.000000000 -0600♢Tue Nov 15 1988 11:06:58 GMT-0600 (Central Standard Time) debugger eval code:1:73
-♢undefined♢Invalid Date debugger eval code:1:73
-undefined
-Top
-
 ​-->
-
-<!--
-Concrazom Avertax♢1988-10-23 17:28:58.000000000 -0500♢Sun Oct 23 1988 17:28:58 GMT-0500 (Central Daylight Time) debugger eval code:1:73
-CyberSongs & Braindogs♢1989-01-01 17:11:37.000000000 -0600♢Sun Jan 01 1989 17:11:37 GMT-0600 (Central Standard Time) debugger eval code:1:73
-Desktop♢1989-01-11 14:35:49.000000000 -0600♢Wed Jan 11 1989 14:35:49 GMT-0600 (Central Standard Time) debugger eval code:1:73
-For VaVa HepCat♢1988-12-03 15:34:50.000000000 -0600♢Sat Dec 03 1988 15:34:50 GMT-0600 (Central Standard Time) debugger eval code:1:73
-Goatboy Tealady Sweet♢1988-11-10 13:38:26.000000000 -0600♢Thu Nov 10 1988 13:38:26 GMT-0600 (Central Standard Time) debugger eval code:1:73
-Jukebox �♢1989-01-11 14:33:46.000000000 -0600♢Wed Jan 11 1989 14:33:46 GMT-0600 (Central Standard Time) debugger eval code:1:73
-Kicktch♢1988-12-06 06:20:16.000000000 -0600♢Tue Dec 06 1988 06:20:16 GMT-0600 (Central Standard Time) debugger eval code:1:73
-MOGUL BUTTRESS SPLEECH♢1988-11-10 13:46:14.000000000 -0600♢Thu Nov 10 1988 13:46:14 GMT-0600 (Central Standard Time) debugger eval code:1:73
-Mrs Boogers First Sad Song♢1988-12-05 22:13:22.000000000 -0600♢Mon Dec 05 1988 22:13:22 GMT-0600 (Central Standard Time) debugger eval code:1:73
-[Rough Sexy Ghost?]♢1988-12-18 15:00:06.000000000 -0600♢Sun Dec 18 1988 15:00:06 GMT-0600 (Central Standard Time) debugger eval code:1:73
-Slap Bitch Slaven♢1988-10-26 13:19:44.000000000 -0500♢Wed Oct 26 1988 13:19:44 GMT-0500 (Central Daylight Time) debugger eval code:1:73
-System �♢1989-01-11 14:33:47.000000000 -0600♢Wed Jan 11 1989 14:33:47 GMT-0600 (Central Standard Time) debugger eval code:1:73
-the mushroom uncaged♢1988-12-24 16:45:44.000000000 -0600♢Sat Dec 24 1988 16:45:44 GMT-0600 (Central Standard Time) debugger eval code:1:73
-VaVa Hepcat Reprise?♢1988-12-03 16:58:01.000000000 -0600♢Sat Dec 03 1988 16:58:01 GMT-0600 (Central Standard Time) debugger eval code:1:73
-Zelbazoth Encanter♢1988-11-15 11:06:58.000000000 -0600♢Tue Nov 15 1988 11:06:58 GMT-0600 (Central Standard Time) debugger eval code:1:73
-♢undefined♢Invalid Date
--->
