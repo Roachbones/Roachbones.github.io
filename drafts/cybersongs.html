@@ -68,60 +68,68 @@ style: |
 </tr>
 <tr>
  <td>Concrazom Avertax</td>
- <td><audio controls src="/post_assets/cybersongs/audio/Concrazom Avertax.mp3"></audio></td>
+ <td><audio controls onended=ə(this) src="/post_assets/cybersongs/audio/Concrazom Avertax.mp3"></audio></td>
  <td><time datetime="1988-10-23 17:28:58.000000000 -0500">Oct 23 1988</time></td>
 </tr>
 <tr>
  <td>Slap Bitch Slaven</td>
- <td><audio controls src="/post_assets/cybersongs/audio/Slap Bitch Slaven.mp3"></audio></td>
+ <td><audio controls onended=ə(this) src="/post_assets/cybersongs/audio/Slap Bitch Slaven.mp3"></audio></td>
  <td><time datetime="1988-10-26 13:19:44.000000000 -0500">Oct 26 1988</time></td>
 </tr>
 <tr>
  <td>Goatboy Tealady Sweet</td>
- <td><audio controls src="/post_assets/cybersongs/audio/Goatboy Tealady Sweet.mp3"></audio></td>
+ <td><audio controls onended=ə(this) src="/post_assets/cybersongs/audio/Goatboy Tealady Sweet.mp3"></audio></td>
  <td><time datetime="1988-11-10 13:38:26.000000000 -0600">Nov 10 1988</time></td>
 </tr>
 <tr>
  <td>MOGUL BUTTRESS SPLEECH</td>
- <td><audio controls src="/post_assets/cybersongs/audio/MOGUL BUTTRESS SPLEECH.mp3"></audio></td>
+ <td><audio controls onended=ə(this) src="/post_assets/cybersongs/audio/MOGUL BUTTRESS SPLEECH.mp3"></audio></td>
  <td><time datetime="1988-11-10 13:46:14.000000000 -0600">Nov 10 1988</time></td>
 </tr>
 <tr>
  <td>Zelbazoth Encanter</td>
- <td><audio controls src="/post_assets/cybersongs/audio/Zelbazoth Encanter.mp3"></audio></td>
+ <td><audio controls onended=ə(this) src="/post_assets/cybersongs/audio/Zelbazoth Encanter.mp3"></audio></td>
  <td><time datetime="1988-11-15 11:06:58.000000000 -0600">Nov 15 1988</time></td>
 </tr>
 <tr>
  <td>For VaVa HepCat</td>
- <td><audio controls src="/post_assets/cybersongs/audio/For VaVa HepCat.mp3"></audio></td>
+ <td><audio controls onended=ə(this) src="/post_assets/cybersongs/audio/For VaVa HepCat.mp3"></audio></td>
  <td><time datetime="1988-12-03 15:34:50.000000000 -0600">Dec 03 1988</time></td>
 </tr>
 <tr>
  <td>VaVa Hepcat Reprise?</td>
- <td><audio controls src="/post_assets/cybersongs/audio/VaVa Hepcat Reprise.mp3"></audio></td>
+ <td><audio controls onended=ə(this) src="/post_assets/cybersongs/audio/VaVa Hepcat Reprise.mp3"></audio></td>
  <td><time datetime="1988-12-03 16:58:01.000000000 -0600">Dec 03 1988</time></td>
 </tr>
 <tr>
  <td>Mrs Boogers First Sad Song</td>
- <td><audio controls src="/post_assets/cybersongs/audio/Mrs Boogers First Sad Song.mp3"></audio></td>
+ <td><audio controls onended=ə(this) src="/post_assets/cybersongs/audio/Mrs Boogers First Sad Song.mp3"></audio></td>
  <td><time datetime="1988-12-05 22:13:22.000000000 -0600">Dec 05 1988</time></td>
 </tr>
 <tr>
  <td>Kicktch</td>
- <td><audio controls src="/post_assets/cybersongs/audio/Kicktch.mp3"></audio></td>
+ <td><audio controls onended=ə(this) src="/post_assets/cybersongs/audio/Kicktch.mp3"></audio></td>
  <td><time datetime="1988-12-06 06:20:16.000000000 -0600">Dec 06 1988</time></td>
 </tr>
 <tr>
  <td>[Rough Sexy Ghost?]</td>
- <td><audio controls src="/post_assets/cybersongs/audio/Rough Sexy Ghost.mp3"></audio></td>
+ <td><audio controls onended=ə(this) src="/post_assets/cybersongs/audio/Rough Sexy Ghost.mp3"></audio></td>
  <td><time datetime="1988-12-18 15:00:06.000000000 -0600">Dec 18 1988</time></td>
 </tr>
 <tr>
  <td>the mushroom uncaged</td>
- <td><audio controls src="/post_assets/cybersongs/audio/the mushroom uncaged.mp3"></audio></td>
+ <td><audio controls onended=ə(this) src="/post_assets/cybersongs/audio/the mushroom uncaged.mp3"></audio></td>
  <td><time datetime="1988-12-24 16:45:44.000000000 -0600">Dec 24 1988</time></td>
 </tr>
 </table>
+
+<p style=text-align:right;margin-bottom:3em><label style=font-size:small><input id=playnext type=checkbox></input> automatically play next track</label>
+
+<script>
+function ə(a) {
+    if (playnext.checked) a.parentElement.parentElement.nextElementSibling.children[1].children[0].play()
+}
+</script>
 
 <p>Alternatively, <a href="https://infinitemac.org/1988/System%206.0?infinite_hd=false&saved_hd=false&cdrom=https%3A%2F%2Farchive.org%2Fdownload%2FCyberSongs_and_Braindogs%2FCyberSongs.img" target=a>here's an in-browser emulator with the CyberSongs disk already mounted.</a> Once you're there:
 <ol>
